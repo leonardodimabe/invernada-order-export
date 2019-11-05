@@ -51,12 +51,7 @@
         </p>
       </field>
     </record>
-
-
-    <menuitem id="menu_sale_export" name="Exportación" parent="sale.sale_menu_root"  />
-
-    <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_port_views" sequence="1" />
-    
+ 
 
     <!-- actions opening views on models -->
     <!--

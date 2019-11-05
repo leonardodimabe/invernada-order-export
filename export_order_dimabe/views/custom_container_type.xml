@@ -46,10 +46,6 @@
       </field>
     </record>
 
-
-    <menuitem id="menu_custom_container_type" name="Tipos de contenedor" parent="menu_sale_export" action="action_custom_container_type_views" sequence="4" />
-    
-
     <!-- actions opening views on models -->
     <!--
     <record model="ir.actions.act_window" id="export_order_dimabe.action_window">

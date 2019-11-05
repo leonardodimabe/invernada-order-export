@@ -34,7 +34,7 @@
     <record id="action_custom_shipping_company_views" model="ir.actions.act_window">
       <field name="name">Navieras</field>
       <field name="type">ir.actions.act_window</field>
-      <field name="res_model">custom.shipping_company</field>
+      <field name="res_model">custom.shipping.company</field>
       <field name="view_mode">tree,form</field>
       <field name="help" type="html">
         <p class="oe_view_nocontent_create">
@@ -44,11 +44,7 @@
           Click aquí para agregar naviera
         </p>
       </field>
-    </record>
-
-
-    <menuitem id="menu_custom_shipping_company" name="Navieras" parent="menu_sale_export" action="action_custom_shipping_company_views" sequence="2" />
-    
+    </record>    
 
     <!-- actions opening views on models -->
     <!--
