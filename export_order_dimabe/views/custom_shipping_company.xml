@@ -44,11 +44,7 @@
           Click aquí para agregar naviera
         </p>
       </field>
-    </record>
-
-
-    <menuitem id="menu_custom_shipping_company" name="Navieras" parent="menu_sale_export" action="action_custom_shipping_company_views" sequence="2" />
-    
+    </record>    
 
     <!-- actions opening views on models -->
     <!--

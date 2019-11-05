@@ -44,10 +44,7 @@
           Click aquí para agregar nave
         </p>
       </field>
-    </record>
-
-    <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_ship_views" sequence="3" />
-    
+    </record>  
 
     <!-- actions opening views on models -->
     <!--
