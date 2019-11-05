@@ -51,15 +51,7 @@
         </p>
       </field>
     </record>
-
-
-    <menuitem id="menu_sale_export" name="Exportación" parent="sale.sale_menu_root"  />
-
-    <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_port_views" sequence="1" />
-    <menuitem id="menu_custom_shipping_company" name="Navieras" parent="menu_sale_export" action="action_custom_shipping_company_views" sequence="2" />
-    <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_ship_views" sequence="3" />
-    <menuitem id="menu_custom_container_type" name="Tipos de contenedor" parent="menu_sale_export" action="action_custom_container_type_views" sequence="4" />
-    
+ 
 
     <!-- actions opening views on models -->
     <!--
