@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_export_order_dimabe_export_order_dimabe,export_order_dimabe.export_order_dimabe,model_custom_port,,1,1,1,1
+access_export_order_dimabe_export_order_dimabe,export_order_dimabe.export_order_dimabe,model_custom_container_type,,1,1,1,1
+access_export_order_dimabe_export_order_dimabe,export_order_dimabe.export_order_dimabe,model_custom_shipping_company,,1,1,1,1
+access_export_order_dimabe_export_order_dimabe,export_order_dimabe.export_order_dimabe,model_custom_ship,,1,1,1,1
