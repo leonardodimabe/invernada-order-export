@@ -26,10 +26,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
-        'views/custom_port.xml',
         'views/custom_ship.xml',
         'views/custom_shipping_company.xml',
         'views/custom_container_type.xml',
+        'views/custom_port.xml',
         'views/sale_order.xml',
         'views/templates.xml',
     ],
