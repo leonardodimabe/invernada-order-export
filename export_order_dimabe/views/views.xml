@@ -5,7 +5,7 @@
 
     <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_port_views" />
     <menuitem id="menu_custom_shipping_company" name="Navieras" parent="menu_sale_export" action="action_custom_shipping_company_views" />
-    <menuitem id="menu_custom_port" name="Puertos" parent="menu_sale_export" action="action_custom_ship_views" />
+    <menuitem id="menu_custom_ship" name="Naves" parent="menu_sale_export" action="action_custom_ship_views" />
     <menuitem id="menu_custom_container_type" name="Tipos de contenedor" parent="menu_sale_export" action="action_custom_container_type_views" />
     <!-- explicit list view definition -->
     <!--
