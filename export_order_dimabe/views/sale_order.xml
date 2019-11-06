@@ -10,7 +10,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='other_information']" position="after">
-                    <page string="Información de envío" id="export_data">
+                    <page string="COMEX" id="export_data">
                         <group name="export_data" position="inside">
                             <group string="Información de envío">
                                 <field name="shipping_company" placeholder="Seleccione Naviera" />
