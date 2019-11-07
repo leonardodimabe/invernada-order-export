@@ -1,5 +1,6 @@
 from odoo import fields, models
 
+
 class CustomPort(models.Model):
     _name = 'custom.port'
 

@@ -1,35 +1,31 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    departure_port = fields.Many2one(
-        comodel_name='custom.port',
-        string='Puerto de salida'
-    )
 
-    arrival_port = fields.Many2one(
-        comodel_name='custom.port',
-        string='Puerto de llegada'
-    )
-
-    required_loading_date = fields.Date(string='Fecha requerida de carga')
-
-    etd = fields.Date(string='ETD', nullable=True)
-
-    etd_month = fields.Integer(string='Mes ETD', nullable=True, readonly=True)
-
-    etd_week = fields.Integer(string='Semana ETD', nullable=True, readonly=True)
-
-    eta = fields.Date(string='ETA', nullable=True)
-
-    departure_date = fields.Datetime(string='Fecha de zarpe')
-
-    arrival_date = fields.Datetime(string='Fecha de arribo')
 
     delivery_date = fields.Datetime(string='Fecha de entrega')
+
+    shipping_id = fields.Many2one(
+        'custom.shipment',
+        'Embarque'
+    )
+
+    consignee_id = fields.Many2one(
+        'res.partner',
+        'Consignatario'
+    )
+
+    notify_ids = fields.Many2many(
+        'res.partner'
+    )
+
+    agent_id = fields.Many2one(
+        'res.partner',
+        'Agente'
+    )
 
     charging_mode = fields.Selection(
         selection=[
@@ -39,22 +35,13 @@ class SaleOrder(models.Model):
         ],
         string='Modo de Carga')
 
-    client_label = fields.Boolean(string='Etiqueta Cliente', default=False)
-
-    type_transport = fields.Selection(
-        selection=[
-            ('maritimo', 'Marítimo'),
-            ('terrestre', 'Terrestre'),
-            ('aereo', 'Aéreo')
-        ],
-        string='Vía de Transporte'
-    )
-
-    container_number = fields.Char(string='N° Contenedor')
-
     booking_number = fields.Char(string='N° Booking')
 
     bl_number = fields.Char(string='N° BL')
+
+    client_label = fields.Boolean(string='Etiqueta Cliente', default=False)
+
+    container_number = fields.Char(string='N° Contenedor')
 
     freight_value = fields.Float(string='Valor Flete')
 
@@ -66,42 +53,31 @@ class SaleOrder(models.Model):
         store=True
     )
 
-    value_per_kilogram = fields.Float(string='Valor por kilo')
+    value_per_kilogram = fields.Float(
+        string='Valor por kilo',
+        compute='_compute_value_per_kilogram',
+        store=True
+    )
 
     remarks = fields.Text(string='Comentarios')
 
-    container_type = fields.Many2one(comodel_name='custom.container.type', string='Tipo de contenedor')
-
-    shipping_company = fields.Many2one(comodel_name='custom.shipping.company', string='Naviera')
-
-    ship = fields.Many2one(comodel_name='custom.ship', string='Nave')
-
-    ship_number = fields.Char(string='Viaje')
-
-    @api.onchange('etd')
-    def set_etd_values(self):
-        if self.etd:
-            try:
-                self.etd_month = self.etd.month
-                _year, _week, _day_of_week = self.etd.isocalendar()
-                self.etd_week = _week
-                print('el mes es {} la semana es {}'.format(self.etd_month, self.etd_week))
-            except:
-                raise UserWarning('Error producido al intentar obtener el mes y semana de embarque')
-
-    @api.one
-    @api.constrains('etd', 'eta')
-    def _check_eta_greater_than_etd(self):
-        if self.etd == False and self.eta:
-            raise ValidationError('Debe ingresar el ETD')
-        if self.eta and self.eta < self.etd:
-            raise ValidationError('La ETA debe ser mayor al ETD')
+    container_type = fields.Many2one(
+        'custom.container.type',
+        'Tipo de contenedor'
+    )
 
     @api.model
     @api.depends('freight_value', 'amount_total', 'safe_value')
     def _compute_total_value(self):
-
         data = self.amount_total - self.freight_value - self.safe_value
         self.total_value = data
 
+    @api.model
+    @api.depends('total_value')
+    def _compute_value_per_kilogram(self):
+        qty_total = 0
+        for line in self.order_line:
+            qty_total = qty_total + line.product_uom_qty
+        if qty_total > 0:
+            self.value_per_kilogram = self.total_value / qty_total
 

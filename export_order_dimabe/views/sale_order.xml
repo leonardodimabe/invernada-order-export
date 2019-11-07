@@ -8,6 +8,10 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="consignee_id" />
+                    <field name="notify_ids" />
+                </field>
                 <xpath expr="//page[@name='other_information']" position="after">
                     <page string="COMEX" id="export_data">
                         <group name="export_data"
@@ -17,39 +21,27 @@
                                    style="width:100%%"
                             >
                                 <group>
-                                    <field name="shipping_company" placeholder="Seleccione Naviera"/>
-                                    <field name="ship" placeholder="Seleccione Nave"/>
-                                    <field name="ship_number" placeholder="Ingrese número de viaje"/>
-                                    <field name="type_transport"/>
-                                    <field name="departure_port" placeholder="Seleccione puerto de embarque"/>
-                                    <field name="arrival_port" placeholder="Seleccione puerto de destino"/>
-                                    <field name="etd" placeholder="Fecha estimada de salida" autocomplete="off"/>
-                                    <field name="etd_month" placeholder="Mes estimado de salida"/>
-                                    <field name="etd_week" placeholder="Semana estimada de salida"/>
-                                    <field name="eta" placeholder="Fecha estimada de arrivo en destino"
-                                           autocomplete="off"/>
-                                    <field name="required_loading_date" placeholder="Fecha requerida de carga"
-                                           autocomplete="off"/>
-                                    <field name="container_number" placeholder="Ingrese número de contenedor"/>
-                                    <field name="container_type" placeholder="Seleccione el tipo de contenedor"/>
+                                    <field name="shipping_id"/>
+                                    <field name="agent_id"/>
+                                    <field name="charging_mode" />
+                                    <field name="booking_number"/>
+                                    <field name="bl_number"/>
+                                    <field name="container_number"
+                                           placeholder="Ingrese número de contenedor"/>
+                                    <field name="container_type"
+                                           placeholder="Seleccione el tipo de contenedor"/>
                                 </group>
                                 <group>
                                     <field name="client_label"/>
-                                    <field name="booking_number"/>
-                                    <field name="bl_number"/>
                                     <field name="freight_value"/>
                                     <field name="safe_value"/>
                                     <field name="total_value"/>
+                                    <field name="value_per_kilogram"/>
                                 </group>
                             </group>
                             <group style="width:100%%">
                                 <group>
                                     <field name="remarks"/>
-                                </group>
-                                <group string="Fechas Reales">
-                                    <field name="departure_date" autocomplete="off"/>
-                                    <field name="arrival_date" autocomplete="off"/>
-                                    <field name="delivery_date" autocomplete="off"/>
                                 </group>
                             </group>
                         </group>
