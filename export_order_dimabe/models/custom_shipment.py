@@ -45,7 +45,8 @@ class CustomShipment(models.Model):
 
     required_loading_week = fields.Integer(
         'Semana de Carga',
-        compute='_compute_required_loading_week'
+        compute='_compute_required_loading_week',
+        store=True
     )
 
     etd = fields.Date(string='ETD', nullable=True)
@@ -53,11 +54,13 @@ class CustomShipment(models.Model):
     etd_month = fields.Integer(
         'Mes ETD',
         compute='_compute_etd_values',
+        store=True
     )
 
     etd_week = fields.Integer(
         'Semana ETD',
-        compute='_compute_etd_values'
+        compute='_compute_etd_values',
+        store=True
     )
 
     eta = fields.Date(string='ETA', nullable=True)
@@ -68,6 +71,7 @@ class CustomShipment(models.Model):
 
     @api.model
     @api.onchange('etd')
+    @api.depends('etd')
     def _compute_etd_values(self):
         if self.etd:
             try:
@@ -82,6 +86,7 @@ class CustomShipment(models.Model):
 
     @api.model
     @api.onchange('required_loading_date')
+    @api.depends('required_loading_date')
     def _compute_required_loading_week(self):
         if self.required_loading_date:
             try:
