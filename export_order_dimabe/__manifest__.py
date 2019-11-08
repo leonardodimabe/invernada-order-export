@@ -33,9 +33,9 @@
         'views/custom_container_type.xml',
         'views/custom_port.xml',
         'views/sale_order.xml',
-        'views/views.xml',
         'views/templates.xml',
-        'views/custom_shipment.xml'
+        'views/custom_shipment.xml',
+        'views/views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
