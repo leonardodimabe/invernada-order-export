@@ -122,6 +122,7 @@ class CustomShipment(models.Model):
         if self.eta and self.eta < self.etd:
             raise ValidationError('La ETA debe ser mayor al ETD')
 
-    @api.model
+    @api.multi
     def _compute_name(self):
-        self.name = self.shipping_company.name + ' ' + self.ship.name + ' ' + self.ship_number
+        for item in self:
+            item.name = item.shipping_company.name + ' ' + item.ship.name + ' ' + item.ship_number
