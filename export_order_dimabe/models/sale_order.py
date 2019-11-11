@@ -4,8 +4,6 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-
-
     delivery_date = fields.Datetime(string='Fecha de entrega')
 
     shipping_id = fields.Many2one(
@@ -24,7 +22,13 @@ class SaleOrder(models.Model):
 
     agent_id = fields.Many2one(
         'res.partner',
-        'Agente'
+        'Agente',
+        domain=[('is_agent', '=', True)]
+    )
+
+    total_commission = fields.Float(
+        'Valor Comisión',
+        compute='_compute_total_commission'
     )
 
     charging_mode = fields.Selection(
@@ -81,3 +85,7 @@ class SaleOrder(models.Model):
         if qty_total > 0:
             self.value_per_kilogram = self.total_value / qty_total
 
+    @api.model
+    @api.depends('amount_total', 'agent_id')
+    def _compute_total_commission(self):
+        self.total_commission = (self.agent_id.commission / 100) * self.amount_total

@@ -35,6 +35,7 @@
         'views/sale_order.xml',
         'views/templates.xml',
         'views/custom_shipment.xml',
+        'views/res_partner.xml',
         'views/views.xml'
     ],
     # only loaded in demonstration mode
