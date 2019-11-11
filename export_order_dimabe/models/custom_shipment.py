@@ -57,8 +57,7 @@ class CustomShipment(models.Model):
     required_loading_week = fields.Integer(
         'Semana de Carga',
         compute='_compute_required_loading_week',
-        store=True,
-        required=True
+        store=True
     )
 
     etd = fields.Date(
