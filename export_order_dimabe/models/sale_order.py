@@ -13,17 +13,19 @@ class SaleOrder(models.Model):
 
     consignee_id = fields.Many2one(
         'res.partner',
-        'Consignatario'
+        'Consignatario',
+        domain=[('customer', '=', True)]
     )
 
     notify_ids = fields.Many2many(
-        'res.partner'
+        'res.partner',
+        domain=[('customer', '=', True)]
     )
 
     agent_id = fields.Many2one(
         'res.partner',
         'Agente',
-        domain=[('is_agent', '=', True)]
+        domain=[('is_agent', '=', True), ('commission', '>', 0)]
     )
 
     total_commission = fields.Float(

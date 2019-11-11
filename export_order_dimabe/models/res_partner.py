@@ -8,6 +8,13 @@ class ResPartner(models.Model):
 
     commission = fields.Float('Comisión')
 
+    client_identifier_id = fields.Many2one(
+        'custom.client.identifier',
+        'Tipo de Identificador'
+    )
+
+    client_identifier_value = fields.Char('Valor Identificador')
+
     @api.constrains('commission')
     def _check_data_typed(self):
         for item in self:

@@ -30,6 +30,12 @@
               action="action_custom_shipment_view"
     />
 
+    <menuitem id="menu_custom_client_identifier"
+              name="Tipo Identificador"
+              parent="contacts.res_partner_menu_config"
+              action="custom_client_identifier_action_view"
+    />
+
 
     <!-- explicit list view definition -->
     <!--
