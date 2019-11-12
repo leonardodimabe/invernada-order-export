@@ -116,7 +116,7 @@ class SaleOrder(models.Model):
                 existing = self.contract_id.sale_order_ids.search([('name', '=', self.name)])
                 if existing:
                     self.contract_correlative = existing.contract_correlative
-                else:
+                if self.contract_correlative == 0:
                     self.contract_correlative = len(self.contract_id.sale_order_ids)
         else:
             self.contract_correlative = 0
