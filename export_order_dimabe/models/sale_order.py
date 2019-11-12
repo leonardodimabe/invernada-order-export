@@ -113,7 +113,11 @@ class SaleOrder(models.Model):
     def _get_correlative_text(self):
         if self.contract_id:
             if self.contract_correlative == 0:
-                self.contract_correlative = len(self.contract_id.sale_order_ids)
+                existing = self.contract_id.sale_order_ids.search([('name', '=', self.name)])
+                if existing:
+                    self.contract_correlative = existing.contract_correlative
+                else:
+                    self.contract_correlative = len(self.contract_id.sale_order_ids)
         else:
             self.contract_correlative = 0
         if self.contract_id.name and self.contract_correlative and self.contract_id.container_number:
