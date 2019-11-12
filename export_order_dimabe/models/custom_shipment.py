@@ -125,4 +125,4 @@ class CustomShipment(models.Model):
     @api.multi
     def _compute_name(self):
         for item in self:
-            item.name = item.shipping_company.name + ' ' + item.ship.name + ' ' + item.ship_number
+            item.name = '{} {} {} {}'.format(item.shipping_company.name, item.ship.name, item.ship_number, item.etd)

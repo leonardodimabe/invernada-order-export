@@ -4,11 +4,26 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    delivery_date = fields.Datetime(string='Fecha de entrega')
+    delivery_date = fields.Datetime('Fecha de entrega')
+
+    shipping_number = fields.Integer('Número Embarque')
 
     shipping_id = fields.Many2one(
         'custom.shipment',
         'Embarque'
+    )
+
+    contract_id = fields.Many2one(
+        'custom.contract',
+        'Contrato',
+        domain=[('is_complete', '=', False)]
+    )
+
+    contract_correlative = fields.Integer('corr')
+
+    contract_correlative_view = fields.Char(
+        'N° Orden',
+        compute='_get_correlative_text'
     )
 
     consignee_id = fields.Many2one(
@@ -34,38 +49,39 @@ class SaleOrder(models.Model):
     )
 
     charging_mode = fields.Selection(
-        selection=[
+        [
             ('piso', 'A Piso'),
             ('slip_sheet', 'Slip Sheet'),
             ('palet', 'Paletizado')
         ],
-        string='Modo de Carga')
+        'Modo de Carga'
+    )
 
-    booking_number = fields.Char(string='N° Booking')
+    booking_number = fields.Char('N° Booking')
 
-    bl_number = fields.Char(string='N° BL')
+    bl_number = fields.Char('N° BL')
 
-    client_label = fields.Boolean(string='Etiqueta Cliente', default=False)
+    client_label = fields.Boolean('Etiqueta Cliente', default=False)
 
-    container_number = fields.Char(string='N° Contenedor')
+    container_number = fields.Char('N° Contenedor')
 
-    freight_value = fields.Float(string='Valor Flete')
+    freight_value = fields.Float('Valor Flete')
 
-    safe_value = fields.Float(string='Valor Seguro')
+    safe_value = fields.Float('Valor Seguro')
 
     total_value = fields.Float(
-        string='Valor Total',
+        'Valor Total',
         compute='_compute_total_value',
         store=True
     )
 
     value_per_kilogram = fields.Float(
-        string='Valor por kilo',
+        'Valor por kilo',
         compute='_compute_value_per_kilogram',
         store=True
     )
 
-    remarks = fields.Text(string='Comentarios')
+    remarks = fields.Text('Comentarios')
 
     container_type = fields.Many2one(
         'custom.container.type',
@@ -91,3 +107,20 @@ class SaleOrder(models.Model):
     @api.depends('amount_total', 'agent_id')
     def _compute_total_commission(self):
         self.total_commission = (self.agent_id.commission / 100) * self.amount_total
+
+    @api.model
+    @api.depends('contract_id')
+    def _get_correlative_text(self):
+        if self.contract_id:
+            if self.contract_correlative == 0:
+                self.contract_correlative = len(self.contract_id.sale_order_ids)
+        else:
+            self.contract_correlative = 0
+        if self.contract_id.name and self.contract_correlative and self.contract_id.container_number:
+            self.contract_correlative_view = '{}-{}/{}'.format(
+                self.contract_id.name,
+                self.contract_correlative,
+                self.contract_id.container_number
+            )
+        else:
+            self.contract_correlative_view = ''
