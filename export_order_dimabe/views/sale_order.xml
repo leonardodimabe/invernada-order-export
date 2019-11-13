@@ -26,7 +26,7 @@
                                 <group>
                                     <field name="shipping_number" />
                                     <field name="contract_correlative_view" />
-                                    <field name="contract_correlative" />
+                                    <field name="contract_correlative" invisible="1"/>
                                     <field name="shipping_id"/>
                                     <field name="agent_id"/>
                                     <field name="total_commission" />
