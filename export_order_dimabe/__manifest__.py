@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "export_order_dimabe",
+    'name': "Pedidos de Exportación",
 
     'summary': """
         Módulo para pedidos de exportación Chile
@@ -20,7 +20,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': [
+        'base',
+        'sale',
+        'account'
+    ],
 
     # always loaded
     'data': [
@@ -30,8 +34,12 @@
         'views/custom_container_type.xml',
         'views/custom_port.xml',
         'views/sale_order.xml',
-        'views/views.xml',
         'views/templates.xml',
+        'views/custom_shipment.xml',
+        'views/res_partner.xml',
+        'views/custom_client_identifier.xml',
+        'views/custom_contract.xml',
+        'views/views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,78 +1,130 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+
 
 class SaleOrder(models.Model):
-
     _inherit = 'sale.order'
 
-    departure_port = fields.Many2one(comodel_name='custom.port', string='Puerto de salida')
+    delivery_date = fields.Datetime('Fecha de entrega')
 
-    arrival_port = fields.Many2one(comodel_name='custom.port', string='Puerto de llegada')
+    shipping_number = fields.Integer('Número Embarque')
 
-    required_loading_date = fields.Date(string = 'Fecha requerida de carga')
+    shipping_id = fields.Many2one(
+        'custom.shipment',
+        'Embarque'
+    )
 
-    etd = fields.Date(string='ETD', nullable=True)
+    contract_id = fields.Many2one(
+        'custom.contract',
+        'Contrato',
+        domain=[('is_complete', '=', False)]
+    )
 
-    etd_month = fields.Integer(string='Mes ETD', nullable=True, readonly=True)
+    contract_correlative = fields.Integer('corr')
 
-    etd_week = fields.Integer(string='Semana ETD', nullable=True, readonly=True)
+    contract_correlative_view = fields.Char(
+        'N° Orden',
+        compute='_get_correlative_text'
+    )
 
-    eta = fields.Date(string='ETA', nullable=True)
+    consignee_id = fields.Many2one(
+        'res.partner',
+        'Consignatario',
+        domain=[('customer', '=', True)]
+    )
 
-    departure_date = fields.Datetime(string='Fecha de zarpe')
+    notify_ids = fields.Many2many(
+        'res.partner',
+        domain=[('customer', '=', True)]
+    )
 
-    arrival_date = fields.Datetime(string='Fecha de arribo')
+    agent_id = fields.Many2one(
+        'res.partner',
+        'Agente',
+        domain=[('is_agent', '=', True), ('commission', '>', 0)]
+    )
 
-    delivery_date = fields.Datetime(string='Fecha de entrega')
+    total_commission = fields.Float(
+        'Valor Comisión',
+        compute='_compute_total_commission'
+    )
 
-    charging_mode = fields.Selection(selection=[('piso', 'A Piso'), ('slip_sheet', 'Slip Sheet'), ('palet', 'Paletizado')], string='Modo de Carga')
+    charging_mode = fields.Selection(
+        [
+            ('piso', 'A Piso'),
+            ('slip_sheet', 'Slip Sheet'),
+            ('palet', 'Paletizado')
+        ],
+        'Modo de Carga'
+    )
 
-    client_label = fields.Boolean(string='Etiqueta Cliente', default=False)
+    booking_number = fields.Char('N° Booking')
 
-    type_transport = fields.Selection(selection=[('maritimo', 'Marítimo'), ('terrestre', 'Terrestre'), ('aereo', 'Aéreo')], string='Vía de Transporte')
+    bl_number = fields.Char('N° BL')
 
-    container_number = fields.Char(string='N° Contenedor')
+    client_label = fields.Boolean('Etiqueta Cliente', default=False)
 
-    booking_number = fields.Char(string='N° Booking')
+    container_number = fields.Char('N° Contenedor')
 
-    bl_number = fields.Char(string='N° BL')
+    freight_value = fields.Float('Valor Flete')
 
-    freight_value = fields.Float(string='Valor Flete')
+    safe_value = fields.Float('Valor Seguro')
 
-    safe_value = fields.Float(string='Valor Seguro')
+    total_value = fields.Float(
+        'Valor Total',
+        compute='_compute_total_value',
+        store=True
+    )
 
-    total_value = fields.Float(string='Valor Total')
+    value_per_kilogram = fields.Float(
+        'Valor por kilo',
+        compute='_compute_value_per_kilogram',
+        store=True
+    )
 
-    value_per_kilogram = fields.Float(string='Valor por kilo')
+    remarks = fields.Text('Comentarios')
 
-    remarks = fields.Text(string='Comentarios')
+    container_type = fields.Many2one(
+        'custom.container.type',
+        'Tipo de contenedor'
+    )
 
-    container_type = fields.Many2one(comodel_name='custom.container.type', string='Tipo de contenedor')
+    @api.model
+    @api.depends('freight_value', 'amount_total', 'safe_value')
+    def _compute_total_value(self):
+        data = self.amount_total - self.freight_value - self.safe_value
+        self.total_value = data
 
-    shipping_company = fields.Many2one(comodel_name='custom.shipping.company', string='Naviera')
+    @api.model
+    @api.depends('total_value')
+    def _compute_value_per_kilogram(self):
+        qty_total = 0
+        for line in self.order_line:
+            qty_total = qty_total + line.product_uom_qty
+        if qty_total > 0:
+            self.value_per_kilogram = self.total_value / qty_total
 
-    ship = fields.Many2one(comodel_name='custom.ship', string='Nave')
+    @api.model
+    @api.depends('amount_total', 'agent_id')
+    def _compute_total_commission(self):
+        self.total_commission = (self.agent_id.commission / 100) * self.amount_total
 
-    ship_number = fields.Char(string='Viaje')
-
-    @api.onchange('etd')
-    def set_etd_values(self):
-        if self.etd:
-            try:
-                self.etd_month = self.etd.month
-                _year, _week, _day_of_week = self.etd.isocalendar()
-                self.etd_week = _week
-                print('el mes es {} la semana es {}'.format(self.etd_month, self.etd_week))
-            except: 
-                raise UserWarning('Error producido al intentar obtener el mes y semana de embarque')
-    @api.one
-    @api.constrains('etd', 'eta')
-    def _check_eta_greater_than_etd(self):
-        if self.etd == False and self.eta:
-            raise ValidationError('Debe ingresar el ETD')
-        if self.eta and self.eta < self.etd:
-            raise ValidationError('La ETA debe ser mayor al ETD')
-    
-
-    
-    
+    @api.model
+    @api.depends('contract_id')
+    def _get_correlative_text(self):
+        if self.contract_id:
+            if self.contract_correlative == 0:
+                existing = self.contract_id.sale_order_ids.search([('name', '=', self.name)])
+                if existing:
+                    self.contract_correlative = existing.contract_correlative
+                if self.contract_correlative == 0:
+                    self.contract_correlative = len(self.contract_id.sale_order_ids)
+        else:
+            self.contract_correlative = 0
+        if self.contract_id.name and self.contract_correlative and self.contract_id.container_number:
+            self.contract_correlative_view = '{}-{}/{}'.format(
+                self.contract_id.name,
+                self.contract_correlative,
+                self.contract_id.container_number
+            )
+        else:
+            self.contract_correlative_view = ''
