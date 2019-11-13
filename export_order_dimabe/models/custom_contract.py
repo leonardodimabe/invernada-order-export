@@ -23,7 +23,7 @@ class CustomContract(models.Model):
         store=True
     )
 
-    @api.model
+    @api.one
     @api.depends('sale_order_ids', 'container_number')
     def _check_is_complete(self):
         for item in self:
