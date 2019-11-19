@@ -7,8 +7,8 @@
                 <tree>
                     <field name="product_id" />
                     <field name="product_uom_qty" />
-                    <field name="reserved_availability" />
-                    <field name="product_uom" />
+                    <field name="move_id.reserved_availability" />
+                    <field name="product_uom_id.product_uom" />
                 </tree>
             </field>
         </record>
