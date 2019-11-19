@@ -7,6 +7,6 @@ from . import custom_shipment
 from . import custom_shipping_company
 from . import res_partner
 from . import custom_client_identifier
-from . import custom_contract
+from . import sale_order
 from . import stock_picking
 

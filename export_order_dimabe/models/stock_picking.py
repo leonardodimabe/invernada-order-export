@@ -13,12 +13,6 @@ class StockPicking(models.Model):
         'Embarque'
     )
 
-    contract_id = fields.Many2one(
-        'custom.contract',
-        'Contrato',
-        domain=[('is_complete', '=', False)]
-    )
-
     contract_correlative = fields.Integer('corr')
 
     contract_correlative_view = fields.Char(
