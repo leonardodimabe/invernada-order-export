@@ -83,7 +83,7 @@ class StockPicking(models.Model):
     )
 
     @api.model
-    @api.depends('freight_value', 'amount_total', 'safe_value')
+    @api.depends('freight_value', 'safe_value')
     def _compute_total_value(self):
         print('')
         # cambiar amount_total
@@ -101,7 +101,7 @@ class StockPicking(models.Model):
             # self.value_per_kilogram = self.total_value / qty_total
 
     @api.model
-    @api.depends('amount_total', 'agent_id')
+    @api.depends('agent_id')
     def _compute_total_commission(self):
         print('')
         # cambiar amount_total
