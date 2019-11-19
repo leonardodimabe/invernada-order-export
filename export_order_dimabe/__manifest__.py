@@ -39,6 +39,7 @@
         'views/custom_shipment.xml',
         'views/res_partner.xml',
         'views/custom_client_identifier.xml',
+        'views/stock_move_line.xml',
         'views/views.xml'
     ],
     # only loaded in demonstration mode
