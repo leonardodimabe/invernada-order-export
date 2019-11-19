@@ -91,42 +91,46 @@ class StockPicking(models.Model):
     @api.model
     @api.depends('freight_value', 'amount_total', 'safe_value')
     def _compute_total_value(self):
+        print('')
         # cambiar amount_total
-        data = self.amount_total - self.freight_value - self.safe_value
-        self.total_value = data
+        # data = self.amount_total - self.freight_value - self.safe_value
+        # self.total_value = data
 
     @api.model
     @api.depends('total_value')
     def _compute_value_per_kilogram(self):
-        qty_total = 0
-        for line in self.order_line:
-            qty_total = qty_total + line.product_uom_qty
-        if qty_total > 0:
-            self.value_per_kilogram = self.total_value / qty_total
+        print('')
+        # qty_total = 0
+        # for line in self.order_line:
+            # qty_total = qty_total + line.product_uom_qty
+        # if qty_total > 0:
+            # self.value_per_kilogram = self.total_value / qty_total
 
     @api.model
     @api.depends('amount_total', 'agent_id')
     def _compute_total_commission(self):
+        print('')
         # cambiar amount_total
-        self.total_commission = (self.agent_id.commission / 100) * self.amount_total
+        # self.total_commission = (self.agent_id.commission / 100) * self.amount_total
 
     @api.model
     @api.depends('contract_id')
     def _get_correlative_text(self):
-        if self.contract_id:
-            if self.contract_correlative == 0:
-                existing = self.contract_id.sale_order_ids.search([('name', '=', self.name)])
-                if existing:
-                    self.contract_correlative = existing.contract_correlative
-                if self.contract_correlative == 0:
-                    self.contract_correlative = len(self.contract_id.sale_order_ids)
-        else:
-            self.contract_correlative = 0
-        if self.contract_id.name and self.contract_correlative and self.contract_id.container_number:
-            self.contract_correlative_view = '{}-{}/{}'.format(
-                self.contract_id.name,
-                self.contract_correlative,
-                self.contract_id.container_number
-            )
-        else:
-            self.contract_correlative_view = ''
+        print('')
+        # if self.contract_id:
+            # if self.contract_correlative == 0:
+                # existing = self.contract_id.sale_order_ids.search([('name', '=', self.name)])
+                # if existing:
+                    # self.contract_correlative = existing.contract_correlative
+                # if self.contract_correlative == 0:
+                    # self.contract_correlative = len(self.contract_id.sale_order_ids)
+        # else:
+            # self.contract_correlative = 0
+        # if self.contract_id.name and self.contract_correlative and self.contract_id.container_number:
+            # self.contract_correlative_view = '{}-{}/{}'.format(
+                # self.contract_id.name,
+                # self.contract_correlative,
+                # self.contract_id.container_number
+            # )
+        # else:
+            # self.contract_correlative_view = ''
