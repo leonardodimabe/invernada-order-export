@@ -2,7 +2,7 @@
     <data>
         <record model="ir.ui.view" id="stock_move_line_custom_list">
             <field name="name">lista de movimientos</field>
-            <field name="model">stock_move_line</field>
+            <field name="model">stock.move.line</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="product_id" />
