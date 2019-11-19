@@ -33,7 +33,7 @@
         'views/custom_shipping_company.xml',
         'views/custom_container_type.xml',
         'views/custom_port.xml',
-        'views/sale_order.xml',
+        'views/stock_picking.xml',
         'views/templates.xml',
         'views/custom_shipment.xml',
         'views/res_partner.xml',

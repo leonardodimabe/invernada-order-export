@@ -1,8 +1,8 @@
 from odoo import models, fields, api
 
 
-class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+class StockPicking(models.Model):
+    _inherit = 'stock.picking'
 
     delivery_date = fields.Datetime('Fecha de entrega')
 
@@ -91,6 +91,7 @@ class SaleOrder(models.Model):
     @api.model
     @api.depends('freight_value', 'amount_total', 'safe_value')
     def _compute_total_value(self):
+        # cambiar amount_total
         data = self.amount_total - self.freight_value - self.safe_value
         self.total_value = data
 
@@ -106,6 +107,7 @@ class SaleOrder(models.Model):
     @api.model
     @api.depends('amount_total', 'agent_id')
     def _compute_total_commission(self):
+        # cambiar amount_total
         self.total_commission = (self.agent_id.commission / 100) * self.amount_total
 
     @api.model
