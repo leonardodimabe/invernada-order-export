@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="">
+        <record model="ir.ui.view" id="stock_move_line_custom_list">
             <field name="name">lista de movimientos</field>
             <field name="model">stock_move_line</field>
             <field name="arch" type="xml">
