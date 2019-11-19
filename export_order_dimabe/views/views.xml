@@ -35,14 +35,14 @@
               parent="contacts.res_partner_menu_config"
               action="custom_client_identifier_action_view"
     />
-
+<!--
     <menuitem id="menu_custom_contract"
               name="Contratos"
               parent="menu_sale_export"
               action="custom_contract_action_view"
     />
 
-
+-->
     <!-- explicit list view definition -->
     <!--
     <record model="ir.ui.view" id="export_order_dimabe.list">
