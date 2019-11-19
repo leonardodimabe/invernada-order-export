@@ -10,6 +10,7 @@
                 </field>
             </field>
         </record>
+
         <record id="stock_picking_form_inherit" model="ir.ui.view">
             <field name="name">Export Page</field>
             <field name="model">stock.picking</field>

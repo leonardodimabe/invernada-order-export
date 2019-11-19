@@ -11,5 +11,5 @@ class StockMove(models.Model):
 
     @api.model
     def _compute_reserved_amount(self):
-        print('')
+        self.reserved_amount = 100
 
