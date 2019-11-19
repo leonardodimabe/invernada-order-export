@@ -108,7 +108,7 @@ class StockPicking(models.Model):
         # self.total_commission = (self.agent_id.commission / 100) * self.amount_total
 
     @api.model
-    @api.depends('contract_id')
+    # @api.depends('contract_id')
     def _get_correlative_text(self):
         print('')
         # if self.contract_id:
