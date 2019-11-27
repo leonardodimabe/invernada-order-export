@@ -18,7 +18,7 @@ class StockPicking(models.Model):
     def button_validate(self):
 
         for stock_move in self.move_ids_without_package:
-            if stock_move.product_id.tacknig == 'serial':
+            if stock_move.product_id.tracking == 'serial':
                 counter = 1
                 for stock_move_line in stock_move.move_line_ids:
                     tmp = '00{}'.format(counter)
