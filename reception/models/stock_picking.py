@@ -24,4 +24,4 @@ class StockPicking(models.Model):
                     tmp = '00{}'.format(counter)
                     stock_move_line.lot_name = '{}-{}'.format(self.name, tmp[-3])
                     counter += 1
-        super(StockPicking, self).button_validate(self)
+        super(StockPicking, self).button_validate()
