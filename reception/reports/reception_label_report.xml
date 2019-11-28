@@ -15,7 +15,19 @@
                     <t t-foreach="docs" t-as="o">
                         <div class="row">
                             <div class="col-md-3">
+                                <span t-field="res_company.logo"
+                                      t-options="{'widget': 'image'}" />
+                            </div>
+                            <div class="col-md-3">
                                 <span t-field="o.name" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Productor:
+                            </div>
+                            <div class="col-md-6">
+                                <span t-field="o.partner_id.name" />
                             </div>
                         </div>
                     </t>
