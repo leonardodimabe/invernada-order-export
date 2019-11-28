@@ -2,7 +2,7 @@
 
 <odoo>
     <report id="action_reception_label_report"
-            string="Etiquetas"
+            string="Etiquetas de Recepción"
             model="stock.picking"
             report_type="qweb-html"
             name="reception.report_reception_label_template"
@@ -10,10 +10,10 @@
 
     <template id="report_reception_label_template">
         <t t-call="web.html_container">
-            <t t-call="web.external_layout">
+            <t t-call="web.internal_layout">
                 <div class="page">
                     <t t-foreach="docs" t-as="o">
-                        <div class="row bg-primary">
+                        <div class="row">
                             <div class="col-md-3">
                                 <span t-field="o.name" />
                             </div>
