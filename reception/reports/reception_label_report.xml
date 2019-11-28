@@ -3,7 +3,7 @@
 <odoo>
     <report id="action_reception_label_report"
             string="Etiquetas"
-            model="stock.move"
+            model="stock.picking"
             report_type="qweb-html"
             name="reception.report_reception_label_template"
     />

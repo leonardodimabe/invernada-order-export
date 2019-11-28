@@ -17,6 +17,7 @@
                             name="print_label"
                             string="Imprimir Etiquetas"
                             type="object"
+                            attrs="{'invisible':[('has_serial_generated', '=', False)]}"
                     />
                 </xpath>
             </field>
