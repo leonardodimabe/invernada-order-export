@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report id="action_reception_label_report"
+            string="Etiquetas"
+            model="stock.move"
+            report_type="qweb-html"
+            name="reception.report_reception_label_template"
+    />
+
+    <template id="report_reception_label_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="row bg-primary">
+                            <div class="col-md-3">
+                                <span t-field="o.name" />
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

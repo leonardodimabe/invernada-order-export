@@ -10,7 +10,12 @@
                     <button name="generate_serial"
                             string="Generar Series"
                             type="object"
-                            attrs="{'invisible':[('has_serial_generated', '=', True)]}"
+                            attrs="{'invisible':[('has_serial_generated', '=', True),('has_tracking', '!=', 'serial')]}"
+                    />
+                    <button
+                            name="print_label"
+                            string="Imprimir Etiquetas"
+                            type="object"
                     />
                 </xpath>
             </field>

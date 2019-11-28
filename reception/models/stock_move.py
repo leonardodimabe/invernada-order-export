@@ -20,3 +20,11 @@ class StockMove(models.Model):
                     stock_move_line.lot_name = '{}-{}'.format(stock_move.picking_id.name, tmp[-3:])
                     counter += 1
                 stock_move.has_serial_generated = True
+
+    @api.multi
+    def print_label(self):
+        for stock_move in self:
+            if stock_move.product_id.tracking == 'serial':
+                for stock_move_line in stock_move.move_line_ids:
+                    print(stock_move_line)
+
