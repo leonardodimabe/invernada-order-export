@@ -78,7 +78,9 @@
                         <div class="row">
                             <div class="col">
                                 <h2>LOTE N°: <span t-field="o.name" /></h2>
-
+                                <img
+                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, data['form']['barcode_width'], data['form']['barcode_height'])"
+                                />
                             </div>
                         </div>
                     </t>
