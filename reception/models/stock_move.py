@@ -10,12 +10,17 @@ class StockMove(models.Model):
         store=True
     )
 
-    @api.model
+    @api.multi
     def _compute_has_serial_generated(self):
-        if len(self.move_line_ids) > 0:
-            self.has_serial_generated = len(self.move_line_ids[0].lot_name) > 0
-        else:
-            self.has_serial_generated = False
+        for stock_move in self:
+            if len(stock_move.move_line_ids) > 0:
+                has_serial = True
+                for move_line in stock_move.line_ids:
+                    if len(move_line.lot_name) == 0:
+                        has_serial = False
+                stock_move.has_serial_generated = has_serial
+            else:
+                stock_move.has_serial_generated = False
 
     @api.multi
     def generate_serial(self):
