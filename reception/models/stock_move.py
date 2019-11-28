@@ -12,7 +12,7 @@ class StockMove(models.Model):
 
     @api.model
     def _compute_has_serial_generated(self):
-        if len(self.move_line.ids) > 0:
+        if len(self.move_line_ids) > 0:
             self.has_serial_generated = len(self.move_line_ids[0].lot_name) > 0
         else:
             self.has_serial_generated = False
