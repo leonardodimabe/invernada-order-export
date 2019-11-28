@@ -11,7 +11,7 @@
                     <button name="generate_serial"
                             string="Generar Series"
                             type="object"
-                            attrs="{'invisible':[('has_serial_generated', '=', True),('has_tracking', '!=', 'serial')]}"
+                            attrs="{'invisible':['|',('has_serial_generated', '=', True),('has_tracking', '!=', 'serial')]}"
                     />
                     <button
                             name="print_label"
