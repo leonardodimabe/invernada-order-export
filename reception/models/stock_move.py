@@ -6,21 +6,8 @@ class StockMove(models.Model):
 
     has_serial_generated = fields.Boolean(
         'tiene series generadas',
-        compute='_compute_has_serial_generated',
-        store=True
+        default=False
     )
-
-    @api.multi
-    def _compute_has_serial_generated(self):
-        for stock_move in self:
-            if len(stock_move.move_line_ids) > 0:
-                has_serial = True
-                for move_line in stock_move.move_line_ids:
-                    if move_line.lot_name:
-                        has_serial = False
-                stock_move.has_serial_generated = has_serial
-            else:
-                stock_move.has_serial_generated = False
 
     @api.multi
     def generate_serial(self):
@@ -32,3 +19,4 @@ class StockMove(models.Model):
                     tmp = '00{}'.format(counter)
                     stock_move_line.lot_name = '{}-{}'.format(stock_move.picking_id.name, tmp[-3:])
                     counter += 1
+                stock_move.has_serial_generated = True

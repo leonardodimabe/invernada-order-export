@@ -7,7 +7,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//footer" position="inside">
                     <button name="generate_serial" string="Generar Series" type="object" />
-                    <field name="has_serial_generated" />
                 </xpath>
             </field>
         </record>
