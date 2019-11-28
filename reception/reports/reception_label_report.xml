@@ -14,64 +14,64 @@
                 <div class="page">
                     <t t-foreach="docs" t-as="o">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col">
                                 <span t-field="res_company.logo"
                                       t-options="{'widget': 'image'}" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 PRODUCTOR:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.name" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 CSG:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.sag_code" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 N° DE GUÍA:
                             </div>
-                            <div class="col-md-6">
-                                <span t-field="o.partner_id.name" />
+                            <div class="col-md-3">
+                                <span t-field="o.partner_id.guide_number" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 VARIEDAD:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.name" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 N° DE BULTOS:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.name" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 ENVASE:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.name" />
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-2 text-right">
                                 CORRELATVO:
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <span t-field="o.partner_id.name" />
                             </div>
                         </div>
