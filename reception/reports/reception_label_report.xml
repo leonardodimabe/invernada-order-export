@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-    <report id="action_reception_label_report"
-            string="Etiquetas de Recepción"
-            model="stock.picking"
-            report_type="qweb-html"
-            name="reception.report_reception_label_template"
-            paperformat="paper_format_10_x_7"
-    />
-
     <record id="paper_format_10_x_7"
             model="report.paperformat"
     >
         <field name="name">Etiqueta 10x7</field>
-        <field name="default" eval="True" />
+        <field name="default" eval="True"/>
         <field name="format">a7</field>
         <field name="page_height">7</field>
         <field name="page_width">10</field>
@@ -22,10 +14,18 @@
         <field name="margin_bottom">5</field>
         <field name="margin_left">5</field>
         <field name="margin_right">5</field>
-        <field name="header_line" eval="False" />
+        <field name="header_line" eval="False"/>
         <field name="header_spacing">0</field>
         <field name="dpi">90</field>
     </record>
+
+    <report id="action_reception_label_report"
+            string="Etiquetas de Recepción"
+            model="stock.picking"
+            report_type="qweb-html"
+            name="reception.report_reception_label_template"
+            paperformat="paper_format_10_x_7"
+    />
 
     <template id="report_reception_label_template">
         <t t-call="web.html_container">
