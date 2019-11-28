@@ -13,76 +13,74 @@
             <t t-call="web.internal_layout">
                 <div class="page">
                     <t t-foreach="docs" t-as="o">
-                        <div class="row">
-                            <div class="col">
-                                <span t-field="res_company.logo"
-                                      t-options="{'widget': 'image'}" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                PRODUCTOR:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.name" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                CSG:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.sag_code" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                N° DE GUÍA:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.guide_number" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                VARIEDAD:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.name" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                N° DE BULTOS:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.name" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                ENVASE:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.name" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-right">
-                                CORRELATVO:
-                            </div>
-                            <div class="col-md-3">
-                                <span t-field="o.partner_id.name" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2>LOTE N°: <span t-field="o.name" /></h2>
-                                <img
-                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128',o.name)"
-                                />
-                            </div>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td colspan="2">
+                                        <span t-field="res_company.logo"
+                                              t-options="{'widget': 'image'}"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PRODUCTOR:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CSG:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.sag_code"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>N° DE GUÍA:</td>
+                                    <td>
+                                        <span t-field="o.guide_number"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>VARIEDAD:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>N° DE BULTOS:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ENVASE:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CORRELATVO:</td>
+                                    <td>
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <h2>LOTE N°:
+                                            <span t-field="o.name"/>
+                                        </h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <img
+                                                t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128',o.name)"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </t>
                 </div>
             </t>
