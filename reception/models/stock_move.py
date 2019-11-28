@@ -15,7 +15,7 @@ class StockMove(models.Model):
         for stock_move in self:
             if len(stock_move.move_line_ids) > 0:
                 has_serial = True
-                for move_line in stock_move.line_ids:
+                for move_line in stock_move.move_line_ids:
                     if len(move_line.lot_name) == 0:
                         has_serial = False
                 stock_move.has_serial_generated = has_serial
