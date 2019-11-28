@@ -6,9 +6,9 @@
     >
         <field name="name">Etiqueta 10x7</field>
         <field name="default" eval="False"/>
-        <field name="format" />
-        <field name="page_height">7</field>
-        <field name="page_width">10</field>
+        <field name="format">custom</field>
+        <field name="page_height">70</field>
+        <field name="page_width">100</field>
         <field name="orientation">Portrait</field>
         <field name="margin_top">5</field>
         <field name="margin_bottom">5</field>
