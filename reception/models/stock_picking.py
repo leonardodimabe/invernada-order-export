@@ -14,3 +14,5 @@ class StockPicking(models.Model):
     tare_weight = fields.Integer('Peso Tara')
 
     net_weight = fields.Integer('Kilos Netos')
+
+    is_mp_reception = fields.Boolean('Recepción de MP')

@@ -5,13 +5,21 @@
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
-
-                <field name="origin" position="after">
-                    <field name="guide_number" />
-                    <field name="weight_guide" />
-                    <field name="gross_weight" />
+                <field name="picking_type_id" position="after">
+                    <field name="partner_id.sag_code" />
+                    <field name="is_mp_reception" />
                 </field>
-
+                <field name="origin" position="after">
+                    <field name="guide_number"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                    />
+                    <field name="weight_guide"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                    />
+                    <field name="gross_weight"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                    />
+                </field>
             </field>
         </record>
     </data>
