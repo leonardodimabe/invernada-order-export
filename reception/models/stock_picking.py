@@ -16,3 +16,8 @@ class StockPicking(models.Model):
     net_weight = fields.Integer('Kilos Netos')
 
     is_mp_reception = fields.Boolean('Recepción de MP')
+
+    sag_code = fields.Char(
+        'CSG',
+        related='partner_id.sag_code'
+    )
