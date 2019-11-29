@@ -69,7 +69,7 @@
                                 <tr>
                                     <td>ENVASE:</td>
                                     <td>
-                                        <span t-field="o.partner_id.name"/>
+                                        <span t-field="o.get_canning_move().product_id.name"/>
                                     </td>
                                 </tr>
                                 <tr>
