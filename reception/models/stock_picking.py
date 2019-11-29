@@ -44,6 +44,14 @@ class StockPicking(models.Model):
         related='partner_id.sag_code'
     )
 
+    @api.model
+    def get_mp_move(self):
+        return self.move_ids_without_package.filtered(lambda x: x.has_tracking == 'serial')
+
+    @api.model
+    def get_canning_move(self):
+        return self.move_ids_without_package.filtered(lambda x: x.has_tracking != 'serial')
+
     @api.multi
     def action_confirm(self):
         for stock_picking in self:
@@ -52,10 +60,10 @@ class StockPicking(models.Model):
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
 
-                mp = stock_picking.move_ids_without_package.filtered(lambda x: x.has_tracking == 'serial')
+                mp = stock_picking.get_mp_move()
                 if len(mp) != 1:
                     raise models.ValidationError('No se encontró materia prima en las operaciones')
-                canning = stock_picking.move_ids_without_package.filtered(lambda x: x.has_tracking != 'serial')
+                canning = stock_picking.get_canning_move()
                 if len(canning) != 1:
                     raise models.ValidationError('no se encontró registro de envases en las operaciones')
 
