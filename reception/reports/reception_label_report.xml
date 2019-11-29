@@ -67,12 +67,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>N° DE BULTOS:</td>
-                                    <td>
-                                        <span t-field="o.partner_id.name"/>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>ENVASE:</td>
                                     <td>
                                         <span t-field="o.partner_id.name"/>
@@ -81,7 +75,7 @@
                                 <tr>
                                     <td>CORRELATVO:</td>
                                     <td>
-                                        <span t-field="o.partner_id.name"/>
+                                        <span t-field="move_line.lot_name[-3:]"/>
                                     </td>
                                 </tr>
                                 <tr>
