@@ -6,7 +6,7 @@
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
                 <field name="picking_type_id" position="after">
-                    <field name="partner_id.sag_code" />
+                    <field name="sag_code" />
                     <field name="is_mp_reception" />
                 </field>
                 <field name="origin" position="after">
