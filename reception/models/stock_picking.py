@@ -49,9 +49,9 @@ class StockPicking(models.Model):
                         new_records.append(move_line)
                     counter += 1
 
+                raise models.ValidationError(new_records)
                 mp.move_line_ids = new_records
 
-                raise models.ValidationError(mp.move_line_ids)
 
             return res
 
