@@ -29,7 +29,7 @@ class StockPicking(models.Model):
                 stock_picking.validate_mp_reception()
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
-
+                raise models.ValidationError(len(stock_picking.move_ids_without_package))
                 new_records = []
                 mp = stock_picking.move_ids_without_package.search([('has_tracking', '=', 'serial')])
                 if len(mp) != 1:
