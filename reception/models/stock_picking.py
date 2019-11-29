@@ -34,7 +34,7 @@ class StockPicking(models.Model):
                 mp = stock_picking.move_ids_without_package.search([('has_tracking', '=', 'serial')])
                 if len(mp) != 1:
                     # raise models.ValidationError('No se encontró materia prima en las operaciones')
-                    raise models.ValidationError(mp.map('name'))
+                    raise models.ValidationError(mp)
                 canning = stock_picking.move_ids_without_package.search([('has_tracking', '!=', 'serial')])
                 if len(canning) != 1:
                     raise models.ValidationError('no se encontró registro de envases en las operaciones')
