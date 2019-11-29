@@ -19,25 +19,25 @@ class StockPicking(models.Model):
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
-    carrier_rut = fields.Char(
-        'Rut',
-        related='carrier_id.rut'
-    )
+    #carrier_rut = fields.Char(
+    #    'Rut',
+    #    related='carrier_id.rut'
+    #)
 
-    carried_cell_phone = fields.Char(
-        'Celular',
-        related='carrier_id.cell_phone'
-    )
+    #carried_cell_phone = fields.Char(
+    #    'Celular',
+    #    related='carrier_id.cell_phone'
+    #)
 
-    carrier_truck_patent = fields.Char(
-        'Patente Camión',
-        related='carrier_id.truck_patent'
-    )
+    #carrier_truck_patent = fields.Char(
+    #    'Patente Camión',
+    #    related='carrier_id.truck_patent'
+    #)
 
-    carrier_cart_patent = fields.Char(
-        'Patente Carro',
-        related='carrier_id.cart_patent'
-    )
+    #carrier_cart_patent = fields.Char(
+    #    'Patente Carro',
+    #    related='carrier_id.cart_patent'
+    #)
 
     sag_code = fields.Char(
         'CSG',
