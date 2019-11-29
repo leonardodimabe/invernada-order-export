@@ -29,13 +29,13 @@ class StockPicking(models.Model):
                 stock_picking.validate_mp_reception()
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
-                raise models.ValidationError(len(stock_picking.move_ids_without_package))
+
                 new_records = []
-                mp = stock_picking.move_ids_without_package.search([('has_tracking', '=', 'serial')])
+                mp = stock_picking.move_ids_without_package.filtered(lambda x: x.has_tracking == 'serial')
                 if len(mp) != 1:
                     # raise models.ValidationError('No se encontró materia prima en las operaciones')
                     raise models.ValidationError(mp)
-                canning = stock_picking.move_ids_without_package.search([('has_tracking', '!=', 'serial')])
+                canning = stock_picking.move_ids_without_package.filtered(lambda x: x.has_tracking != 'serial')
                 if len(canning) != 1:
                     raise models.ValidationError('no se encontró registro de envases en las operaciones')
 
