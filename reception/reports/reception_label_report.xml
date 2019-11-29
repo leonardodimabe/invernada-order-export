@@ -37,7 +37,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <span t-field="res_company.logo"
-                                              t-field-options="{'widget': 'image'}"/>
+                                              t-options="{'widget': 'image'}"/>
                                     </td>
                                 </tr>
                             </thead>
