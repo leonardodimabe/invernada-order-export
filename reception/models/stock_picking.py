@@ -47,8 +47,6 @@ class StockPicking(models.Model):
                         move_line.unlink()
                     counter += 1
 
-                raise models.ValidationError(mp.move_line_ids)
-
             return res
 
     @api.model
