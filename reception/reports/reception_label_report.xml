@@ -32,7 +32,8 @@
             <div class="page">
                 <t t-foreach="docs" t-as="o">
                     <t t-foreach="o.move_line_ids" t-as="move_line">
-                        <table t-if="move_line.has_serial_generated == True">
+                        <span t-field="move_line.has_serial_generated" />
+                        <table>
                             <thead>
                                 <tr>
                                     <td colspan="2">
