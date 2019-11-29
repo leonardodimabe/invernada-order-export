@@ -88,7 +88,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <img
-                                                t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,100, 30)"
+                                                t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,900, 300)"
                                         />
                                     </td>
                                 </tr>
