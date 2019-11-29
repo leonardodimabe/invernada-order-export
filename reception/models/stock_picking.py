@@ -17,6 +17,8 @@ class StockPicking(models.Model):
 
     is_mp_reception = fields.Boolean('Recepción de MP')
 
+    carrier_id = fields.Many2one('custom.carrier', 'Conductor')
+
     sag_code = fields.Char(
         'CSG',
         related='partner_id.sag_code'

@@ -30,6 +30,7 @@
         'views/res_partner.xml',
         'views/stock_move.xml',
         'views/templates.xml',
+        'views/carrier.xml',
         'reports/reception_label_report.xml'
     ],
     # only loaded in demonstration mode
