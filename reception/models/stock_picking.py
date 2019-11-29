@@ -26,14 +26,15 @@ class StockPicking(models.Model):
     def action_confirm(self):
         for stock_picking in self:
             if stock_picking.is_mp_reception:
-                stock_picking.validate_mp_reception_fields()
+                stock_picking.validate_mp_reception()
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
-                # stock_moves = self.env['stock.move'].search([('picking_id', '=', stock_picking.id)])
                 raise models.ValidationError(stock_picking.move_ids_without_package[0].move_line_ids)
 
+            return res
+
     @api.model
-    def validate_mp_reception_fields(self):
+    def validate_mp_reception(self):
         message = ''
         if not self.guide_number:
             message = 'debe agregar número de guía \n'
@@ -41,5 +42,8 @@ class StockPicking(models.Model):
             message += 'debe agregar kilos guía \n'
         if not self.gross_weight:
             message += 'debe agregar kilos brutos \n'
+
+        if len(self.move_ids_without_package) != 2:
+            message += 'debe agregar MP y envases al listado de operaciones'
         if message:
             raise models.ValidationError(message)
