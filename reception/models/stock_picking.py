@@ -30,7 +30,7 @@ class StockPicking(models.Model):
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
                 # stock_moves = self.env['stock.move'].search([('picking_id', '=', stock_picking.id)])
-                raise models.ValidationError(stock_picking.move_ids_without_package)
+                raise models.ValidationError(stock_picking.move_ids_without_package[0].move_line_ids)
 
     @api.model
     def validate_mp_reception_fields(self):
