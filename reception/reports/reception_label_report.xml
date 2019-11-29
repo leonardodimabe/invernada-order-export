@@ -61,6 +61,12 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>Peso</td>
+                                    <td>
+                                        <span t-field="move_line.product_uom_qty" />
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>VARIEDAD:</td>
                                     <td>
                                         <span t-field="o.product_id.name"/>
