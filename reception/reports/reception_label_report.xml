@@ -64,7 +64,6 @@
                                     <td>Peso:</td>
                                     <td>
                                         <span t-field="move_line.product_uom_qty" />
-                                        <span t-field="move_line.product_uom" />
                                     </td>
                                 </tr>
                                 <tr>
