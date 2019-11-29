@@ -20,6 +20,13 @@
                            attrs="{'invisible':[('is_mp_reception', '=', False)]}"
                     />
                 </field>
+                <xpath expr="//page[@name='note']" position="after">
+                    <page string="Transportista" name="carrier_page">
+                        <group name="carrier_page" position="inside">
+                            <field name="carrier_id" />
+                        </group>
+                    </page>
+                </xpath>
             </field>
         </record>
     </data>
