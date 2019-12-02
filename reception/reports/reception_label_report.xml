@@ -95,7 +95,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <img
-                                            t-att-src="'data:image/png;base64,%s' % '/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 100)"
+                                            t-att-src="'https://testerp.lainvernada.com/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 100)"
                                         />
                                     </td>
                                 </tr>
