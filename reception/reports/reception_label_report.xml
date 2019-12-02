@@ -89,7 +89,7 @@
                             <tr>
                                 <td colspan="2">
                                     <img
-                                            t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',move_line.lot_name,450, 40)"
+                                            t-att-src="'%s/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % (o.get_full_url(), 'Code128',move_line.lot_name,450, 40)"
                                     />
                                 </td>
                             </tr>
