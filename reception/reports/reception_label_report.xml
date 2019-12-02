@@ -29,75 +29,78 @@
 
     <template id="report_reception_label_template">
         <t t-call="web.html_container">
-            <div class="page">
-                <t t-foreach="docs" t-as="o">
-                    <t t-foreach="o.get_mp_move().move_line_ids" t-as="move_line">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td colspan="2">
-                                        <span t-field="res_company.logo"
-                                              t-options="{'widget': 'image'}"/>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>PRODUCTOR:</td>
-                                    <td>
-                                        <span t-field="o.partner_id.name"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>CSG:</td>
-                                    <td>
-                                        <span t-field="o.partner_id.sag_code"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>N° DE GUÍA:</td>
-                                    <td>
-                                        <span t-field="o.guide_number"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Peso:</td>
-                                    <td>
-                                        <span t-field="move_line.product_uom_qty" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>VARIEDAD:</td>
-                                    <td>
-                                        <span t-field="o.product_id.name"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>ENVASE:</td>
-                                    <td>
-                                        <span t-field="o.get_canning_move().product_id.name"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <h2>LOTE N°:
-                                            <span t-field="move_line.lot_name"/>
-                                        </h2>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <img
-                                                t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 100)"
-                                        />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </t>
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-foreach="o.get_mp_move().move_line_ids" t-as="move_line">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span t-field="res_company.logo"
+                                                  t-options="{'widget': 'image'}"/>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PRODUCTOR:</td>
+                                        <td>
+                                            <span t-field="o.partner_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSG:</td>
+                                        <td>
+                                            <span t-field="o.partner_id.sag_code"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>N° DE GUÍA:</td>
+                                        <td>
+                                            <span t-field="o.guide_number"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Peso:</td>
+                                        <td>
+                                            <span t-field="move_line.product_uom_qty"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>VARIEDAD:</td>
+                                        <td>
+                                            <span t-field="o.product_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ENVASE:</td>
+                                        <td>
+                                            <span t-field="o.get_canning_move().product_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h2>LOTE N°:
+                                                <span t-field="move_line.lot_name"/>
+                                            </h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <img
+                                                    t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 100)"
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
 
-                </t>
-            </div>
+                    </t>
+                </div>
+            </t>
+
         </t>
     </template>
 </odoo>
