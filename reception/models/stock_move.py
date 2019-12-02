@@ -17,5 +17,6 @@ class StockMove(models.Model):
                 for stock_move_line in stock_move.move_line_ids:
                     tmp = '00{}'.format(counter)
                     stock_move_line.lot_name = '{}{}'.format(stock_move.picking_id.name, tmp[-3:])
+                    stock_move_line.qty_done = stock_move_line.product_uom_qty
                     counter += 1
                 stock_move.has_serial_generated = True

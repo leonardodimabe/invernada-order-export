@@ -13,12 +13,6 @@
                             type="object"
                             attrs="{'invisible':['|',('has_serial_generated', '=', True),('has_tracking', '!=', 'serial')]}"
                     />
-                    <button
-                            name="print_label"
-                            string="Imprimir Etiquetas"
-                            type="object"
-                            attrs="{'invisible':[('has_serial_generated', '=', False)]}"
-                    />
                 </xpath>
             </field>
         </record>
