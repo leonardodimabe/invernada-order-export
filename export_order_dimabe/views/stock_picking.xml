@@ -7,9 +7,13 @@
             <field name="arch" type="xml">
 
                 <field name="backorder_id" position="after">
-                    <field name="consignee_id" />
-                    <field name="notify_ids" />
                     <field name="picking_type_code" invisible="1" />
+                    <field name="consignee_id"
+                           attrs="{'invisible':[('picking_type_code', '=', 'incoming')]}"
+                    />
+                    <field name="notify_ids"
+                           attrs="{'invisible':[('picking_type_code', '=', 'incoming')]}"
+                    />
                 </field>
 
                 <xpath expr="//page[@name='extra']" position="after">
