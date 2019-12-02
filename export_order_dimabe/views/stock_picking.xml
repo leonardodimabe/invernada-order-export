@@ -9,10 +9,13 @@
                 <field name="backorder_id" position="after">
                     <field name="consignee_id" />
                     <field name="notify_ids" />
+                    <field name="picking_type_code" invisible="1" />
                 </field>
 
                 <xpath expr="//page[@name='extra']" position="after">
-                    <page string="COMEX" id="export_data">
+                    <page string="COMEX" id="export_data"
+                          attrs="{'invisible':[('picking_type_code', '=', 'incoming')]}"
+                    >
                         <group name="export_data"
                                position="inside"
                         >
