@@ -37,8 +37,10 @@
                                 <thead>
                                     <tr>
                                         <td colspan="2">
+                                            <!--
                                             <span t-field="res_company.logo"
                                                   t-options="{'widget': 'image'}"/>
+                                            -->
                                             <img src="/reception/static/src/img/logo.png" />
                                         </td>
                                     </tr>
