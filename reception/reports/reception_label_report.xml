@@ -22,7 +22,7 @@
     <report id="action_reception_label_report"
             string="Etiquetas de Recepción"
             model="stock.picking"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="reception.report_reception_label_template"
             paperformat="paper_format_10_x_7"
     />
