@@ -19,7 +19,6 @@
                     <field name="gross_weight"
                            attrs="{'invisible':[('is_mp_reception', '=', False)]}"
                     />
-                    <field name="picking_type_code" />
                 </field>
                 <xpath expr="//page[@name='note']" position="after">
                     <page string="Transportista" name="carrier_page">

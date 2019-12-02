@@ -23,6 +23,7 @@
     'depends': [
         'base',
         'sale',
+        'contacts',
         'account',
         'stock'
     ],
