@@ -80,7 +80,8 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <h2>LOTE N°:
+                                    <h2 style="text-align: center !important;">
+                                        LOTE N°:
                                         <span t-field="move_line.lot_name"/>
                                     </h2>
                                 </td>
