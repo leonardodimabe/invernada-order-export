@@ -3,7 +3,7 @@ from odoo import models, api, fields
 
 class StockPicking(models.Model):
 
-    _inherit = ['stock.picking', 'base.url.abstract']
+    _inherit = ['stock.picking']
 
     guide_number = fields.Integer('Número de Guía')
 
