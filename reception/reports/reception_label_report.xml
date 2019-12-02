@@ -42,7 +42,7 @@
                                         -->
                                         <img
                                                 t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
-                                                style="width:70px !important;"
+                                                style="width:100px !important;"
 
                                         />
                                     </td>
