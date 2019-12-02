@@ -98,5 +98,4 @@ class StockPicking(models.Model):
     def get_full_url(self):
         self.ensure_one()
         base_url = self.env["ir.config_parameter"].get_param("web.base.url")
-        models.ValidationError(base_url)
         return base_url
