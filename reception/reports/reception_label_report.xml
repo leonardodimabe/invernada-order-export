@@ -73,7 +73,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">ENVASE:</td>
+                                <td style="text-align: right !important;">ENVASE:</td>
                                 <td>
                                     <span t-field="o.get_canning_move().product_id.name"/>
                                 </td>
