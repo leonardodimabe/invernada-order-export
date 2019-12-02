@@ -43,31 +43,31 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">PRODUCTOR:</td>
+                                <td style="text-align: right !important;">PRODUCTOR:</td>
                                 <td>
                                     <span t-field="o.partner_id.name"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">CSG:</td>
+                                <td style="text-align: right !important;">CSG:</td>
                                 <td>
                                     <span t-field="o.partner_id.sag_code"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">N° DE GUÍA:</td>
+                                <td style="text-align: right !important;">N° DE GUÍA:</td>
                                 <td>
                                     <span t-field="o.guide_number"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">Peso:</td>
+                                <td style="text-align: right !important;">Peso:</td>
                                 <td>
                                     <span t-field="move_line.product_uom_qty"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right">VARIEDAD:</td>
+                                <td style="text-align: right !important;">VARIEDAD:</td>
                                 <td>
                                     <span t-field="o.product_id.name"/>
                                 </td>
@@ -88,7 +88,7 @@
                             <tr>
                                 <td colspan="2">
                                     <img
-                                            t-att-src="'https://testerp.lainvernada.com/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 20)"
+                                            t-att-src="'https://testerp.lainvernada.com/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name,450, 30)"
                                     />
                                 </td>
                             </tr>
