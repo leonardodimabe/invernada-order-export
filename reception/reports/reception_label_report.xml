@@ -41,7 +41,7 @@
                                               t-options="{'widget': 'image'}"/>
                                         -->
                                         <img
-                                                t-att-src="'data:image/png;base64,'+res_company.logo"
+                                                t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
 
                                         />
                                     </td>
