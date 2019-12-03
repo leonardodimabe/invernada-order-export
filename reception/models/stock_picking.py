@@ -1,6 +1,5 @@
 from odoo import models, api, fields
 from datetime import datetime
-from pytz import timezone
 
 
 class StockPicking(models.Model):
@@ -52,11 +51,7 @@ class StockPicking(models.Model):
         related='carrier_id.cart_patent'
     )
 
-    hr_alert = fields.Float('hr para alerta')
-
     hr_alert_notification_count = fields.Integer('Conteo de notificación de retraso de camión')
-
-    kg_diff_alert = fields.Float('diferencia de kg para alerta')
 
     kg_diff_alert_notification_count = fields.Integer('Conteo de notificación de diferencia de kg')
 
@@ -141,3 +136,20 @@ class StockPicking(models.Model):
         self.ensure_one()
         base_url = self.env["ir.config_parameter"].get_param("web.base.url")
         return base_url
+
+    @api.multi
+    @api.onchange('weight_guide', 'net_weight')
+    def notify_alerts(self):
+        alert_config = self.env['reception.alert.config'].search([])
+        if self.hr_alert_notification_count == 0 and self.elapsed_time > alert_config.hr_alert:
+            template_id = self.with_context(
+                destinies=alert_config.notify_elapsed_time_to.map('email')
+            ).ref('reception.truck_not_out_mail_template')
+
+            self.message_post_with_template(template_id.id)
+            self.hr_alert_notification_count += 1
+
+        if self.kg_diff_alert_notification_count == 0:
+            if self.weight_guide > 0 and self.net_weight > 0:
+                if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
+                    print('send mail')
