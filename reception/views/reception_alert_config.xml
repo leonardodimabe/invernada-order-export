@@ -17,6 +17,19 @@
             </field>
         </record>
 
+        <record id="reception_alert_config_form_view" model="ir.ui.view">
+            <field name="name">Formulario configuración de alertas recepción</field>
+            <field name="model">reception.alert.config</field>
+            <field name="arch" type="xml">
+                <form create="false" copy="false">
+                    <group>
+                        <field name="hr_alert" />
+                        <field name="kg_diff_alert" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
         <menuitem name="Configuración de Alertas"
                   id="reception.reception_alert_config_menu"
                   parent="stock.menu_stock_config_settings"
