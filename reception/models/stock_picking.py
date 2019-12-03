@@ -63,7 +63,6 @@ class StockPicking(models.Model):
             else:
                 self.elapsed_time = (datetime.today() - self.date_done).total_seconds() / 3600
         else:
-            raise models.ValidationError('else date_done')
             self.elapsed_time = 0
 
     @api.model
