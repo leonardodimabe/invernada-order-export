@@ -19,6 +19,8 @@ class StockPicking(models.Model):
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
+    truck_out_date = fields.Datetime('Salida de Camión')
+
     carrier_rut = fields.Char(
         'Rut',
         related='carrier_id.rut'
