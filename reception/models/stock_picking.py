@@ -25,8 +25,7 @@ class StockPicking(models.Model):
 
     elapsed_time = fields.Float(
         'Tiempo de Camión en planta',
-        compute='_compute_elapsed_time',
-        store=True
+        compute='_compute_elapsed_time'
     )
 
     carrier_rut = fields.Char(
@@ -55,15 +54,12 @@ class StockPicking(models.Model):
     )
 
     @api.one
-    @api.depends('truck_out_date', 'date_done')
     def _compute_elapsed_time(self):
         if self.date_done:
             if self.truck_out_date:
                 self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds()
-                raise models.ValidationError('if {}'.format(self.elapsed_time))
             else:
-                raise models.ValidationError('else {}'.format(datetime.now() - self.date_done))
-                self.elapsed_time = (datetime.now() - self.date_done)
+                self.elapsed_time = (datetime.now() - self.date_done).total_seconds()
         else:
             self.elapsed_time = 0
 
