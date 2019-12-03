@@ -3,7 +3,7 @@
         <record id="reception_alert_config_view" model="ir.actions.act_window">
             <field name="name">Configuración de Alertas en Recepción</field>
             <field name="res_model">reception.alert.config</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem name="Configuración de Alertas"
