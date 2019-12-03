@@ -24,7 +24,7 @@ class StockPicking(models.Model):
     truck_out_date = fields.Datetime('Salida de Camión')
 
     elapsed_time = fields.Float(
-        'Tiempo de Camión en planta',
+        'Horas Camión en planta',
         compute='_compute_elapsed_time'
     )
 
