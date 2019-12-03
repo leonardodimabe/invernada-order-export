@@ -1,4 +1,5 @@
 from odoo import models, api, fields
+from datetime import datetime
 
 
 class StockPicking(models.Model):
@@ -20,6 +21,12 @@ class StockPicking(models.Model):
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
     truck_out_date = fields.Datetime('Salida de Camión')
+
+    elapsed_time = fields.Float(
+        'Tiempo de Camión en planta',
+        compute='_compute_elapsed_time',
+        store=True
+    )
 
     carrier_rut = fields.Char(
         'Rut',
@@ -45,6 +52,17 @@ class StockPicking(models.Model):
         'CSG',
         related='partner_id.sag_code'
     )
+
+    @api.model
+    @api.depends('truck_out_date', 'date_done')
+    def _compute_elapsed_time(self):
+        if self.date_done:
+            if self.truck_out_date:
+                self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds() / 3600
+            else:
+                self.elapsed_time = (datetime.today() - self.date_done).total_seconds() / 3600
+        else:
+            self.elapsed_time = 0
 
     @api.model
     def get_mp_move(self):
