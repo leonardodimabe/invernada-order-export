@@ -57,9 +57,9 @@ class StockPicking(models.Model):
     def _compute_elapsed_time(self):
         if self.date_done:
             if self.truck_out_date:
-                self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds()
+                self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds() / 3600
             else:
-                self.elapsed_time = (datetime.now() - self.date_done).total_seconds()
+                self.elapsed_time = (datetime.now() - self.date_done).total_seconds() / 3600
 
         else:
             self.elapsed_time = 0
