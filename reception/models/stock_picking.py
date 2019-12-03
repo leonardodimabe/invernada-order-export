@@ -60,8 +60,11 @@ class StockPicking(models.Model):
                 self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds()
             else:
                 self.elapsed_time = (datetime.now() - self.date_done).total_seconds()
+
         else:
             self.elapsed_time = 0
+        raise models.ValidationError('debug')
+
 
     @api.model
     def get_mp_move(self):
