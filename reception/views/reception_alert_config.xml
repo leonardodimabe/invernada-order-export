@@ -8,6 +8,7 @@
 
         <menuitem name="Configuración de Alertas"
                   id="reception.reception_alert_config_menu"
+                  parent="stock.menu_stock_config_settings"
                   action="reception_alert_config_view"
         />
     </data>
