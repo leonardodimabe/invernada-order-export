@@ -54,7 +54,11 @@ class StockPicking(models.Model):
 
     hr_alert = fields.Float('hr para alerta')
 
+    hr_alert_notification_count = fields.Integer('Conteo de notificación de retraso de camión')
+
     kg_diff_alert = fields.Float('diferencia de kg para alerta')
+
+    kg_diff_alert_notification_count = fields.Integer('Conteo de notificación de diferencia de kg')
 
     sag_code = fields.Char(
         'CSG',
