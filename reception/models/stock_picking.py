@@ -63,8 +63,6 @@ class StockPicking(models.Model):
 
         else:
             self.elapsed_time = 0
-        raise models.ValidationError('debug')
-
 
     @api.model
     def get_mp_move(self):
