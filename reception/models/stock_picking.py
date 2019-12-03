@@ -52,6 +52,10 @@ class StockPicking(models.Model):
         related='carrier_id.cart_patent'
     )
 
+    hr_alert = fields.Float('hr para alerta')
+
+    kg_diff_alert = fields.Float('diferencia de kg para alerta')
+
     sag_code = fields.Char(
         'CSG',
         related='partner_id.sag_code'

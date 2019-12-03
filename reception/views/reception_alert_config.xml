@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="reception_alert_config_view" model="ir.ui.view">
+            <field name="name">Configuración de Alertas en Recepción</field>
+            <field name="res_model">reception.alert.config</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem name="Configuración de Alertas"
+                  id="reception.reception_alert_config_menu"
+                  parent="stock.menu_stock_config_settings"
+        />
+    </data>
+</odoo>
