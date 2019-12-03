@@ -11,7 +11,7 @@
                 </field>
                 <field name="origin" position="after">
                     <field name="date_done" />
-                    <field name="truck_out_date" />
+                    <field name="elapsed_time" />
                     <field name="guide_number"
                            attrs="{'invisible':[('is_mp_reception', '=', False)]}"
                     />
