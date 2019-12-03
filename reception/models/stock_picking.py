@@ -53,7 +53,7 @@ class StockPicking(models.Model):
         related='partner_id.sag_code'
     )
 
-    @api.model
+    @api.one
     @api.depends('truck_out_date', 'date_done')
     def _compute_elapsed_time(self):
         if self.date_done:
