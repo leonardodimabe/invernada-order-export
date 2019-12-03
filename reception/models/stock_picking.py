@@ -62,8 +62,8 @@ class StockPicking(models.Model):
                 self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds()
                 raise models.ValidationError('if {}'.format(self.elapsed_time))
             else:
+                raise models.ValidationError('else {}'.format(datetime.now() - self.date_done))
                 self.elapsed_time = (datetime.now() - self.date_done)
-                raise models.ValidationError('else {}'.format(self.date_done))
         else:
             self.elapsed_time = 0
 
