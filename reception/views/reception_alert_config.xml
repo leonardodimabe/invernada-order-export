@@ -6,6 +6,17 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record id="reception_alert_config_list_view" model="ir.ui.view">
+            <field name="name">Configuración de alertas</field>
+            <field name="model">reception.alert.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="hr_alert" />
+                    <field name="kg_diff_alert" />
+                </tree>
+            </field>
+        </record>
+
         <menuitem name="Configuración de Alertas"
                   id="reception.reception_alert_config_menu"
                   parent="stock.menu_stock_config_settings"
