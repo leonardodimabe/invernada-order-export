@@ -23,8 +23,14 @@
             <field name="arch" type="xml">
                 <form create="false" copy="false" delete="false" >
                     <group>
-                        <field name="hr_alert" />
-                        <field name="kg_diff_alert" />
+                        <group>
+                            <field name="hr_alert" />
+                            <field name="kg_diff_alert" />
+                        </group>
+                        <group>
+                            <field  name="notify_elapsed_time_to"/>
+                            <field  name="notify_diff_kg"/>
+                        </group>
                     </group>
                 </form>
             </field>
