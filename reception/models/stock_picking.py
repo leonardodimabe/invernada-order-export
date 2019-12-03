@@ -57,14 +57,13 @@ class StockPicking(models.Model):
     @api.one
     @api.depends('truck_out_date', 'date_done')
     def _compute_elapsed_time(self):
-        tz_info = timezone('America/Santiago')
         if self.date_done:
             if self.truck_out_date:
                 self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds()
                 raise models.ValidationError('if {}'.format(self.elapsed_time))
             else:
+                self.elapsed_time = (datetime.now() - self.date_done)
                 raise models.ValidationError('else {}'.format(self.date_done))
-                self.elapsed_time = (datetime.now(tz_info) - self.date_done).total_seconds()
         else:
             self.elapsed_time = 0
 
