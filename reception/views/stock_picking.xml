@@ -39,5 +39,23 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="stock_picking_list" model="ir.ui.view">
+            <field name="name">stock picking list</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="location_dest_id" />
+                    <field name="partner_id" />
+                    <field name="scheduled_date" />
+                    <field name="date_done" />
+                    <field name="delivery_date" />
+                    <field name="origin" />
+                    <field name="backorder_id" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
     </data>
 </odoo>
