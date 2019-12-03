@@ -53,6 +53,7 @@
                     <field name="scheduled_date" />
                     <field name="date_done" />
                     <field name="truck_out_date" />
+                    <field name="elapsed_time" />
                     <field name="origin" />
                     <field name="backorder_id" />
                     <field name="state" />
