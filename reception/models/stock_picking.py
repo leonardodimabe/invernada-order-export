@@ -24,7 +24,7 @@ class StockPicking(models.Model):
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
-    truck_out_date = fields.Datetime('Salida de Camión')
+    truck_in_date = fields.Datetime('Salida de Camión')
 
     elapsed_time = fields.Float(
         'Horas Camión en planta',
@@ -72,12 +72,11 @@ class StockPicking(models.Model):
 
     @api.one
     def _compute_elapsed_time(self):
-        if self.date_done:
-            if self.truck_out_date:
-                self.elapsed_time = (self.truck_out_date - self.date_done).total_seconds() / 3600
+        if self.truck_in_date:
+            if self.date_done:
+                self.elapsed_time = (self.date_done - self.truck_in_date).total_seconds() / 3600
             else:
-                self.elapsed_time = (datetime.now() - self.date_done).total_seconds() / 3600
-
+                self.elapsed_time = (datetime.now() - self.truck_in_date).total_seconds() / 3600
         else:
             self.elapsed_time = 0
 
