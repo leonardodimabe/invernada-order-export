@@ -7,26 +7,28 @@
             <field name="arch" type="xml">
                 <field name="picking_type_id" position="after">
                     <field name="sag_code" />
-                    <field name="is_mp_reception" />
+                    <field name="is_mp_reception"
+                           attrs="{'readonly': [('state', '=', 'done')]}"
+                    />
                 </field>
                 <field name="origin" position="after">
                     <field name="truck_in_date" />
                     <field name="date_done" />
                     <field name="elapsed_time" />
                     <field name="guide_number"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
                     <field name="weight_guide"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
                     <field name="gross_weight"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
                     <field name="tare_weight"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
                     <field name="net_weight"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False), 'readonly': [('state', '=', 'done')]]}"
                     />
                 </field>
                 <xpath expr="//page[@name='note']" position="after">
