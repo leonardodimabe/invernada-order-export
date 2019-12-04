@@ -14,6 +14,7 @@
                 <br/>
                 </p>
                 ${ctx}
+                ${object}
                 Atte,<br/>
                 ${(object.company_id.name)}
             ]]>

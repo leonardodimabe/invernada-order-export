@@ -146,6 +146,7 @@ class StockPicking(models.Model):
 
             # d
             self.ensure_one()
+            self.destinies = alert_config.notify_elapsed_time_to
             template_id = self.env.ref('reception.truck_not_out_mail_template')
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
