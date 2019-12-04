@@ -60,6 +60,8 @@
                     <field name="origin" />
                     <field name="backorder_id" />
                     <field name="state" />
+                    <field name="hr_alert_notification_count" />
+                    <field name="kg_diff_alert_notification_count" />
                 </tree>
             </field>
         </record>
