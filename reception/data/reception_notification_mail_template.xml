@@ -23,7 +23,7 @@
         <field name="name">Alerta de Diferencia de Kg</field>
         <field name="model_id" ref="reception.model_stock_picking" />
         <field name="email_from">info@lainvernada.com</field>
-        <field name="email_to">lala@alala.cl</field>
+        <field name="email_to">lala@alala.cl,lele@lala.cl</field>
         <field name="subject">Alerta de Diferencia de kg en Recepción</field>
         <field name="body_html">
             <![CDATA[
