@@ -143,11 +143,7 @@ class StockPicking(models.Model):
     def notify_alerts(self):
         alert_config = self.env['reception.alert.config'].search([])
 
-        # self.hr_alert_notification_count == 0 and
-
-        raise models.ValidationError('lala')
-
-        if self.elapsed_time > alert_config.hr_alert:
+        if self.hr_alert_notification_count == 0 and self.elapsed_time > alert_config.hr_alert:
 
             template_id = self.with_context(
                 destinies=alert_config.notify_elapsed_time_to.mapped('email')
@@ -155,8 +151,6 @@ class StockPicking(models.Model):
 
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
-
-
 
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
