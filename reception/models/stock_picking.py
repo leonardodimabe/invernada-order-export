@@ -24,7 +24,10 @@ class StockPicking(models.Model):
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
-    truck_in_date = fields.Datetime('Entrada de Camión')
+    truck_in_date = fields.Datetime(
+        'Entrada de Camión',
+        readonly=True
+    )
 
     elapsed_time = fields.Float(
         'Horas Camión en planta',
@@ -93,6 +96,7 @@ class StockPicking(models.Model):
         for stock_picking in self:
             if stock_picking.is_mp_reception:
                 stock_picking.validate_mp_reception()
+                stock_picking.truck_in_date = fields.datetime.now()
             res = super(StockPicking, self).action_confirm()
             if stock_picking.is_mp_reception:
 
