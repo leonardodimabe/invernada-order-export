@@ -152,7 +152,7 @@ class StockPicking(models.Model):
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
 
-            raise models.ValidationError(self.hr_alert_notification_count)
+            raise models.ValidationError(template_id.body)
 
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
