@@ -144,11 +144,11 @@ class StockPicking(models.Model):
         alert_config = self.env['reception.alert.config'].search([])
 
         if self.hr_alert_notification_count == 0 and self.elapsed_time > alert_config.hr_alert:
-            raise models.ValidationError(type(alert_config.notify_elapsed_time_to.mapped('email')))
+
             template_id = self.with_context(
                 destinies=alert_config.notify_elapsed_time_to.mapped('email')
             ).ref('reception.truck_not_out_mail_template')
-
+            raise models.ValidationError(template_id)
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
 
