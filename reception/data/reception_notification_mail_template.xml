@@ -13,7 +13,7 @@
                 de hr permitidas en la planta.
                 <br/>
                 </p>
-                ${ctx.destinies}
+                ${ctx}
                 Atte,<br/>
                 ${(object.company_id.name)}
             ]]>
