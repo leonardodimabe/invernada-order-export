@@ -9,12 +9,11 @@
         <field name="body_html">
             <![CDATA[
                 <p>Estimados,<br/><br/>
-                se informa que el camión asociado a la recepción ${object.name} ha sobrepasado la cantidad
+                se informa que el camión asociado a la recepción  ha sobrepasado la cantidad
                 de hr permitidas en la planta.
                 <br/>
                 </p>
                 Atte,<br/>
-                ${(object.company_id.name)}
             ]]>
         </field>
     </record>
