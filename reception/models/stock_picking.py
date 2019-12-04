@@ -146,8 +146,8 @@ class StockPicking(models.Model):
         if self.elapsed_time > alert_config.hr_alert:
 
             template_id = self.env.ref('reception.truck_not_out_mail_template')
-
             self.message_post_with_template(template_id.id)
+
             self.hr_alert_notification_count += 1
 
         if self.kg_diff_alert_notification_count == 0:
