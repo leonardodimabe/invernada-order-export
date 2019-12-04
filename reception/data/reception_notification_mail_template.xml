@@ -4,7 +4,7 @@
         <field name="name">truck not out template</field>
         <field name="model_id" ref="reception.model_stock_picking" />
         <field name="email_from">info@lainvernada.com</field>
-        <field name="email_to">${destinies}</field>
+        <field name="email_to">lala@lla.cl</field>
         <field name="subject">Alerta de Retraso en salida de camión</field>
         <field name="body_html">
             <![CDATA[
