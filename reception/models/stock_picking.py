@@ -148,9 +148,11 @@ class StockPicking(models.Model):
             template_id = self.with_context(
                 destinies=alert_config.notify_elapsed_time_to.mapped('email')
             ).env.ref('reception.truck_not_out_mail_template')
-            raise models.ValidationError(template_id)
+
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
+
+            raise models.ValidationError(self.hr_alert_notification_count)
 
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
