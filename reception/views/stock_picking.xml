@@ -10,6 +10,7 @@
                     <field name="is_mp_reception"
                            attrs="{'readonly': [('state', '=', 'done')]}"
                     />
+                    <field name="hr_alert_notification_count" />
                 </field>
                 <field name="origin" position="after">
                     <field name="truck_in_date" />
