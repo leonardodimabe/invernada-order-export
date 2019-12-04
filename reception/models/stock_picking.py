@@ -145,7 +145,9 @@ class StockPicking(models.Model):
         # self.hr_alert_notification_count == 0 and
         if self.elapsed_time > alert_config.hr_alert:
 
-            template_id = self.env.ref('reception.truck_not_out_mail_template')
+            template_id = self.env.with_context(
+                destinied=alert_config.notify_elapsed_time_to.mapped('mail')
+            ).ref('reception.truck_not_out_mail_template')
             self.message_post_with_template(template_id.id)
 
             self.hr_alert_notification_count += 1
