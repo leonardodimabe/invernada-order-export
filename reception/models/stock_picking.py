@@ -154,9 +154,8 @@ class StockPicking(models.Model):
 
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
-                raise models.ValidationError('{} {}'.format(self.weight_guide, self.net_weight))
                 if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
-
+                    raise models.ValidationError('{} {}'.format(self.weight_guide, self.net_weight))
                     self.ensure_one()
                     template_id = self.env.ref('reception.diff_weight_alert_mail_template')
                     self.message_post_with_template(template_id.id)
