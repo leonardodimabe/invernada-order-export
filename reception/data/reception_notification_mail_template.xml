@@ -14,7 +14,7 @@
                 <br/>
                 </p>
                 ${ctx}
-                ${object}
+                ${object.reception_alert.notify_elapsed_time_to}
                 Atte,<br/>
                 ${(object.company_id.name)}
             ]]>

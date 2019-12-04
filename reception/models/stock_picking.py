@@ -63,6 +63,8 @@ class StockPicking(models.Model):
         related='partner_id.sag_code'
     )
 
+    reception_alert = fields.Many2one('reception.alert.config')
+
     @api.one
     @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package')
     def _compute_net_weight(self):
@@ -146,7 +148,7 @@ class StockPicking(models.Model):
 
             # d
             self.ensure_one()
-            self.destinies = alert_config.notify_elapsed_time_to
+            self.reception_alert = alert_config
             template_id = self.env.ref('reception.truck_not_out_mail_template')
             self.message_post_with_template(template_id.id)
             self.hr_alert_notification_count += 1
