@@ -153,8 +153,8 @@ class StockPicking(models.Model):
             self.hr_alert_notification_count += 1
 
         if self.kg_diff_alert_notification_count == 0:
-            raise models.ValidationError('{} {}'.format(self.weight_guide, self.net_weight))
             if self.weight_guide > 0 and self.net_weight > 0:
+                raise models.ValidationError('{} {}'.format(self.weight_guide, self.net_weight))
                 if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
 
                     self.ensure_one()
