@@ -126,8 +126,6 @@ class StockPicking(models.Model):
             message = 'debe agregar número de guía \n'
         if not self.weight_guide:
             message += 'debe agregar kilos guía \n'
-        if not self.gross_weight:
-            message += 'debe agregar kilos brutos \n'
 
         if len(self.move_ids_without_package) != 2:
             message += 'debe agregar MP y envases al listado de operaciones'
