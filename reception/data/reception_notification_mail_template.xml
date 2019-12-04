@@ -10,10 +10,9 @@
             <![CDATA[
                 <p>Estimados,<br/><br/>
                 se informa que el camión asociado a la recepción ${object.name} ha sobrepasado la cantidad
-                de hr permitidas en la planta (${object.reception_alert.hr_alert}).
+                de hr permitidas en la planta (${object.reception_alert.hr_alert} hr).
                 <br/>
                 </p>
-
                 Atte,<br/>
                 ${(object.company_id.name)}
             ]]>
