@@ -4,7 +4,9 @@
         <field name="name">truck not out template</field>
         <field name="model_id" ref="reception.model_stock_picking" />
         <field name="email_from">info@lainvernada.com</field>
-        <field name="email_to">${object.reception_alert.notify_elapsed_time_to.mapped('email')}</field>
+        <field name="email_to">
+            ${','.join(object.reception_alert.notify_elapsed_time_to.mapped('email'))}
+        </field>
         <field name="subject">Alerta de Retraso en salida de camión</field>
         <field name="body_html">
             <![CDATA[
@@ -23,7 +25,8 @@
         <field name="name">Alerta de Diferencia de Kg</field>
         <field name="model_id" ref="reception.model_stock_picking" />
         <field name="email_from">info@lainvernada.com</field>
-        <field name="email_to">lala@alala.cl,lele@lala.cl</field>
+        <field name="email_to">
+            ${','.join(object.reception_alert.notify_diff_kg.mapped('email'))}</field>
         <field name="subject">Alerta de Diferencia de kg en Recepción</field>
         <field name="body_html">
             <![CDATA[
