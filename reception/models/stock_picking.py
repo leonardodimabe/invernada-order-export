@@ -24,7 +24,7 @@ class StockPicking(models.Model):
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
-    truck_in_date = fields.Datetime('Salida de Camión')
+    truck_in_date = fields.Datetime('Entrada de Camión')
 
     elapsed_time = fields.Float(
         'Horas Camión en planta',
