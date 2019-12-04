@@ -146,12 +146,16 @@ class StockPicking(models.Model):
         if self.elapsed_time > alert_config.hr_alert:
 
             # .with_context(destinies=alert_config.notify_elapsed_time_to.mapped('email'))
+            self.ensure_one()
             template_id = self.env.ref('reception.truck_not_out_mail_template')
             self.message_post_with_template(template_id.id)
-            self.ensure_one()
             self.hr_alert_notification_count += 1
 
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
                 if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
-                    print('send mail')
+
+                    self.ensure_one()
+                    template_id = self.env.ref('reception.diff_weight_alert_mail_template')
+                    self.message_post_with_template(template_id.id)
+                    self.kg_diff_alert_notification_count += self.kg_diff_alert_notification_count
