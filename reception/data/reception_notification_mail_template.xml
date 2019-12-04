@@ -12,7 +12,6 @@
                 se informa que el camión asociado a la recepción ${object.name} ha sobrepasado la cantidad
                 de hr permitidas en la planta.
                 <br/>
-                ${destinies}
                 </p>
                 Atte,<br/>
                 ${(object.company_id.name)}
