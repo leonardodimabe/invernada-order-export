@@ -21,6 +21,7 @@ class StockMove(models.Model):
 
     @api.model
     @api.depends('picking_type_id')
+    @api.onchange('picking_type_id')
     def _domain_filter(self):
         _logger.error('{} LALA'.format(self.id))
         domain = [
