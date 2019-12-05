@@ -38,7 +38,8 @@
         'views/reception_alert_config.xml',
         'reports/reception_label_report.xml',
         'data/alert_config_data.xml',
-        'data/reception_notification_mail_template.xml'
+        'data/reception_notification_mail_template.xml',
+        'views/stock_warehouse.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
