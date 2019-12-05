@@ -169,8 +169,7 @@ class StockPicking(models.Model):
     @api.multi
     def notify_alerts(self):
         alert_config = self.env['reception.alert.config'].search([])
-        # self.hr_alert_notification_count == 0 and
-        if self.elapsed_time > alert_config.hr_alert:
+        if self.hr_alert_notification_count == 0 and self.elapsed_time > alert_config.hr_alert:
 
             self.ensure_one()
             self.reception_alert = alert_config
@@ -186,4 +185,4 @@ class StockPicking(models.Model):
                     self.reception_alert = alert_config
                     template_id = self.env.ref('reception.diff_weight_alert_mail_template')
                     self.message_post_with_template(template_id.id)
-                    # self.kg_diff_alert_notification_count += self.kg_diff_alert_notification_count
+                    self.kg_diff_alert_notification_count += self.kg_diff_alert_notification_count

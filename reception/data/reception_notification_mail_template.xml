@@ -35,7 +35,6 @@
                 <p>
                 se informa diferencia de kg mayor a ${object.reception_alert.kg_diff_alert}
                 </p>
-                ${object.reception_alert.get_notify_diff_emails()}
                 Atte, <br/>
                 ${(object.company_id.name)}
             ]]>
