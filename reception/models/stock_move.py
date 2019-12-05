@@ -19,7 +19,7 @@ class StockMove(models.Model):
 
     @api.one
     def domain_filter(self):
-        domain = [('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)]
+        domain = ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
         return domain
 
     @api.multi
