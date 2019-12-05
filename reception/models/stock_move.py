@@ -24,7 +24,7 @@ class StockMove(models.Model):
         _logger.debug('{} LALA'.format(self.picking_type_id))
         domain = [
             ('type', 'in', ['product', 'consu']),
-            ('categ_id', 'in', [5])  # self.picking_type_id.warehouse_id.products_can_be_stored)
+            ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
         ]
         return domain
 
