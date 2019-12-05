@@ -1,4 +1,6 @@
 from odoo import fields, models
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class ReceptionAlertConfig(models.Model):
@@ -23,7 +25,7 @@ class ReceptionAlertConfig(models.Model):
 
     def get_notify_diff_emails(self):
         mails = ','.join(self.notify_diff_kg.mapped('email'))
-        models.ValidationError(mails)
+        _logger.error('EMAIL {}'.format(mails))
         return mails
 
 
