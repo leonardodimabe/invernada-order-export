@@ -29,7 +29,7 @@
                            attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
                     <field name="net_weight"
-                           attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
                     />
                 </field>
                 <xpath expr="//page[@name='note']" position="after">
