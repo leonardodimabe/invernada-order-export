@@ -113,11 +113,11 @@ class StockPicking(models.Model):
                 unit_weight = mp.product_uom_qty / total_canning
 
                 counter = 0
-                #for move_line in mp.move_line_ids:
-                #    move_line.product_uom_qty = unit_weight
-                #    if counter >= total_canning:
-                #        move_line.unlink()
-                #    counter += 1
+                for move_line in mp.move_line_ids:
+                    move_line.product_uom_qty = unit_weight
+                    if counter >= total_canning:
+                        move_line.unlink()
+                    counter += 1
 
             return res
 
