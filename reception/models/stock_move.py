@@ -21,7 +21,7 @@ class StockMove(models.Model):
     def _domain_filter(self):
         domain = [
             ('type', 'in', ['product', 'consu']),
-            ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
+            ('categ_id', 'in', [5])  # self.picking_type_id.warehouse_id.products_can_be_stored)
         ]
         return domain
 
