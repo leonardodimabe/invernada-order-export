@@ -130,7 +130,7 @@ class StockPicking(models.Model):
             if not stock_picking.tare_weight:
                 message = 'Debe agregar kg tara'
             if message:
-                models.ValidationError(message)
+                raise models.ValidationError(message)
         return super(StockPicking, self).button_validate()
 
     @api.model
