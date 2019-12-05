@@ -22,6 +22,8 @@ class ReceptionAlertConfig(models.Model):
         return ','.join(self.notify_elapsed_time_to.mapped('email'))
 
     def get_notify_diff_emails(self):
-        return ','.join(self.notify_diff_kg.mapped('email'))
+        mails = ','.join(self.notify_diff_kg.mapped('email'))
+        models.ValidationError(mails)
+        return mails
 
 
