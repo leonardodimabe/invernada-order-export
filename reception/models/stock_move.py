@@ -19,6 +19,7 @@ class StockMove(models.Model):
 
     @api.model
     def _domain_filter(self):
+        models.ValidationError(self.picking_type_id)
         domain = [
             ('type', 'in', ['product', 'consu']),
             ('categ_id', 'in', [5])  # self.picking_type_id.warehouse_id.products_can_be_stored)
