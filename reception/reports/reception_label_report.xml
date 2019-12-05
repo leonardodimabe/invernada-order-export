@@ -61,7 +61,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="text-align: right !important;">N° de Bultos:</td>
+                                <td style="text-align: right !important;">N° DE BULTOS:</td>
                                 <td>
                                     <span t-field="o.get_mp_move().quantity_done"/>
                                 </td>
@@ -81,7 +81,7 @@
                             <tr>
                                 <td colspan="2">
                                     <h2 style="text-align: center !important;">
-                                        LOTE N°:
+                                        N° SERIE:
                                         <span t-field="move_line.lot_name"/>
                                     </h2>
                                 </td>
