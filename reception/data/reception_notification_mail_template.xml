@@ -33,8 +33,7 @@
             <![CDATA[
                 <p>Estimado,</p>
                 <p>
-                se informa diferencia de kg bla bla bla...
-                ${object.reception_alert.notify_diff_kg.mapped('email')}
+                se informa diferencia de kg mayor a ${object.reception_alert.kg_diff_alert}
                 </p>
                 Atte, <br/>
                 ${(object.company_id.name)}

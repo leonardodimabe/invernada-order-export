@@ -183,6 +183,7 @@ class StockPicking(models.Model):
                 if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
 
                     self.ensure_one()
+                    self.reception_alert = alert_config
                     template_id = self.env.ref('reception.diff_weight_alert_mail_template')
                     self.message_post_with_template(template_id.id)
                     # self.kg_diff_alert_notification_count += self.kg_diff_alert_notification_count
