@@ -16,5 +16,18 @@
                 </xpath>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="stock_move_custom_list">
+            <field name="name">Listado de Operaciones</field>
+            <field name="model">stock.move</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id" />
+                    <field name="product_uom_qty" />
+                    <field name="quantity_done" />
+
+                </tree>
+            </field>
+        </record>
     </data>
 </odoo>
