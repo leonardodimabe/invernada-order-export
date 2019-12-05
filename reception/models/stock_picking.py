@@ -121,6 +121,18 @@ class StockPicking(models.Model):
 
             return res
 
+    @api.multi
+    def button_validate(self):
+        for stock_picking in self:
+            message = ''
+            if not stock_picking.gross_weight:
+                message = 'Debe agregar kg brutos \n'
+            if not stock_picking.tare_weight:
+                message = 'Debe agregar kg tara'
+            if message:
+                models.ValidationError(message)
+        return super(StockPicking, self).button_validate()
+
     @api.model
     def validate_mp_reception(self):
         message = ''
