@@ -34,7 +34,7 @@
                 <p>Estimado,</p>
                 <p>
                 se informa diferencia de kg bla bla bla...
-                ${object.reception_alert.get_notify_diff_emails()}
+                ${object.reception_alert.notify_diff_kg}
                 </p>
                 Atte, <br/>
                 ${(object.company_id.name)}
