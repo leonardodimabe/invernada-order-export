@@ -17,7 +17,8 @@ class StockPicking(models.Model):
     net_weight = fields.Integer(
         'Kilos Netos',
         compute='_compute_net_weight',
-        store=True
+        store=True,
+        readonly=True
     )
 
     is_mp_reception = fields.Boolean('Recepción de MP')
