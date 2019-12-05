@@ -23,7 +23,7 @@ class ReceptionAlertConfig(models.Model):
     def get_notify_elapsed_mails(self):
         return ','.join(self.notify_elapsed_time_to.mapped('email'))
 
-    @api.multi
+    @api.model
     def get_notify_diff_emails(self):
         mails = ''
         for item in self:
