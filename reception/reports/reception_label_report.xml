@@ -178,7 +178,7 @@
             model="stock.picking"
             report_type="qweb-pdf"
             name="reception.report_quality_label"
-            paperformat="paper_format_10_7"
+            paperformat="paper_format_10_x_7"
 
     />
 
