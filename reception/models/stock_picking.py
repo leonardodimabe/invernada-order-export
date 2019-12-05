@@ -97,7 +97,6 @@ class StockPicking(models.Model):
         if self.net_weight:
             canning = self.get_canning_move()
             if len(canning) == 1:
-                models.ValidationError(len())
                 self.avg_unitary_weight = self.net_weight / canning.product_uom_qty
 
     @api.model
