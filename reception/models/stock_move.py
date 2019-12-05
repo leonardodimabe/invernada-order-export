@@ -8,6 +8,20 @@ class StockMove(models.Model):
         'tiene series generadas'
     )
 
+    product_id = fields.Many2one(
+        'product.product',
+        'Product',
+        domain=[('type', 'in', ['product', 'consu']), 'domain_filter'],
+        index=True,
+        required=True,
+        states={'done': [('readonly', True)]}
+    )
+
+    @api.one
+    def domain_filter(self):
+        domain = [('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)]
+        return domain
+
     @api.multi
     def generate_serial(self):
 
