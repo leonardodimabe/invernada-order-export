@@ -23,10 +23,9 @@ class ReceptionAlertConfig(models.Model):
     def get_notify_elapsed_mails(self):
         return ','.join(self.notify_elapsed_time_to.mapped('email'))
 
-    @api.one
     def get_notify_diff_emails(self):
-        mails = ','.join(self.notify_diff_kg.mapped('email'))
-        _logger.error('EMAIL {}'.format(self.notify_diff_kg))
-        return mails
+        return ','.join(self.notify_diff_kg.mapped('email'))
+
+
 
 
