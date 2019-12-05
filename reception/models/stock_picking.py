@@ -34,6 +34,13 @@ class StockPicking(models.Model):
         compute='_compute_elapsed_time'
     )
 
+    avg_unitary_weight = fields.Float(
+        'Promedio Peso unitario',
+        compute='_compute_avg_unitary_weight'
+    )
+
+    quality_weight = fields.Float('Kilos Calidad')
+
     carrier_rut = fields.Char(
         'Rut',
         related='carrier_id.rut'
@@ -66,9 +73,9 @@ class StockPicking(models.Model):
     reception_alert = fields.Many2one('reception.alert.config')
 
     @api.one
-    @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package')
+    @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package', 'quality_weight')
     def _compute_net_weight(self):
-        self.net_weight = self.gross_weight - self.tare_weight
+        self.net_weight = self.gross_weight - self.tare_weight + self.quality_weight
         if self.is_mp_reception:
             canning = self.get_canning_move()
             if len(canning) == 1 and canning.product_id.weight:
@@ -84,6 +91,13 @@ class StockPicking(models.Model):
                 self.elapsed_time = (datetime.now() - self.truck_in_date).total_seconds() / 3600
         else:
             self.elapsed_time = 0
+
+    @api.one
+    def _compute_avg_unitary_weight(self):
+        if self.net_weight:
+            canning = self.get_canning_move()
+            if len(canning) > 0:
+                self.avg_unitary_weight = self.net_weight / len(canning)
 
     @api.model
     def get_mp_move(self):
