@@ -11,15 +11,18 @@ class StockMove(models.Model):
     product_id = fields.Many2one(
         'product.product',
         'Product',
-        domain=[('type', 'in', ['product', 'consu']), 'domain_filter'],
+        domain=lambda self: self._domain_filter(),
         index=True,
         required=True,
         states={'done': [('readonly', True)]}
     )
 
-    @api.one
+    @api.model
     def domain_filter(self):
-        domain = ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
+        domain = [
+            ('type', 'in', ['product', 'consu']),
+            ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
+        ]
         return domain
 
     @api.multi
