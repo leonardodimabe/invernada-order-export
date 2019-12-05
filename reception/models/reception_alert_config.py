@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -23,9 +23,11 @@ class ReceptionAlertConfig(models.Model):
     def get_notify_elapsed_mails(self):
         return ','.join(self.notify_elapsed_time_to.mapped('email'))
 
+    @api.multi
     def get_notify_diff_emails(self):
-        mails = ','.join(self.notify_diff_kg.mapped('email'))
-        _logger.error('EMAIL {}'.format(self.notify_diff_kg.mapped('email')))
-        return mails
+        for item in self:
+            mails = ','.join(item.notify_diff_kg.mapped('email'))
+            _logger.error('EMAIL {}'.format(item.notify_diff_kg.mapped('email')))
+            return mails
 
 
