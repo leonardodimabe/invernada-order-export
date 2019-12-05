@@ -25,7 +25,7 @@ class ReceptionAlertConfig(models.Model):
 
     def get_notify_diff_emails(self):
         mails = ','.join(self.notify_diff_kg.mapped('email'))
-        _logger.error('EMAIL {}'.format(mails))
+        _logger.error('EMAIL {}'.format(self.notify_diff_kg.mapped('email')))
         return mails
 
 
