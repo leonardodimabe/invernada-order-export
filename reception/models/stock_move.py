@@ -19,8 +19,6 @@ class StockMove(models.Model):
         states={'done': [('readonly', True)]}
     )
 
-    @api.model
-    @api.depends('picking_type_id')
     def _domain_filter(self):
         domain = [
             ('type', 'in', ['product', 'consu']),
