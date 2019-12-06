@@ -19,6 +19,12 @@ class StockMove(models.Model):
         states={'done': [('readonly', True)]}
     )
 
+    products_can_be_stored = fields.Many2many(
+        'product.category',
+        'productos que pueden ser almacenados',
+        related='picking_type_id.warehouse_id.products_can_be_stored'
+    )
+
     def _domain_filter(self):
         domain = [
             ('type', 'in', ['product', 'consu']),
