@@ -24,7 +24,7 @@ class StockMove(models.Model):
             ('type', 'in', ['product', 'consu']),
             ('categ_id', 'in', self.picking_type_id.warehouse_id.products_can_be_stored)
         ]
-        _logger.error('aaa {}'.format(self.env))
+        _logger.error('aaa {}'.format(self.env._fields))
         return domain
 
     @api.multi
