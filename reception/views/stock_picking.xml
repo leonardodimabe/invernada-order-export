@@ -44,7 +44,7 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="//page[1]/tree" position="inside">
+                <xpath expr="//page[@text='Operations']/tree" position="inside">
                     <field name="product_id" position="before">
                         <field name="carrier_rut" />
                     </field>
