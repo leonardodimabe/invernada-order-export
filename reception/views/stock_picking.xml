@@ -46,11 +46,6 @@
                 </xpath>
                 <xpath expr="//tree[@name='treeoperations']" position="inside">
                     <field name="quantity_done" position="replace">
-                        <field name="product_id"
-                               required="1"
-                               attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'draft'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
-                               domain="[('type', 'in', ['product', 'consu']),('categ_id', 'in', picking_type_id.warehouse_id.products_can_be_stored)]"
-                        />
                     </field>
                 </xpath>
             </field>
