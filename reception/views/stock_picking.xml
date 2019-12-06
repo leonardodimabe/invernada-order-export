@@ -27,11 +27,15 @@
                     <field name="tare_weight"
                            attrs="{'invisible':[('is_mp_reception', '=', False)], 'readonly': [('state', '=', 'done')]}"
                     />
-                    <field name="quality_weight"/>
+                    <field name="quality_weight"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                    />
                     <field name="net_weight"
                            attrs="{'invisible':[('is_mp_reception', '=', False)]}"
                     />
-                    <field name="avg_unitary_weight"/>
+                    <field name="avg_unitary_weight"
+                           attrs="{'invisible':[('is_mp_reception', '=', False)]}"
+                    />
                 </field>
                 <xpath expr="//page[@name='note']" position="after">
                     <page string="Transportista" name="carrier_page">
