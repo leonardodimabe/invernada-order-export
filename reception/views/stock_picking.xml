@@ -44,9 +44,10 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="//tree[@name='treeoperations']" position="inside">
-                    <field name="quantity_done" position="replace">
-                    </field>
+                <xpath expr="//tree[@name='treeoperations']" position="replace">
+                    <tree>
+                        <field name="product_id" />
+                    </tree>
                 </xpath>
             </field>
         </record>
