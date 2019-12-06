@@ -44,7 +44,7 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="//tree[@name='operations']" position="replace">
+                <xpath expr="//page[@name='operations']" position="replace">
                    <page string="Operations">
                             <field name="id" invisible="1"/>
                             <field name="immediate_transfer" invisible="1"/>
