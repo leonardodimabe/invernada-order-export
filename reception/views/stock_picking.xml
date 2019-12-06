@@ -74,7 +74,6 @@
                                        attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'draft'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
                                        domain="[('type', 'in', ['product', 'consu']), ('categ_id', 'in', products_can_be_stored)]"
                                 />
-                                <field name="products_can_be_stored" />
                                 <field name="is_initial_demand_editable" invisible="1"/>
                                 <field name="is_quantity_done_editable" invisible="1"/>
                                 <field name="product_uom_qty" string="Initial Demand"
