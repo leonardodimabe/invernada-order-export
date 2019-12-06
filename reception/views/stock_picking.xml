@@ -44,13 +44,11 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="//page[1]/tree" position="inside">
-                    <field name="product_id" position="replace">
-                        <field name="product_id"
-                               required="1"
-                               attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'lala'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
-                        />
-                    </field>
+                <xpath expr="//page[1]/tree/field[@name='product_id']" position="replace">
+                    <field name="product_id"
+                           required="1"
+                           attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'lala'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
+                    />
                 </xpath>
             </field>
         </record>
