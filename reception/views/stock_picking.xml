@@ -45,7 +45,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//tree[@name='treeoperations']" position="inside">
-                    <field name="carrier_rut"/>
+                    <field name="product_id"/>
                 </xpath>
             </field>
         </record>
