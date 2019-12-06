@@ -44,10 +44,12 @@
                         </group>
                     </page>
                 </xpath>
-                <xpath expr="/form/sheet/notebook/page[@label='Operations']/tree" position="inside">
+                <xpath expr="//page[@label='Operations']" position="inside">
+                    <!--
                     <field name="product_id" position="before">
                         <field name="carrier_rut" />
                     </field>
+                    -->
                 </xpath>
             </field>
         </record>
