@@ -20,6 +20,12 @@ class StockPicking(models.Model):
         store=True
     )
 
+    production_net_weight = fields.Float(
+        'Kilos Netos Producción',
+        compute='_compute_production_net_weight',
+        store=True
+    )
+
     is_mp_reception = fields.Boolean('Recepción de MP')
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
@@ -76,6 +82,16 @@ class StockPicking(models.Model):
     @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package', 'quality_weight')
     def _compute_net_weight(self):
         self.net_weight = self.gross_weight - self.tare_weight + self.quality_weight
+        if self.is_mp_reception:
+            canning = self.get_canning_move()
+            if len(canning) == 1 and canning.product_id.weight:
+                canning_total_weight = canning.product_uom_qty * canning.product_id.weight
+                self.net_weight = self.net_weight - canning_total_weight
+
+    @api.one
+    @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package',)
+    def _compute_production_net_weight(self):
+        self.net_weight = self.gross_weight - self.tare_weight
         if self.is_mp_reception:
             canning = self.get_canning_move()
             if len(canning) == 1 and canning.product_id.weight:
