@@ -107,7 +107,7 @@ class StockPicking(models.Model):
 
                 self.elapsed_time = self._get_hours(self.truck_in_date, datetime.now())
         else:
-            self.elapsed_time = 0
+            self.elapsed_time = '0'
 
     def _get_hours(self, init_date, finish_date):
         diff = str((finish_date - init_date))
