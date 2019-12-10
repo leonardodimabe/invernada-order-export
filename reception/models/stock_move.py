@@ -50,7 +50,7 @@ class StockMove(models.Model):
                 for stock_move_line in stock_move.move_line_ids:
                     prefix = ''
                     if stock_move.product_id.categ_id.is_canning:
-                        prefix = 'env'
+                        prefix = 'ENV'
                     stock_move_line.lot_name = '{}{}'.format(prefix, stock_move.picking_id.name)
                     stock_move_line.qty_done = stock_move_line.product_uom_qty
                 stock_move.has_serial_generated = True

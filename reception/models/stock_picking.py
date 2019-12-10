@@ -25,7 +25,18 @@ class StockPicking(models.Model):
         store=True
     )
 
-    is_mp_reception = fields.Boolean('Recepción de MP')
+    reception_type_selection = fields.Selection([
+        ('ins', 'Insumos'),
+        ('mp', 'Materia Prima')
+    ],
+        default='ins'
+    )
+
+    is_mp_reception = fields.Boolean(
+        'Recepción de MP',
+        compute='_compute_is_mp_reception',
+        store=True
+    )
 
     carrier_id = fields.Many2one('custom.carrier', 'Conductor')
 
@@ -107,6 +118,11 @@ class StockPicking(models.Model):
                 self.elapsed_time = self._get_hours(self.truck_in_date, datetime.now())
         else:
             self.elapsed_time = '00:00:00'
+
+    @api.one
+    @api.depends('reception_type_selection')
+    def _compute_is_mp_reception(self):
+        self.is_mp_reception = self.reception_type_selection == 'mp'
 
     def _get_hours(self, init_date, finish_date):
         diff = str((finish_date - init_date))
