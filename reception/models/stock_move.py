@@ -45,3 +45,12 @@ class StockMove(models.Model):
                     stock_move_line.qty_done = stock_move_line.product_uom_qty
                     counter += 1
                 stock_move.has_serial_generated = True
+
+            if stock_move.product_id.tracking == 'lot':
+                for stock_move_line in stock_move.move.line.ids:
+                    prefix = ''
+                    if stock_move.product_id.categ_id.is_canning:
+                        prefix = 'env'
+                    stock_move_line.lot_name = '{}{}'.format(prefix, stock_move.picking_id.name)
+                    stock_move_line.qty_done = stock_move_line.product_uom_qty
+                stock_move.has_serial_generated = True
