@@ -125,10 +125,6 @@ class StockPicking(models.Model):
     def _compute_is_mp_reception(self):
         self.is_mp_reception = self.reception_type_selection == 'mp'
 
-    def _get_hours(self, init_date, finish_date):
-        diff = str((finish_date - init_date))
-        return diff.split('.')[0]
-
     @api.one
     @api.depends('production_net_weight', 'tare_weight', 'gross_weight', 'move_ids_without_package')
     def _compute_avg_unitary_weight(self):
@@ -141,9 +137,13 @@ class StockPicking(models.Model):
     def get_mp_move(self):
         return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_mp == True)
 
+    def _get_hours(self, init_date, finish_date):
+        diff = str((finish_date - init_date))
+        return diff.split('.')[0]
+
     @api.model
     def get_canning_move(self):
-        return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_mp == False)
+        return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_canning == True)
 
     @api.multi
     def action_confirm(self):
