@@ -3,7 +3,6 @@ from datetime import datetime
 
 
 class StockPicking(models.Model):
-
     _inherit = 'stock.picking'
 
     guide_number = fields.Integer('Número de Guía')
@@ -89,7 +88,7 @@ class StockPicking(models.Model):
                 self.net_weight = self.net_weight - canning_total_weight
 
     @api.one
-    @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package',)
+    @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package', )
     def _compute_production_net_weight(self):
         self.production_net_weight = self.gross_weight - self.tare_weight
         if self.is_mp_reception:
@@ -123,11 +122,11 @@ class StockPicking(models.Model):
 
     @api.model
     def get_mp_move(self):
-        return self.move_ids_without_package.filtered(lambda x: x.has_tracking == 'serial')
+        return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_mp == True)
 
     @api.model
     def get_canning_move(self):
-        return self.move_ids_without_package.filtered(lambda x: x.has_tracking != 'serial')
+        return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_mp == False)
 
     @api.multi
     def action_confirm(self):
@@ -193,7 +192,6 @@ class StockPicking(models.Model):
     def notify_alerts(self):
         alert_config = self.env['reception.alert.config'].search([])
         if self.hr_alert_notification_count == 0 and self.elapsed_time > alert_config.hr_alert:
-
             self.ensure_one()
             self.reception_alert = alert_config
             template_id = self.env.ref('reception.truck_not_out_mail_template')
@@ -203,7 +201,6 @@ class StockPicking(models.Model):
         if self.kg_diff_alert_notification_count == 0:
             if self.weight_guide > 0 and self.net_weight > 0:
                 if abs(self.weight_guide - self.net_weight) > alert_config.kg_diff_alert:
-
                     self.ensure_one()
                     self.reception_alert = alert_config
                     template_id = self.env.ref('reception.diff_weight_alert_mail_template')
