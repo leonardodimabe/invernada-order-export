@@ -131,7 +131,10 @@ class StockPicking(models.Model):
         if self.production_net_weight:
             canning = self.get_canning_move()
             if len(canning) == 1:
-                self.avg_unitary_weight = self.production_net_weight / canning.product_uom_qty
+                divisor = canning.product_uom_qty
+                if divisor == 0:
+                    divisor = 1
+                self.avg_unitary_weight = self.production_net_weight / divisor
 
     @api.model
     def get_mp_move(self):
