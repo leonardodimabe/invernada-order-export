@@ -107,14 +107,14 @@ class StockPicking(models.Model):
 
                 self.elapsed_time = self._get_hours(self.truck_in_date, datetime.now())
         else:
-            self.elapsed_time = '0'
+            self.elapsed_time = '00:00:00'
 
     def _get_hours(self, init_date, finish_date):
         diff = str((finish_date - init_date))
         return diff.split('.')[0]
 
     @api.one
-    @api.depends('production_net_weight')
+    @api.depends('production_net_weight','tare_weight', 'gross_weight', 'move_ids_without_package')
     def _compute_avg_unitary_weight(self):
         if self.production_net_weight:
             canning = self.get_canning_move()
