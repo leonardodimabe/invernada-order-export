@@ -29,7 +29,8 @@ class StockPicking(models.Model):
         ('ins', 'Insumos'),
         ('mp', 'Materia Prima')
     ],
-        default='ins'
+        default='ins',
+        string='Tipo de Recepción'
     )
 
     is_mp_reception = fields.Boolean(
