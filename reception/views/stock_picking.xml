@@ -12,6 +12,9 @@
                            options="{'horizontal':true}"
                            attrs="{'readonly': [('state', '=', 'done')]}"
                     />
+                    <field name="is_mp_reception"
+                           invisible="1"
+                    />
                 </field>
                 <field name="origin" position="after">
                     <field name="truck_in_date"/>
