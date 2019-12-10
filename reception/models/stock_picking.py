@@ -117,6 +117,7 @@ class StockPicking(models.Model):
     def _compute_avg_unitary_weight(self):
         if self.production_net_weight:
             canning = self.get_canning_move()
+            raise models.ValidationError(canning)
             if len(canning) == 1:
                 self.avg_unitary_weight = self.production_net_weight / canning.product_uom_qty
 
