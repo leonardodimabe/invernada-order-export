@@ -104,6 +104,8 @@ class StockPicking(models.Model):
             if self.date_done:
                 self.elapsed_time = self.date_done - self.truck_in_date  # .total_seconds() / 3600
             else:
+                diff = datetime.now() - self.truck_in_date
+                models.ValidationError(diff)
                 self.elapsed_time = datetime.now() - self.truck_in_date  # .total_seconds() / 3600
         else:
             self.elapsed_time = 0
