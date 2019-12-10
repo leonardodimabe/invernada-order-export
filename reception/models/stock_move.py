@@ -10,6 +10,11 @@ class StockMove(models.Model):
         'tiene series generadas'
     )
 
+    is_mp = fields.Boolean(
+        'es mp',
+        related='product_id.categ_id.is_mp'
+    )
+
     product_id = fields.Many2one(
         'product.product',
         'Product',

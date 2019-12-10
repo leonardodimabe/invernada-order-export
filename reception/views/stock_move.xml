@@ -9,10 +9,11 @@
                     <field name="has_serial_generated" invisible="1" />
                     <field name="has_tracking" invisible="1" />
                     <button name="generate_serial"
-                            string="Generar Series"
+                            string="Generar Códigos"
                             type="object"
                             attrs="{'invisible':['|',('has_serial_generated', '=', True),('has_tracking', 'not in', ['serial', 'lot'])]}"
                     />
+                    <field name="is_mp" />
                 </xpath>
             </field>
         </record>

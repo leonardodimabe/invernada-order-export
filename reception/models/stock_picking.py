@@ -140,13 +140,13 @@ class StockPicking(models.Model):
     def get_mp_move(self):
         return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_mp == True)
 
-    def _get_hours(self, init_date, finish_date):
-        diff = str((finish_date - init_date))
-        return diff.split('.')[0]
-
     @api.model
     def get_canning_move(self):
         return self.move_ids_without_package.filtered(lambda x: x.product_id.categ_id.is_canning == True)
+
+    def _get_hours(self, init_date, finish_date):
+        diff = str((finish_date - init_date))
+        return diff.split('.')[0]
 
     @api.multi
     def action_confirm(self):
