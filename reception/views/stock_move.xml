@@ -13,7 +13,6 @@
                             type="object"
                             attrs="{'invisible':['|',('has_serial_generated', '=', True),('has_tracking', 'not in', ['serial', 'lot'])]}"
                     />
-                    <field name="is_mp" />
                 </xpath>
             </field>
         </record>

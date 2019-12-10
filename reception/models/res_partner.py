@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class ResPartner(models.Model):
@@ -10,3 +10,13 @@ class ResPartner(models.Model):
         'SAG Activo',
         default=False
     )
+
+    short_name = fields.Char(
+        'Nombre Corto',
+        compute='_compute_short_name'
+    )
+
+    @api.one
+    def _compute_short_name(self):
+        if self.name:
+            self.short_name = self.name[0:25]
