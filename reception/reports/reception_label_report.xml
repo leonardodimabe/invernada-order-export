@@ -19,7 +19,7 @@
                             <tr>
                                 <td style="text-align: right !important;">PRODUCTOR:</td>
                                 <td>
-                                    <span t-field="o.partner_id.name"/>
+                                    <span t-field="o.partner_id.name[0:25]"/>
                                 </td>
                             </tr>
                             <tr>
