@@ -47,7 +47,7 @@ class StockMove(models.Model):
                 stock_move.has_serial_generated = True
 
             if stock_move.product_id.tracking == 'lot':
-                for stock_move_line in stock_move.move.line.ids:
+                for stock_move_line in stock_move.move_line.ids:
                     prefix = ''
                     if stock_move.product_id.categ_id.is_canning:
                         prefix = 'env'
