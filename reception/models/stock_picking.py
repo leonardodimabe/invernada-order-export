@@ -96,7 +96,7 @@ class StockPicking(models.Model):
             canning = self.get_canning_move()
             if len(canning) == 1 and canning.product_id.weight:
                 canning_total_weight = canning.product_uom_qty * canning.product_id.weight
-                self.net_weight = self.net_weight - canning_total_weight
+                self.production_net_weight = self.net_weight - canning_total_weight
 
     @api.one
     def _compute_elapsed_time(self):
@@ -114,7 +114,7 @@ class StockPicking(models.Model):
         return diff.split('.')[0]
 
     @api.one
-    @api.depends('production_net_weight','tare_weight', 'gross_weight', 'move_ids_without_package')
+    @api.depends('production_net_weight', 'tare_weight', 'gross_weight', 'move_ids_without_package')
     def _compute_avg_unitary_weight(self):
         if self.production_net_weight:
             canning = self.get_canning_move()
