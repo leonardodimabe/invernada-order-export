@@ -102,13 +102,16 @@ class StockPicking(models.Model):
     def _compute_elapsed_time(self):
         if self.truck_in_date:
             if self.date_done:
-                self.elapsed_time = str((self.date_done - self.truck_in_date).hours)  # .total_seconds() / 3600
+                self.elapsed_time = self._get_hours(self.truck_in_date, self.date_done)
             else:
-                diff = str((datetime.now() - self.truck_in_date))
-                raise models.ValidationError(diff.split('.')[0])
-                self.elapsed_time = datetime.now() - self.truck_in_date  # .total_seconds() / 3600
+
+                self.elapsed_time = self._get_hours(self.truck_in_date, datetime.now())
         else:
             self.elapsed_time = 0
+
+    def _get_hours(self, init_date, finish_date):
+        diff = str((finish_date - init_date))
+        return diff.split('.')[0]
 
     @api.one
     @api.depends('production_net_weight')
