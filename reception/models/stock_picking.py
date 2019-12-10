@@ -91,12 +91,12 @@ class StockPicking(models.Model):
     @api.one
     @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package',)
     def _compute_production_net_weight(self):
-        self.net_weight = self.gross_weight - self.tare_weight
+        self.production_net_weight = self.gross_weight - self.tare_weight
         if self.is_mp_reception:
             canning = self.get_canning_move()
             if len(canning) == 1 and canning.product_id.weight:
                 canning_total_weight = canning.product_uom_qty * canning.product_id.weight
-                self.production_net_weight = self.net_weight - canning_total_weight
+                self.production_net_weight = self.production_net_weight - canning_total_weight
 
     @api.one
     def _compute_elapsed_time(self):
