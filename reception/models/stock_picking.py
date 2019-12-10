@@ -105,7 +105,7 @@ class StockPicking(models.Model):
                 self.elapsed_time = str((self.date_done - self.truck_in_date).hours)  # .total_seconds() / 3600
             else:
                 diff = str((datetime.now() - self.truck_in_date))
-                raise models.ValidationError(diff)
+                raise models.ValidationError(diff.split('.'))
                 self.elapsed_time = datetime.now() - self.truck_in_date  # .total_seconds() / 3600
         else:
             self.elapsed_time = 0
