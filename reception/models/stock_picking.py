@@ -35,7 +35,7 @@ class StockPicking(models.Model):
         readonly=True
     )
 
-    elapsed_time = fields.Datetime(
+    elapsed_time = fields.Char(
         'Horas Camión en planta',
         compute='_compute_elapsed_time'
     )
@@ -102,9 +102,9 @@ class StockPicking(models.Model):
     def _compute_elapsed_time(self):
         if self.truck_in_date:
             if self.date_done:
-                self.elapsed_time = self.date_done - self.truck_in_date  # .total_seconds() / 3600
+                self.elapsed_time = str((self.date_done - self.truck_in_date).hours)  # .total_seconds() / 3600
             else:
-                diff = datetime.now() - self.truck_in_date
+                diff = str((datetime.now() - self.truck_in_date).hours)
                 raise models.ValidationError(diff)
                 self.elapsed_time = datetime.now() - self.truck_in_date  # .total_seconds() / 3600
         else:
