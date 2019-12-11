@@ -19,6 +19,12 @@ class StockPicking(models.Model):
         store=True
     )
 
+    canning_weight = fields.Float(
+        'Peso Envases',
+        compute='_compute_canning_weight',
+        store=True
+    )
+
     production_net_weight = fields.Float(
         'Kilos Netos Producción',
         compute='_compute_production_net_weight',
@@ -94,20 +100,23 @@ class StockPicking(models.Model):
     def _compute_net_weight(self):
         self.net_weight = self.gross_weight - self.tare_weight + self.quality_weight
         if self.is_mp_reception:
-            canning = self.get_canning_move()
-            if len(canning) == 1 and canning.product_id.weight:
-                canning_total_weight = canning.product_uom_qty * canning.product_id.weight
-                self.net_weight = self.net_weight - canning_total_weight
+            if self.canning_weight:
+                self.net_weight = self.net_weight - self.canning_weight
+
+    @api.one
+    @api.depends('move_ids_without_package')
+    def _compute_canning_weight(self):
+        canning = self.get_canning_move()
+        if len(canning) == 1 and canning.product_id.weight:
+            self.canning_weight = canning.product_uom_qty * canning.product_id.weight
 
     @api.one
     @api.depends('tare_weight', 'gross_weight', 'move_ids_without_package', )
     def _compute_production_net_weight(self):
         self.production_net_weight = self.gross_weight - self.tare_weight
         if self.is_mp_reception:
-            canning = self.get_canning_move()
-            if len(canning) == 1 and canning.product_id.weight:
-                canning_total_weight = canning.product_uom_qty * canning.product_id.weight
-                self.production_net_weight = self.production_net_weight - canning_total_weight
+            if self.canning_weight:
+                self.production_net_weight = self.production_net_weight - self.canning_weight
 
     @api.one
     def _compute_elapsed_time(self):
