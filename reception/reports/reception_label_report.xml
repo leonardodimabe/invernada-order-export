@@ -164,12 +164,104 @@
                         </th>
                     </tr>
                 </table>
+                <br/>
                 <table style="width:100% !important" border="1">
                     <tr>
                         <th>N° DE INFORME: </th>
                         <th>FECHA: </th>
                         <th>HORA: </th>
                         <th>N° GUÍA: </th>
+                    </tr>
+                </table>
+                <br/>
+                <table style="width:100%;">
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>PRODUCTOR:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>DIRECCÍON:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>PROVINCIA:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>COMUNA:</th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>PESO BRUTO:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>PESO ENVASES:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>PESO TARA:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <th>PESO NETO:</th>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <table border="1" >
+                    <tr>
+                        <th>TIPO DE ENVASE:</th>
+                        <td></td>
+                    </tr>
+                </table>
+                <br/>
+                <h2>DETALLE DE TANSPORTISTA</h2>
+                <br/>
+                <table>
+                    <tr>
+                        <th>CONDUCTOR:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>RUT:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>CELULAR:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>PATENTE CAMIÓN:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>PATENTE CARRO:</th>
+                        <td></td>
+                    </tr>
+                </table>
+                <br/><br/><br/><br/>
+                <table style="width: 100%; text-align:center;">
+                    <tr>
+                        <td style="border-top: 1px; dotted">
+                            FIRMA TRANSPORTISTA
+                        </td>
+                        <td style="border-top: 1px; dotted">
+                            FIRMA ROMANERO
+                        </td>
                     </tr>
                 </table>
             </div>
