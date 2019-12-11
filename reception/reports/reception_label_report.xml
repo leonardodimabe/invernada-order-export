@@ -191,7 +191,6 @@
             model="stock.picking"
             report_type="qweb-pdf"
             name="reception.report_weighing_ticket"
-            paperformat="a4"
     />
 
     <report id="action_reception_label_report"
