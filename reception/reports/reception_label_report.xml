@@ -183,66 +183,69 @@
                         </tr>
                     </table>
                     <br/>
-                    <div style="width:50%;float:left;">
+                    <div>
+                        <div style="width:50%;float:left;">
 
-                        <table style="text-align:left; border: 1px solid;width:100%;">
-                            <tr>
-                                <th style="border-right:1px solid;">PRODUCTOR:</th>
-                                <td>
-                                    <span t-field="stock_picking.partner_id.name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">DIRECCÍON:</th>
-                                <td>
-                                    <span t-field="stock_picking.partner_id.street"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">PROVINCIA:</th>
-                                <td>
-                                    <span t-field="stock_picking.partner_id.state_id.name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">COMUNA:</th>
-                                <td>
-                                    <span t-field="stock_picking.partner_id.city"/>
-                                </td>
-                            </tr>
-                        </table>
+                            <table style="text-align:left; border: 1px solid;width:100%;">
+                                <tr>
+                                    <th style="border-right:1px solid;">PRODUCTOR:</th>
+                                    <td>
+                                        <span t-field="stock_picking.partner_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">DIRECCÍON:</th>
+                                    <td>
+                                        <span t-field="stock_picking.partner_id.street"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">PROVINCIA:</th>
+                                    <td>
+                                        <span t-field="stock_picking.partner_id.state_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">COMUNA:</th>
+                                    <td>
+                                        <span t-field="stock_picking.partner_id.city"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="width:50%;float:left;">
+                            <table style="text-align:left; border: 1px solid;width:85%;margin-left:15%;">
+                                <tr>
+                                    <th style="border-right:1px solid;">PESO BRUTO:</th>
+                                    <td>
+                                        <span t-field="stock_picking.gross_weight"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">PESO ENVASES:</th>
+                                    <td>
+                                        <span t-field="stock_picking.canning_weight"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">PESO TARA:</th>
+                                    <td>
+                                        <span t-field="stock_picking.tare_weight"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <th style="border-right:1px solid;">PESO NETO:</th>
+                                    <td>
+                                        <span t-field="stock_picking.net_weight"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div style="width:50%;float:left;">
-                        <table style="text-align:left; border: 1px solid;width:85%;margin-left:15%;">
-                            <tr>
-                                <th style="border-right:1px solid;">PESO BRUTO:</th>
-                                <td>
-                                    <span t-field="stock_picking.gross_weight"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">PESO ENVASES:</th>
-                                <td>
-                                    <span t-field="stock_picking.canning_weight"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">PESO TARA:</th>
-                                <td>
-                                    <span t-field="stock_picking.tare_weight"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"></td>
-                            </tr>
-                            <tr>
-                                <th style="border-right:1px solid;">PESO NETO:</th>
-                                <td>
-                                    <span t-field="stock_picking.net_weight"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+
                     <br/>
                     <div style="width:100%; position:relative;">
                         <table style="border:1px solid;width:50%;">
