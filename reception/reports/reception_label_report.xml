@@ -222,10 +222,10 @@
                     </tr>
                 </table>
                 <br/>
-                <table border="1" >
+                <table>
                     <tr>
-                        <th>TIPO DE ENVASE:</th>
-                        <td></td>
+                        <th style="border: 1px solid;">TIPO DE ENVASE:</th>
+                        <td style="border: 1px solid;"></td>
                     </tr>
                 </table>
                 <br/>
@@ -259,7 +259,7 @@
                         <td style="border-top: 1px dashed;">
                             FIRMA TRANSPORTISTA
                         </td>
-                        <td></td>
+                        <td style="width: 15px;"></td>
                         <td style="border-top: 1px dashed;">
                             FIRMA ROMANERO
                         </td>
