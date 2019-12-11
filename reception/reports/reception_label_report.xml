@@ -181,7 +181,7 @@
                                 <table style="text-align:left; border: 1px solid;">
                                     <tr>
                                         <th>PRODUCTOR:</th>
-                                        <td><span t-field="stock_picking.partner_id_name"/></td>
+                                        <td><span t-field="stock_picking.partner_id.name"/></td>
                                     </tr>
                                     <tr>
                                         <th>DIRECCÍON:</th>
