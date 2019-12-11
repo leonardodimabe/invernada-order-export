@@ -175,7 +175,7 @@
                                 <span t-esc="context_timestamp(stock_picking.truck_in_date).strftime('%d-%m-%Y')"/>
                             </th>
                             <th>HORA:
-                                <span t-esc="context_timestamp(stock_picking.truck_in_date).strftime(%H:%M)"/>
+                                <span t-esc="context_timestamp(stock_picking.truck_in_date).strftime('%H:%M')"/>
                             </th>
                             <th>N° GUÍA:
                                 <span t-field="stock_picking.guide_number"/>
