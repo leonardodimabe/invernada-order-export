@@ -220,14 +220,14 @@
                                     <span t-field="stock_picking.gross_weight"/>
                                 </td>
                             </tr>
-                            <tr style="border-right:1px solid;">
-                                <th>PESO ENVASES:</th>
+                            <tr>
+                                <th style="border-right:1px solid;">PESO ENVASES:</th>
                                 <td>
                                     <span t-field="stock_picking.canning_weight"/>
                                 </td>
                             </tr>
-                            <tr style="border-right:1px solid;">
-                                <th>PESO TARA:</th>
+                            <tr>
+                                <th style="border-right:1px solid;">PESO TARA:</th>
                                 <td>
                                     <span t-field="stock_picking.tare_weight"/>
                                 </td>
@@ -235,8 +235,8 @@
                             <tr>
                                 <td colspan="2"></td>
                             </tr>
-                            <tr style="border-right:1px solid;">
-                                <th>PESO NETO:</th>
+                            <tr>
+                                <th style="border-right:1px solid;">PESO NETO:</th>
                                 <td>
                                     <span t-field="stock_picking.net_weight"/>
                                 </td>
@@ -244,7 +244,7 @@
                         </table>
                     </div>
                     <br/>
-                    <div style="width:100%; float:inline-end;">
+                    <div style="width:100%; position:absolute;">
                         <table style="border:1px solid;width:50%;">
                             <tr>
                                 <th style="border-right: 1px solid;">TIPO DE ENVASE:</th>
