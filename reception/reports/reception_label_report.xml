@@ -186,11 +186,10 @@
         <field name="dpi">90</field>
     </record>
 
-    <report
-            id="action_reception_weighing_ticket_report"
+    <report id="action_reception_weighing_ticket_report"
             string="Ticket De Pesaje"
             model="stock.picking"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="reception.report_weighing_ticket"
             paperformat="a4"
     />
