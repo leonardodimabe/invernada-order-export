@@ -183,7 +183,7 @@
                         </tr>
                     </table>
                     <br/>
-                    <div style="width:50%;">
+                    <div style="width:50%;float:left;">
 
                         <table style="text-align:left; border: 1px solid;width:100%;">
                             <tr>
@@ -212,7 +212,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div style="width:50%">
+                    <div style="width:50%;float:left;">
                         <table style="text-align:left; border: 1px solid;width:60%;">
                             <tr>
                                 <th>PESO BRUTO:</th>
