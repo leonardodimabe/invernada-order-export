@@ -165,7 +165,7 @@
                     </tr>
                 </table>
                 <br/>
-                <table style="width:100% !important" border="1">
+                <table style="width:100% !important; border:1px solid;">
                     <tr>
                         <th>N° DE INFORME: </th>
                         <th>FECHA: </th>
