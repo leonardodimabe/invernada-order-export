@@ -177,7 +177,7 @@
                 <table style="width:100%;">
                     <tr>
                         <td>
-                            <table>
+                            <table style="text-align:left; border: 1px solid;">
                                 <tr>
                                     <th>PRODUCTOR:</th>
                                     <td></td>
@@ -197,7 +197,7 @@
                             </table>
                         </td>
                         <td>
-                            <table>
+                            <table style="text-align:left; border: 1px solid;">
                                 <tr>
                                     <th>PESO BRUTO:</th>
                                     <td></td>
@@ -231,7 +231,7 @@
                 <br/>
                 <h2>DETALLE DE TANSPORTISTA</h2>
                 <br/>
-                <table>
+                <table style="text-align:left">
                     <tr>
                         <th>CONDUCTOR:</th>
                         <td></td>
