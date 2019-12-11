@@ -148,6 +148,26 @@
             </div>
         </t>
     </template>
+    <template id="report_weighing_ticket">
+        <t t-call="web.html_container">
+            <div class="page">
+                <table>
+                    <tr>
+                        <th>
+                            INFORME TICKET DE PESAJE
+                        </th>
+                        <th>
+                            <img
+                                    t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+                                    style="width:100px !important;"
+                            />
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+
     <record id="paper_format_10_x_7"
             model="report.paperformat"
     >
@@ -165,6 +185,15 @@
         <field name="header_spacing">0</field>
         <field name="dpi">90</field>
     </record>
+
+    <report
+            id="action_reception_weighing_ticket_report"
+            string="Ticket De Pesaje"
+            model="stock.picking"
+            report_type="qweb-html"
+            name="reception.report_weighing_ticket"
+            paperformat="a4"
+    />
 
     <report id="action_reception_label_report"
             string="Etiquetas de Recepción"
