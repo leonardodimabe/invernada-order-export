@@ -216,19 +216,19 @@
                             <table style="text-align:left; border: 1px solid;width:85%;margin-left:15%;">
                                 <tr>
                                     <th style="border-right:1px solid;">PESO BRUTO:</th>
-                                    <td style="text-alight:right">
+                                    <td style="text-align:right !important;">
                                         <span t-field="stock_picking.gross_weight"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="border-right:1px solid;">PESO ENVASES:</th>
-                                    <td style="text-alight:right">
+                                    <td style="text-align:right !important;">
                                         <span t-field="stock_picking.canning_weight"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="border-right:1px solid;">PESO TARA:</th>
-                                    <td style="text-alight:right">
+                                    <td style="text-align:right !important;">
                                         <span t-field="stock_picking.tare_weight"/>
                                     </td>
                                 </tr>
@@ -239,7 +239,7 @@
                                 </tr>
                                 <tr>
                                     <th style="border-right:1px solid;">PESO NETO:</th>
-                                    <td style="text-alight:right">
+                                    <td style="text-align:right !important;">
                                         <span t-field="stock_picking.net_weight"/>
                                     </td>
                                 </tr>
