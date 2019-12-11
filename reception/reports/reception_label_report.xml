@@ -254,12 +254,12 @@
                     </tr>
                 </table>
                 <br/><br/><br/><br/>
-                <table style="width: 100%; text-align:center;">
+                <table style="width: 100%; text-align:center;" cellspacing="2">
                     <tr>
-                        <td style="border-top: 1px; dotted">
+                        <td style="border-top: 1px dashed;">
                             FIRMA TRANSPORTISTA
                         </td>
-                        <td style="border-top: 1px; dotted">
+                        <td style="border-top: 1px dashed;">
                             FIRMA ROMANERO
                         </td>
                     </tr>
