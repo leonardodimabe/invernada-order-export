@@ -183,7 +183,7 @@
                         </tr>
                     </table>
                     <br/>
-                    <div style="float:left;">
+                    <div style="float:left; width:100%;">
                         <div style="width:50%;">
 
                             <table style="text-align:left; border: 1px solid;width:100%;">
