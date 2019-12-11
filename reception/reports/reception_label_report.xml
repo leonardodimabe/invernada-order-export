@@ -172,7 +172,7 @@
                                 <span t-field="stock_picking.id"/>
                             </th>
                             <th>FECHA:
-                                <span t-field="stock_picking.truck_in_date"/>
+                                <span t-field="stock_picking.truck_in_date.strftime('%d-%m-%Y')"/>
                             </th>
                             <th>HORA:
                                 <span t-field="stock_picking.truck_in_date"/>
