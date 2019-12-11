@@ -183,9 +183,8 @@
                         </tr>
                     </table>
                     <br/>
-                    <div style="float:left; width:100%;">
-                        <div style="width:50%;">
-
+                    <div style="position:relative; width:100%;overflow:hidden">
+                        <div style="width:50%;float:left;">
                             <table style="text-align:left; border: 1px solid;width:100%;">
                                 <tr>
                                     <th style="border-right:1px solid;">PRODUCTOR:</th>
@@ -213,7 +212,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div style="width:50%;" cellspacing="0">
+                        <div style="width:50%;float:left" cellspacing="0">
                             <table style="text-align:left; border: 1px solid;width:85%;margin-left:15%;">
                                 <tr>
                                     <th style="border-right:1px solid;">PESO BRUTO:</th>
