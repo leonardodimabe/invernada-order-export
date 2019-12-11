@@ -233,7 +233,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"></td>
+                                    <td colspan="2" style="border:1px solid;"><p></p></td>
                                 </tr>
                                 <tr>
                                     <th style="border-right:1px solid;">PESO NETO:</th>
@@ -292,11 +292,7 @@
                             </td>
                         </tr>
                     </table>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <table style="width: 100%; text-align:center;" cellspacing="2">
+                    <table style="width: 100%; text-align:center;margin-top:50px;">
                         <tr>
                             <td style="border-top: 1px dashed;">
                                 FIRMA TRANSPORTISTA
