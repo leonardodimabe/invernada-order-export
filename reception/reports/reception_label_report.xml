@@ -151,8 +151,8 @@
     <template id="report_weighing_ticket">
         <t t-call="web.html_container">
             <div class="page">
-                <table style="width:100% !important; border:1px;">
-                    <tr>
+                <table style="width:100% !important; border:1px solid; text-align:center;">
+                    <tr style="padding: 10px;">
                         <th>
                             INFORME TICKET DE PESAJE
                         </th>
@@ -162,6 +162,14 @@
                                     style="width:200px !important;"
                             />
                         </th>
+                    </tr>
+                </table>
+                <table style="width:100% !important" border="1">
+                    <tr>
+                        <th>N° DE INFORME: </th>
+                        <th>FECHA: </th>
+                        <th>HORA: </th>
+                        <th>N° GUÍA: </th>
                     </tr>
                 </table>
             </div>
