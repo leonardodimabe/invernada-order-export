@@ -244,7 +244,7 @@
                         </table>
                     </div>
                     <br/>
-                    <div style="width:100%; position:absolute;">
+                    <div style="width:100%; position:relative;">
                         <table style="border:1px solid;width:50%;">
                             <tr>
                                 <th style="border-right: 1px solid;">TIPO DE ENVASE:</th>
