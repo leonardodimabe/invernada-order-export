@@ -265,31 +265,31 @@
                     <table style="text-align:left; border:1px solid;width:50%;">
                         <tr>
                             <th style="border-right:1px solid;border-bottom:1px solid;">CONDUCTOR:</th>
-                            <td>
+                            <td style="border-bottom:1px solid;">
                                 <span t-field="stock_picking.carrier_id"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="border-right:1px solid;border-bottom:1px solid;">RUT:</th>
-                            <td>
+                            <td style="border-bottom:1px solid;">
                                 <span t-field="stock_picking.carrier_rut"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="border-right:1px solid;border-bottom:1px solid;">CELULAR:</th>
-                            <td>
+                            <td style="border-bottom:1px solid;">
                                 <span t-field="stock_picking.carrier_cell_phone"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="border-right:1px solid;border-bottom:1px solid;">PATENTE CAMIÓN:</th>
-                            <td>
+                            <td style="border-bottom:1px solid;">
                                 <span t-field="stock_picking.carrier_truck_patent"/>
                             </td>
                         </tr>
                         <tr>
                             <th style="border-right:1px solid;border-bottom:1px solid;">PATENTE CARRO:</th>
-                            <td>
+                            <td style="border-bottom:1px solid;">
                                 <span t-field="stock_picking.carrier_cart_patent"/>
                             </td>
                         </tr>
