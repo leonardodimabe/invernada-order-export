@@ -260,7 +260,7 @@
                     <br/>
                     <h2>DETALLE DE TANSPORTISTA</h2>
                     <br/>
-                    <table style="text-align:left; border:1px solid;">
+                    <table style="text-align:left; border:1px solid;width:50%;">
                         <tr>
                             <th style="border-right:1px solid;">CONDUCTOR:</th>
                             <td>
