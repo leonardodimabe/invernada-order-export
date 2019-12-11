@@ -185,15 +185,15 @@
                                     </tr>
                                     <tr>
                                         <th>DIRECCÍON:</th>
-                                        <td><span t-field="stock_picking.street"/></td>
+                                        <td><span t-field="stock_picking.partner_id.street"/></td>
                                     </tr>
                                     <tr>
                                         <th>PROVINCIA:</th>
-                                        <td><span t-field="stock_picking.state_id.name"/></td>
+                                        <td><span t-field="stock_picking.partner_id.state_id.name"/></td>
                                     </tr>
                                     <tr>
                                         <th>COMUNA:</th>
-                                        <td><span t-field="stock_picking.city"/></td>
+                                        <td><span t-field="stock_picking.partner_id.city"/></td>
                                     </tr>
                                 </table>
                             </td>
