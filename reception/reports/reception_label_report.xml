@@ -168,60 +168,81 @@
                     <br/>
                     <table style="width:100% !important; border:1px solid;">
                         <tr>
-                            <th>N° DE INFORME:  <span t-field="stock_picking.id"/> </th>
-                            <th>FECHA:  <span t-field="stock_picking.truck_in_date"/></th>
-                            <th>HORA: <span t-field="stock_picking.truck_in_date"/></th>
-                            <th>N° GUÍA: <span t-field="stock_picking.guide_number"/></th>
+                            <th>N° DE INFORME:
+                                <span t-field="stock_picking.id"/>
+                            </th>
+                            <th>FECHA:
+                                <span t-field="stock_picking.truck_in_date"/>
+                            </th>
+                            <th>HORA:
+                                <span t-field="stock_picking.truck_in_date"/>
+                            </th>
+                            <th>N° GUÍA:
+                                <span t-field="stock_picking.guide_number"/>
+                            </th>
                         </tr>
                     </table>
                     <br/>
-                    <table style="width:100%;">
-                        <tr>
-                            <td>
-                                <table style="text-align:left; border: 1px solid;width:100%;">
-                                    <tr>
-                                        <th style="">PRODUCTOR:</th>
-                                        <td><span t-field="stock_picking.partner_id.name"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th>DIRECCÍON:</th>
-                                        <td><span t-field="stock_picking.partner_id.street"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th>PROVINCIA:</th>
-                                        <td><span t-field="stock_picking.partner_id.state_id.name"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th>COMUNA:</th>
-                                        <td><span t-field="stock_picking.partner_id.city"/></td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td style="text-align:right;">
-                                <table style="text-align:left; border: 1px solid;width:60%;">
-                                    <tr>
-                                        <th>PESO BRUTO:</th>
-                                        <td><span t-field="stock_picking.gross_weight"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th>PESO ENVASES:</th>
-                                        <td><span t-field="stock_picking.canning_weight"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th>PESO TARA:</th>
-                                        <td><span t-field="stock_picking.tare_weight"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>PESO NETO:</th>
-                                        <td><span t-field="stock_picking.net_weight"/></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                    <div style="width:50%;">
+
+                        <table style="text-align:left; border: 1px solid;width:100%;">
+                            <tr>
+                                <th style="">PRODUCTOR:</th>
+                                <td>
+                                    <span t-field="stock_picking.partner_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DIRECCÍON:</th>
+                                <td>
+                                    <span t-field="stock_picking.partner_id.street"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>PROVINCIA:</th>
+                                <td>
+                                    <span t-field="stock_picking.partner_id.state_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>COMUNA:</th>
+                                <td>
+                                    <span t-field="stock_picking.partner_id.city"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="width:50%">
+                        <table style="text-align:left; border: 1px solid;width:60%;">
+                            <tr>
+                                <th>PESO BRUTO:</th>
+                                <td>
+                                    <span t-field="stock_picking.gross_weight"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>PESO ENVASES:</th>
+                                <td>
+                                    <span t-field="stock_picking.canning_weight"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>PESO TARA:</th>
+                                <td>
+                                    <span t-field="stock_picking.tare_weight"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <th>PESO NETO:</th>
+                                <td>
+                                    <span t-field="stock_picking.net_weight"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <br/>
                     <table>
                         <tr>
@@ -237,23 +258,33 @@
                     <table style="text-align:left; border:1px solid;">
                         <tr>
                             <th>CONDUCTOR:</th>
-                            <td><span t-field="stock_picking.carrier_id"/></td>
+                            <td>
+                                <span t-field="stock_picking.carrier_id"/>
+                            </td>
                         </tr>
                         <tr>
                             <th>RUT:</th>
-                            <td><span t-field="stock_picking.carrier_rut"/></td>
+                            <td>
+                                <span t-field="stock_picking.carrier_rut"/>
+                            </td>
                         </tr>
                         <tr>
                             <th>CELULAR:</th>
-                            <td><span t-field="stock_picking.carrier_cell_phone"/></td>
+                            <td>
+                                <span t-field="stock_picking.carrier_cell_phone"/>
+                            </td>
                         </tr>
                         <tr>
                             <th>PATENTE CAMIÓN:</th>
-                            <td><span t-field="stock_picking.carrier_truck_patent"/></td>
+                            <td>
+                                <span t-field="stock_picking.carrier_truck_patent"/>
+                            </td>
                         </tr>
                         <tr>
                             <th>PATENTE CARRO:</th>
-                            <td><span t-field="stock_picking.carrier_cart_patent"/></td>
+                            <td>
+                                <span t-field="stock_picking.carrier_cart_patent"/>
+                            </td>
                         </tr>
                     </table>
                     <br/>
