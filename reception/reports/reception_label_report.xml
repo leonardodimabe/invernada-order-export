@@ -151,7 +151,7 @@
     <template id="report_weighing_ticket">
         <t t-call="web.html_container">
             <div class="page">
-                <table>
+                <table style="width:100% !important">
                     <tr>
                         <th>
                             INFORME TICKET DE PESAJE
@@ -159,7 +159,7 @@
                         <th>
                             <img
                                     t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
-                                    style="width:100px !important;"
+                                    style="width:200px !important;"
                             />
                         </th>
                     </tr>
