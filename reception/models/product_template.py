@@ -5,6 +5,6 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     variety_id = fields.Many2one(
-        'nut_variety',
+        'nut.variety',
         string='Variedad'
     )
