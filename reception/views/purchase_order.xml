@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+         <menuitem name="Solicitud de Compra"
+                   id="purchase_requisition.menu_purchase_requisition_pro_mgt"
+                   parent="purchase.menu_procurement_management"
+                   secuence="9"
+                   action="	purchase_requisition.action_purchase_requisition"
+         />
+    </data>
+</odoo>
