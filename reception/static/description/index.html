@@ -5,19 +5,21 @@
     <title></title>
 </head>
 <body>
-    <h1>Configuraciones:</h1>
-    <ul>
-        <li>
-            crear accion planificada con el siguiente código:
-            <code>
-                <pre>
-                    stock_picking_list = env['stock.picking'].search(['|', ('hr_alert_notification_count', '=', None), ('kg_diff_alert_notification_count', '=', None)])
+<h1>Configuraciones:</h1>
+<ul>
+    <li>
+        crear accion planificada con el siguiente código:
 
-                    for stock_picking in stock_picking_list:
-                      stock_picking.notify_alerts()
-                </pre>
-            </code>
-        </li>
-    </ul>
+        <pre>
+            <code>
+                stock_picking_list = env['stock.picking'].search(['|', ('hr_alert_notification_count', '=', None), ('kg_diff_alert_notification_count', '=', None)])
+
+                for stock_picking in stock_picking_list:
+                  stock_picking.notify_alerts()
+           </code>
+        </pre>
+
+    </li>
+</ul>
 </body>
 </html>
