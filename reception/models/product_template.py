@@ -1,8 +1,8 @@
 from odoo import models, fields
 
 
-class ProductProduct(models.Model):
-    _inherit = 'product.product'
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
 
     variety_id = fields.Many2one(
         'nut_variety',
