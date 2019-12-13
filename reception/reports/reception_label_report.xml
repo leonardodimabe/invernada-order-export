@@ -60,20 +60,21 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <h2 style="text-align: center !important;">
+                  <h3 style="text-align: center !important;">
                     N° SERIE:
                     <span t-field="move_line.lot_name"/>
-                  </h2>
+                  </h3>
                 </td>
               </tr>
               <tr>
                 <td colspan="2">
                   <img
-                    t-att-src="'%s/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % (o.get_full_url(), 'Code128',move_line.lot_name,450, 35)"
+                    t-att-src="'%s/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % (o.get_full_url(), 'Code128',move_line.lot_name,450, 40)"
                   />
                 </td>
               </tr>
             </table>
+            <br/>
           </t>
         </t>
       </div>
