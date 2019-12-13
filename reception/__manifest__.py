@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# noinspection PyStatementEffect
 {
     'name': "Reception",
 
@@ -30,7 +31,6 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'security/groups.xml',
         'views/views.xml',
         'views/stock_picking.xml',
         'views/res_partner.xml',
@@ -43,9 +43,7 @@
         'data/reception_notification_mail_template.xml',
         'views/stock_warehouse.xml',
         'views/product_category.xml',
-        'views/product_template.xml',
-        'views/purchase_requisition.xml',
-        'views/purchase_order.xml'
+        'views/product_template.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

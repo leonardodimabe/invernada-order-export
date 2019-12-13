@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dimabe_purchase_process_dimabe_purchase_process,dimabe_purchase_process.dimabe_purchase_process,model_dimabe_purchase_process_dimabe_purchase_process,,1,0,0,0
