@@ -23,7 +23,8 @@
     'depends': [
         'base',
         'stock',
-        'mail'
+        'mail',
+        'purchase_requisition'
     ],
 
     # always loaded
@@ -42,7 +43,7 @@
         'views/stock_warehouse.xml',
         'views/product_category.xml',
         'views/product_template.xml',
-        'views/purchase_order.xml'
+        'views/purchase_requisition.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
