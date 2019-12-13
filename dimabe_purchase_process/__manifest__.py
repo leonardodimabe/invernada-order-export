@@ -22,7 +22,9 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        'base'
+        'base',
+        'purchase_requisition',
+        'purchase'
     ],
 
     # always loaded
@@ -31,6 +33,8 @@
         'security/groups.xml',
         'views/views.xml',
         'views/templates.xml',
+        'views/purchase_order.xml',
+        'views/purchase_requisition.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
