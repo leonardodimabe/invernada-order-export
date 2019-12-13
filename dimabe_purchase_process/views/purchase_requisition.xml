@@ -9,8 +9,11 @@
           <attribute name="string">Jefe de área solicitante</attribute>
         </xpath>
 
-        <field name="421" position="attributes">
+        <field name="421" position="after">
+            <field name="name" />
+          <!--
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
+          -->
         </field>
       </field>
     </record>
