@@ -13,9 +13,10 @@ class PurchaseRequisition(models.Model):
     @api.multi
     def action_in_progress(self):
         self.ensure_one()
+        res = super(PurchaseRequisition, self).action_in_progress()
         template_id = self.env.ref('dimabe_purchase_process.new_requisition_mail_template')
         self.message_post_with_template(template_id.id)
-        return super(PurchaseRequisition, self).action_in_progress()
+        return res
 
     @api.model
     def get_email_to(self):
