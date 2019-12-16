@@ -17,9 +17,12 @@
         <xpath expr="//button[@name='action_rfq_send'][2]" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_approval_user</attribute>
         </xpath>
-        <button name="button_confirm" position="attributes">
+        <xpath expr="//button[@name='button_confirm'][1]" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_requisition_user</attribute>
-        </button>
+        </xpath>
+        <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+          <attribute name="groups">dimabe_purchase_process.group_purchase_requisition_user</attribute>
+        </xpath>
       </field>
     </record>
   </data>
