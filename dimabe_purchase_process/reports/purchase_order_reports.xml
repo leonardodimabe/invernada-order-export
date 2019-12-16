@@ -7,28 +7,16 @@
       <div class="page">
         <table style="width:100%;">
           <tr>
-            <th colspan="2" style="text-align:center;">
+            <th colspan="2" style="text-align:center !important;">
               CENTROS DE COSTO
             </th>
           </tr>
           <t t-foreach="o.get_analytic_accounts()" t-as="aa">
             <tr>
-              <td>
-                <span t-field="aa[0].code"/>
-              </td>
-              <td>
-                <span t-field="aa[0].name"/>
-              </td>
-              <td>
-                <t t-if="len(aa) == 2">
-                  <span t-field="aa[1].code"/>
-                </t>
-              </td>
-              <td>
-                <t t-if="len(aa) == 2">
-                  <span t-field="aa[1].name"/>
-                </t>
-              </td>
+              <td><span t-field="aa[0].code"/></td>
+              <td><span t-field="aa[0].name"/></td>
+              <td><t t-if="len(aa) == 2"><span t-field="aa[1].code"/></t></td>
+              <td><t t-if="len(aa) == 2"><span t-field="aa[1].name"/></t></td>
             </tr>
           </t>
         </table>
