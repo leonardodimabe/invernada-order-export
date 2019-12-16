@@ -20,6 +20,9 @@
         <button name="action_open" position="attributes">
           <attribute name="groups">base.user_admin</attribute>
         </button>
+        <button name="action_cancel" position="attributes">
+          <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
+        </button>
       </field>
     </record>
   </data>
