@@ -13,12 +13,44 @@
           </tr>
           <t t-foreach="o.get_analytic_accounts()" t-as="aa">
             <tr style="border-bottom:1px solid;">
-              <td><span t-field="aa[0].code"/></td>
-              <td><span t-field="aa[0].name"/></td>
-              <td><t t-if="len(aa) == 2"><span t-field="aa[1].code"/></t></td>
-              <td><t t-if="len(aa) == 2"><span t-field="aa[1].name"/></t></td>
+              <td>
+                <span t-field="aa[0].code"/>
+              </td>
+              <td>
+                <span t-field="aa[0].name"/>
+              </td>
+              <td>
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].code"/>
+                </t>
+              </td>
+              <td>
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].name"/>
+                </t>
+              </td>
             </tr>
           </t>
+          <br/>
+          <table style="width:100% !important;">
+            <tr>
+              <th>DESCRIPCIÓN</th>
+              <th>ACTIVIDAD</th>
+              <th>CANTIDAD</th>
+              <th>EMBALAJE</th>
+              <th>CENTRO DE COSTO</th>
+            </tr>
+            <t t-foreach="o.order_line" t-as="order_line">
+              <tr>
+                <td><span t-field="order_line.product_id.name" /></td>
+                <td></td>
+                <td><span t-field="order_line.product_qty" /></td>
+                <td><span t-field="order_line.product_uom" /></td>
+                <td><span t-field="order_line.account_analytic_id" /></td>
+              </tr>
+            </t>
+          </table>
+
         </table>
       </div>
     </xpath>
