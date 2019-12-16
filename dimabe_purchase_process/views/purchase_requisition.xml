@@ -9,13 +9,14 @@
           <attribute name="string">Jefe de área solicitante</attribute>
         </xpath>
 
-        <button name="action_open" position="attributes">
+        <xpath expr="//button[@name=%(purchase_requisition.action_purchase_requisition_to_so)d][1]"
+               position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
-          <!--
-          %(purchase_requisition.action_purchase_requisition_to_so)d
-
-          -->
-        </button>
+        </xpath>
+        <xpath expr="//button[@name=%(purchase_requisition.action_purchase_requisition_to_so)d][2]"
+               position="attributes">
+          <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
+        </xpath>
       </field>
     </record>
   </data>
