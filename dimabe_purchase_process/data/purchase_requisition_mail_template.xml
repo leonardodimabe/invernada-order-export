@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record id="new_requisition_mail_template" model="mail.template">
+    <field name="name">Nueva solicitud de compra</field>
+    <field name="model_id" ref="dimabe_purchase_process.model_purchase_requisition"/>
+    <field name="email_from">info@lainvernada.com</field>
+    <field name="email_to">
+      ${object.get_email_to()}
+    </field>
+    <field name="subject">Nueva solicitud de compra</field>
+    <field name="body_html">
+      <![CDATA[
+          <p>Estimados,<br/><br/>
+          Se ha generado una nueva solicitud de compra ${object.name}
+          <br/>
+          </p>
+          Atte,<br/>
+          ${(object.company_id.name)}
+      ]]>
+    </field>
+  </record>
+</odoo>
