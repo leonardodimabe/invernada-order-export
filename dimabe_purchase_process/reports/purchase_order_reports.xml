@@ -31,26 +31,32 @@
               </td>
             </tr>
           </t>
-          <br/>
-          <table style="width:100% !important;">
+        </table>
+        <table style="width:100% !important;">
+          <tr>
+            <th>DESCRIPCIÓN</th>
+            <th>ACTIVIDAD</th>
+            <th>CANTIDAD</th>
+            <th>EMBALAJE</th>
+            <th>CENTRO DE COSTO</th>
+          </tr>
+          <t t-foreach="o.order_line" t-as="order_line">
             <tr>
-              <th>DESCRIPCIÓN</th>
-              <th>ACTIVIDAD</th>
-              <th>CANTIDAD</th>
-              <th>EMBALAJE</th>
-              <th>CENTRO DE COSTO</th>
+              <td>
+                <span t-field="order_line.product_id.name"/>
+              </td>
+              <td></td>
+              <td>
+                <span t-field="order_line.product_qty"/>
+              </td>
+              <td>
+                <span t-field="order_line.product_uom"/>
+              </td>
+              <td>
+                <span t-field="order_line.account_analytic_id"/>
+              </td>
             </tr>
-            <t t-foreach="o.order_line" t-as="order_line">
-              <tr>
-                <td><span t-field="order_line.product_id.name" /></td>
-                <td></td>
-                <td><span t-field="order_line.product_qty" /></td>
-                <td><span t-field="order_line.product_uom" /></td>
-                <td><span t-field="order_line.account_analytic_id" /></td>
-              </tr>
-            </t>
-          </table>
-
+          </t>
         </table>
       </div>
     </xpath>
