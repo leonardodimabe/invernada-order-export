@@ -34,7 +34,8 @@
         'views/views.xml',
         'views/templates.xml',
         'views/purchase_order.xml',
-        'views/purchase_requisition.xml'
+        'views/purchase_requisition.xml',
+        'data/purchase_requisition_mail_template.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
