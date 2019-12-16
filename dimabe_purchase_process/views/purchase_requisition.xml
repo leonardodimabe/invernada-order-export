@@ -17,6 +17,9 @@
                position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
         </xpath>
+        <button name="action_open" position="attributes">
+          <attribute name="groups">base.user_admin</attribute>
+        </button>
       </field>
     </record>
   </data>
