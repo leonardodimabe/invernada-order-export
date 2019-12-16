@@ -10,10 +10,10 @@
         </xpath>
 
         <button name="action_open" position="attributes">
-          <attribute name="string">aaaaaaaaaaaaa</attribute>
+          <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
           <!--
           %(purchase_requisition.action_purchase_requisition_to_so)d
-          dimabe_purchase_process.group_purchase_budget_user
+
           -->
         </button>
       </field>
