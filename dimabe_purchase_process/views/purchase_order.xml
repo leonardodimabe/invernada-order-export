@@ -8,6 +8,9 @@
         <xpath expr="//field[@name='partner_id']" position="attributes">
           <attribute name="string">Proveedor</attribute>
         </xpath>
+        <xpath expr="//field[@name='requisition_id']" position="attributes">
+          <attribute name="readonly">1</attribute>
+        </xpath>
         <button name="print_quotation" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_approval_user</attribute>
         </button>
