@@ -7,12 +7,12 @@
       <div class="page">
         <table style="width:100%;">
           <tr>
-            <th colspan="4" style="text-align:center !important;">
+            <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
               CENTROS DE COSTO
             </th>
           </tr>
           <t t-foreach="o.get_analytic_accounts()" t-as="aa">
-            <tr>
+            <tr style="border-bottom:1px solid;">
               <td><span t-field="aa[0].code"/></td>
               <td><span t-field="aa[0].name"/></td>
               <td><t t-if="len(aa) == 2"><span t-field="aa[1].code"/></t></td>
