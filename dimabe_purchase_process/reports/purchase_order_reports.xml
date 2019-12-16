@@ -5,9 +5,9 @@
   >
     <xpath expr="//div[@class='page']" position="replace">
       <div class="page">
-        <table style="width:100%;">
+        <table style="width:60%;">
           <tr>
-            <th colspan="2">
+            <th colspan="2" style="text-align:center">
               CENTROS DE COSTO
             </th>
           </tr>
