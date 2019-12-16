@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-  <template id="report_purchasequotation_document"
+  <template id="report_purchase_quotation_document"
 
   >
     <div class="page">
@@ -59,10 +59,12 @@
       </table>
     </div>
   </template>
-  <template id="report_purchasequotation">
+  <template id="report_purchasequotation_inherit"
+            inherit_id="purchase.report_purchasequotation"
+  >
     <t t-call="web.html_container">
         <t t-foreach="docs" t-as="o">
-            <t t-call="dimabe_purchase_process.report_purchasequotation_document" t-lang="o.partner_id.lang"/>
+            <t t-call="dimabe_purchase_process.report_purchase_quotation_document" t-lang="o.partner_id.lang"/>
         </t>
     </t>
 </template>
