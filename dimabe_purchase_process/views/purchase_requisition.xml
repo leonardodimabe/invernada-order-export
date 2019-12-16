@@ -18,7 +18,7 @@
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
         </xpath>
         <button name="action_open" position="attributes">
-          <attribute name="groups">base.user_admin</attribute>
+          <attribute name="groups">base.group_purchase_budget_user</attribute>
         </button>
         <button name="action_cancel" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_requisition_user</attribute>
