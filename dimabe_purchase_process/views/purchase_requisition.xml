@@ -9,8 +9,11 @@
           <attribute name="string">Jefe de área solicitante</attribute>
         </xpath>
 
-        <button name="%(purchase_requisition.action_purchase_requisition_to_so)d" position="attributes">
+        <button name="%(purchase_requisition.action_purchase_requisition_to_so)d" position="after">
+          <!--
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
+          -->
+          <field name="user_id" />
         </button>
       </field>
     </record>
