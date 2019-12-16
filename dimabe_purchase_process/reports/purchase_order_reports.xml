@@ -1,71 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-  <template id="report_purchase_quotation_document"
-
+  <template id="report_purchasequotation_document"
+            inherit_id="purchase.report_purchasequotation_document"
   >
-    <div class="page">
-      <table style="width:100%; margin-bottom:50px !important;">
-        <tr>
-          <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
-            CENTROS DE COSTO
-          </th>
-        </tr>
-        <t t-foreach="o.get_analytic_accounts()" t-as="aa">
-          <tr style="border-bottom:1px solid;">
-            <td>
-              <span t-field="aa[0].code"/>
-            </td>
-            <td>
-              <span t-field="aa[0].name"/>
-            </td>
-            <td>
-              <t t-if="len(aa) == 2">
-                <span t-field="aa[1].code"/>
-              </t>
-            </td>
-            <td>
-              <t t-if="len(aa) == 2">
-                <span t-field="aa[1].name"/>
-              </t>
-            </td>
-          </tr>
-        </t>
-      </table>
-      <table style="width:100% !important;">
-        <tr>
-          <th>DESCRIPCIÓN</th>
-          <th>ACTIVIDAD</th>
-          <th>CANTIDAD</th>
-          <th>EMBALAJE</th>
-          <th>CENTRO DE COSTO</th>
-        </tr>
-        <t t-foreach="o.order_line" t-as="order_line">
+    <xpath expr="//div[@class='page']" position="replace">
+      <div class="page">
+        <table style="width:100%; margin-bottom:50px !important;">
           <tr>
-            <td>
-              <span t-field="order_line.product_id.name"/>
-            </td>
-            <td></td>
-            <td>
-              <span t-field="order_line.product_qty"/>
-            </td>
-            <td>
-              <span t-field="order_line.product_uom"/>
-            </td>
-            <td>
-              <span t-field="order_line.account_analytic_id"/>
-            </td>
+            <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
+              CENTROS DE COSTO
+            </th>
           </tr>
-        </t>
-      </table>
-    </div>
+          <t t-foreach="o.get_analytic_accounts()" t-as="aa">
+            <tr style="border-bottom:1px solid;">
+              <td>
+                <span t-field="aa[0].code"/>
+              </td>
+              <td>
+                <span t-field="aa[0].name"/>
+              </td>
+              <td>
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].code"/>
+                </t>
+              </td>
+              <td>
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].name"/>
+                </t>
+              </td>
+            </tr>
+          </t>
+        </table>
+        <table style="width:100% !important;">
+          <tr>
+            <th>DESCRIPCIÓN</th>
+            <th>ACTIVIDAD</th>
+            <th>CANTIDAD</th>
+            <th>EMBALAJE</th>
+            <th>CENTRO DE COSTO</th>
+          </tr>
+          <t t-foreach="o.order_line" t-as="order_line">
+            <tr>
+              <td>
+                <span t-field="order_line.product_id.name"/>
+              </td>
+              <td></td>
+              <td>
+                <span t-field="order_line.product_qty"/>
+              </td>
+              <td>
+                <span t-field="order_line.product_uom"/>
+              </td>
+              <td>
+                <span t-field="order_line.account_analytic_id"/>
+              </td>
+            </tr>
+          </t>
+        </table>
+      </div>
+    </xpath>
   </template>
-  <template id="report_purchasequotation_inherit"
-            inherit_id="purchase.report_purchasequotation"
-  >
-    <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="o">
-            <t t-call="dimabe_purchase_process.report_purchase_quotation_document" t-lang="o.partner_id.lang"/>
-        </t>
-    </t>
-</template>
 </odoo>
