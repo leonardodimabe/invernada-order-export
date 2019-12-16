@@ -3,7 +3,7 @@
   <template id="report_purchasequotation_document"
             inherit_id="purchase.report_purchasequotation_document"
   >
-    <xpath expr="//div[@class='header']" position="replace">
+    <xpath expr="//div[@class='external_layout']" position="replace">
 
     </xpath>
     <xpath expr="//div[@class='page']" position="replace">
