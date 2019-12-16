@@ -32,6 +32,9 @@
         <xpath expr="//button[@name='action_view_invoice'][2]" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_approval_user</attribute>
         </xpath>
+        <button name="action_view_picking" position="attributes">
+          <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
+        </button>
       </field>
     </record>
   </data>
