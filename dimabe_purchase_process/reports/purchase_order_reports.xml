@@ -14,10 +14,20 @@
           <t t-foreach="o.get_analytic_accounts()" t-as="aa">
             <tr>
               <td style="width:20%;">
-                <span t-field="aa.code"/>
+                <span t-field="aa[0].code"/>
               </td>
               <td style="width:30%;">
-                <span t-field="aa.name"/>
+                <span t-field="aa[0].name"/>
+              </td>
+              <td style="width:20%;">
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].code"/>
+                </t>
+              </td>
+              <td style="width:30%;">
+                <t t-if="len(aa) == 2">
+                  <span t-field="aa[1].name"/>
+                </t>
               </td>
             </tr>
           </t>

@@ -6,4 +6,12 @@ class PurchaseOrder(models.Model):
 
     @api.model
     def get_analytic_accounts(self):
-        return self.env['account.analytic.account'].search([])
+        res = self.env['account.analytic.account'].search([])
+        account_list = []
+        tmp = []
+        for account in res:
+            tmp.append(account)
+            if len(tmp) == 2:
+                account_list.append(tmp)
+                tmp = []
+        return account_list
