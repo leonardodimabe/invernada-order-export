@@ -3,17 +3,14 @@
     <record id="purchase_requisition_form_inherit" model="ir.ui.view">
       <field name="name">Formulatio de solicitud de compras</field>
       <field name="model">purchase.requisition</field>
-      <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form" />
+      <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
       <field name="arch" type="xml">
         <xpath expr="//field[@name='user_id']" position="attributes">
           <attribute name="string">Jefe de área solicitante</attribute>
         </xpath>
 
-        <field name="421" position="after">
-            <field name="name" />
-          <!--
+        <field name="%(action_purchase_requisition_to_so)d" position="after">
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
-          -->
         </field>
       </field>
     </record>
