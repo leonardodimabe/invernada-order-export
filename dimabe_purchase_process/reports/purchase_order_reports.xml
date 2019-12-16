@@ -4,9 +4,6 @@
             inherit_id="purchase.report_purchasequotation_document"
   >
     <xpath expr="//div[@class='page']" position="replace">
-
-    </xpath>
-    <xpath expr="//div[@class='page']" position="replace">
       <div class="page">
         <table style="width:100%; margin-bottom:50px !important;">
           <tr>
