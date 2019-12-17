@@ -18,7 +18,7 @@ class PurchaseOrder(models.Model):
 
     @api.model
     def get_po_approve_data(self):
-        raise models.ValidationError(self.message_ids)
+
         message = self.message_ids.filter(lambda x: x.subtype_id == 'SdP aprobada')
         if message:
             return '{} {}'.format(message.author_id, message.date)
