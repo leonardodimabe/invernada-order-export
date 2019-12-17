@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="page">
-          <t t-foreach="o.message_ids" t-as="message">
+          <t t-foreach="o.website_message_ids" t-as="message">
               <div>
                 <span t-field="message.body" />
               </div>
