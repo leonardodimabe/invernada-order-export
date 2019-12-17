@@ -51,5 +51,6 @@ class PurchaseOrder(models.Model):
     @api.model
     def get_mail_sender(self):
         if self.boss_approval_id and self.boss_approval_date:
+            raise models.ValidationError(self.boss_approval_id)
             return '{} {}'.format(self.boss_approval_id.name, self.boss_approval_date)
         return ''
