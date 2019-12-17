@@ -12,18 +12,21 @@
             />
             <span style="float:right">
               <div>
-                N°: <span t-field="o.name"/>
+                N°:
+                <span t-field="o.name"/>
               </div>
               <div>
-                Fecha Solicitud: <span t-field="o.requisition_id.ordering_date" />
+                Fecha Solicitud:
+                <span t-field="o.requisition_id.ordering_date"/>
               </div>
               <div>
-                Solicitado por: <span t-field="o.requisition_id.user_id" />
+                Solicitado por:
+                <span t-field="o.requisition_id.user_id"/>
               </div>
             </span>
-            <div style="text-align:center !important;">
-              <h2>Registro Solicitud de Compra</h2>
-            </div>
+          </div>
+          <div style="text-align:center !important;">
+            <h2>Registro Solicitud de Compra</h2>
           </div>
         </div>
         <div class="page">
