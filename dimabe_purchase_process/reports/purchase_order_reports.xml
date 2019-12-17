@@ -4,21 +4,16 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <div class="page">
-          <table>
-            <tr>
-              <td>
-                <img
-                  t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
-                  style="width:300px !important;"
+          <div>
+            <img
+              t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+              style="width:300px !important;"
 
-                />
-              </td>
-              <td>
-                <h1>Registro Solicitud de Compra</h1>
-              </td>
-              <td> </td>
-            </tr>
-          </table>
+            />
+          </div>
+          <div>
+            <h1>Registro Solicitud de Compra</h1>
+          </div>
           <table style="width:100%; margin-bottom:50px !important;">
             <tr>
               <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
