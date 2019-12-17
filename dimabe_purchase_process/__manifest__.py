@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# noinspection PyStatementEffect
 {
     'name': "Proceso de Compras",
 
