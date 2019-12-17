@@ -91,7 +91,7 @@
   <report id="action_purchase_quotation_report"
           string="Solicitud de Compra"
           model="purchase.order"
-          report_type="qweb-html"
+          report_type="qweb-pdf"
           name="dimabe_purchase_process.report_purchase_quotation_document"
   />
 </odoo>
