@@ -121,6 +121,7 @@
               <td>
                 <span t-esc="o.get_mail_sender()" />
               </td>
+              <td style="width:20px !important;"> </td>
               <td>
                 <span t-esc="o.get_po_approve_data()" />
               </td>
