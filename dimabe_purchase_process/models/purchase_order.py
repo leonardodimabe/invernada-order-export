@@ -19,7 +19,7 @@ class PurchaseOrder(models.Model):
     @api.model
     def get_po_approve_data(self):
 
-        approve_message = self.message_ids.filtered(lambda x: x.subtype_id == 'SdP aprobada')
+        approve_message = self.message_ids.filtered(lambda x: x.subtype_id.name == 'SdP aprobada')
         raise models.ValidationError(approve_message)
         if approve_message:
             approve_message = approve_message[0]
