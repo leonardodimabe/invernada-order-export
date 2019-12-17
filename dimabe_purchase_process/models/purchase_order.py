@@ -21,6 +21,7 @@ class PurchaseOrder(models.Model):
 
         approve_message = self.message_ids.filtered(lambda x: x.subtype_id == 'SdP aprobada')
         if approve_message:
+            raise models.ValidationError(approve_message)
             approve_message = approve_message[0]
             return '{} {}'.format(approve_message.author_id, approve_message.date)
         return ''
