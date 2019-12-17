@@ -122,7 +122,7 @@
 
               </td>
               <td>
-                <span t-field="o.requisition_id.user_id" />
+                <span t-esc="o.get_po_approve_data()" />
 
               </td>
             </tr>

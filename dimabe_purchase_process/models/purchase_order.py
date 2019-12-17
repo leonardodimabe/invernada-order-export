@@ -15,3 +15,10 @@ class PurchaseOrder(models.Model):
                 account_list.append(tmp)
                 tmp = []
         return account_list
+
+    @api.model
+    def get_po_approve_data(self):
+        message = self.message_ids.filter(lambda x: x.subtype_id == 'SdP aprobada')
+        if message:
+            return '{} {}'.format(message.author_id, message.date)
+        return ''
