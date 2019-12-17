@@ -10,7 +10,9 @@
               style="width:200px !important;"
 
             />
-            <span t-field="o.name" />
+            <span style="float:right">
+              <span t-field="o.name" />
+            </span>
             <div style="text-align:center !important;">
               <h1>Registro Solicitud de Compra</h1>
             </div>
