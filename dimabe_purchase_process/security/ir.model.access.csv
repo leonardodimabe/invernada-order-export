@@ -1,3 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_group_purchase_user,dimabe_purchase_process.group_purchase_user,model_purchase_requisition,group_purchase_user,0,0,0,0
+access_group_purchase_user,dimabe_purchase.group_purchase_user,purchase.model_purchase_requisition,group_purchase_user,0,0,0,0
 access_group_purchase_budget_user,dimabe_purchase_process.group_purchase_budget_user,model_purchase_requisition,group_purchase_budget_user,1,0,0,0
