@@ -125,7 +125,7 @@
                 <span t-esc="o.get_po_approve_data()" />
               </td>
             </tr>
-            <tr>
+            <tr style="border-top:1px solid;text-align:center">
               <td>
                 Visto Bueno Jefe de Área / Fecha
               </td>
