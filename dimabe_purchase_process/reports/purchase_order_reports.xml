@@ -30,15 +30,25 @@
           </div>
         </div>
         <div class="page">
-          <t t-foreach="o.message_ids" t-as="message">
-              <div>
-                <span t-field="message.body" /> |
-                <span t-field="message.mail_activity_type_id" /> |
-                <span t-field="message.message_type" /> |
-                <span t-field="message.moderation_status" /> |
-                <span t-field="message.subtype_id" /> |
-              </div>
-            </t>
+          <t t-foreach="o.activity_ids" t-as="message">
+            <div>
+              <span t-field="message.summary" />
+            </div>
+            <!--
+            <div>
+              <span t-field="message.body"/>
+              |
+              <span t-field="message.mail_activity_type_id"/>
+              |
+              <span t-field="message.message_type"/>
+              |
+              <span t-field="message.moderation_status"/>
+              |
+              <span t-field="message.subtype_id"/>
+              |
+            </div>
+            -->
+          </t>
           <table style="width:100%; margin-bottom:50px !important;">
             <tr>
               <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
@@ -119,11 +129,16 @@
           <table style="width:100%;text-align:center">
             <tr>
               <td>
-                <span t-esc="o.get_mail_sender()" />
+                <strong>
+                  <span t-esc="o.get_mail_sender()"/>
+                </strong>
               </td>
               <td style="width:20px !important;"> </td>
               <td>
-                <span t-esc="o.get_po_approve_data()" />
+                <strong>
+                  <span t-esc="o.get_po_approve_data()"/>
+                </strong>
+
               </td>
             </tr>
             <tr>
