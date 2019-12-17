@@ -3,7 +3,7 @@
   <template id="report_purchase_quotation_document">
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
-        <div class="page" style="border-top:1px solid;">
+        <div class="page" style="border-top:1px solid; margin-top:20px !important; padding-top:5px !important;">
           <div>
             <img
               t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
