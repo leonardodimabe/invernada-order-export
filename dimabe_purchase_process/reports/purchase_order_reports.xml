@@ -110,7 +110,7 @@
           <table style="width:100%; border-top:1px solid;text-align:center">
             <t t-foreach="o.message_ids" t-as="message">
               <tr>
-                <td><span t-field="message" /></td>
+                <td><span t-field="message.name" /></td>
               </tr>
             </t>
             <tr>
