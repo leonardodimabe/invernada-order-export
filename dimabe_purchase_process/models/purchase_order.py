@@ -32,11 +32,11 @@ class PurchaseOrder(models.Model):
     @api.multi
     def action_rfq_send(self):
         for item in self:
-            # if not item.boss_approval_id:
-            item.update({
-                'boss_approval_id': self.env.user.id,
-                'boss_approval_date': fields.datetime.now()
-            })
+            if not item.boss_approval_id:
+                item.update({
+                    'boss_approval_id': self.env.user.id,
+                    'boss_approval_date': fields.datetime.now()
+                })
         return super(PurchaseOrder, self).action_rfq_send()
 
     @api.model
@@ -51,6 +51,5 @@ class PurchaseOrder(models.Model):
     @api.model
     def get_mail_sender(self):
         if self.boss_approval_id and self.boss_approval_date:
-            raise models.ValidationError(self.boss_approval_id)
             return '{} {}'.format(self.boss_approval_id.name, self.boss_approval_date)
         return ''
