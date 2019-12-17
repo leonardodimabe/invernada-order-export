@@ -76,7 +76,7 @@
             </tr>
           </table>
           <table style="width:100% !important;">
-            <tr style="text-align:left;">
+            <tr style="text-align:left;border-bottom:1px solid;">
               <th>DESCRIPCIÓN</th>
               <th>ACTIVIDAD</th>
               <th>CANTIDAD</th>
