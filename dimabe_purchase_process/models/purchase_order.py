@@ -19,7 +19,7 @@ class PurchaseOrder(models.Model):
     @api.model
     def get_po_approve_data(self):
 
-        approve_message = self.message_ids.filtered([('subtype_id', '=', 'SdP aprobada')])
+        approve_message = self.message_ids.filtered(lambda x: x.subtype_id == 'SdP aprobada')
         if approve_message:
             approve_message = approve_message[0]
             return '{} {}'.format(approve_message.author_id, approve_message.date)
