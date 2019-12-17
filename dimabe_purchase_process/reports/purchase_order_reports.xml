@@ -30,8 +30,6 @@
           </div>
         </div>
         <div class="page">
-
-
           <table style="width:100%; margin-bottom:50px !important;">
             <tr>
               <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
@@ -59,8 +57,26 @@
               </tr>
             </t>
           </table>
-          <table style="width:100% !important;">
+          <h3>Proveedor:</h3>
+          <table>
             <tr>
+              <td>Nombre:</td>
+              <td><span t-field="o.partner_id.name" /></td>
+            </tr>
+            <tr>
+              <td>Correo:</td>
+              <td><span t-field="o.partner_id.email" /></td>
+            </tr>
+            <tr>
+              <td>Fono:</td>
+              <td>
+                <span t-field="o.partner_id.phone" />
+                <span t-field="o.partner_id.mobile"/>
+              </td>
+            </tr>
+          </table>
+          <table style="width:100% !important;">
+            <tr style="text-align:left;">
               <th>DESCRIPCIÓN</th>
               <th>ACTIVIDAD</th>
               <th>CANTIDAD</th>
