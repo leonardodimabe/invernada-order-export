@@ -61,16 +61,20 @@
           <table style="border-top: 1px solid;margin-bottom:20px;">
             <tr>
               <td>Nombre:</td>
-              <td><span t-field="o.partner_id.name" /></td>
+              <td>
+                <span t-field="o.partner_id.name"/>
+              </td>
             </tr>
             <tr>
               <td>Correo:</td>
-              <td><span t-field="o.partner_id.email" /></td>
+              <td>
+                <span t-field="o.partner_id.email"/>
+              </td>
             </tr>
             <tr>
               <td>Fono:</td>
               <td>
-                <span t-field="o.partner_id.phone" />
+                <span t-field="o.partner_id.phone"/>
                 <span t-field="o.partner_id.mobile"/>
               </td>
             </tr>
@@ -103,7 +107,20 @@
           </table>
         </div>
         <div class="footer">
-          lalala
+          <table style="width:100%; border-top:1px solid;">
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                Visto Bueno Jefe de Área / Fecha
+              </td>
+              <td>
+                Visto Bueno Jefe de Operaciones / Fecha
+              </td>
+            </tr>
+          </table>
         </div>
       </t>
     </t>
