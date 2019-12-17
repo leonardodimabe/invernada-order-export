@@ -9,7 +9,7 @@
               <td>
                 <img
                   t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
-                  style="width:100px !important;"
+                  style="width:300px !important;"
 
                 />
               </td>
