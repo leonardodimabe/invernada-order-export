@@ -116,10 +116,10 @@
           </table>
         </div>
         <div class="footer">
-          <table style="width:100%; border-top:1px solid;text-align:center">
+          <table style="width:100%;text-align:center">
             <tr>
               <td>
-
+                <span t-esc="o.get_mail_sender()" />
               </td>
               <td>
                 <span t-esc="o.get_po_approve_data()" />

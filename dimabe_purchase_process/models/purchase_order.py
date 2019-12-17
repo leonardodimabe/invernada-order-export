@@ -24,3 +24,8 @@ class PurchaseOrder(models.Model):
             approve_message = approve_message[0]
             return '{} {}'.format(approve_message.author_id.name, approve_message.date)
         return ''
+
+    @api.model
+    def get_mail_sender(self):
+
+        return ''
