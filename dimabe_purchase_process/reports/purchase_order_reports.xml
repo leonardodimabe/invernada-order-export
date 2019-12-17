@@ -30,11 +30,7 @@
           </div>
         </div>
         <div class="page">
-          <t t-foreach="o.activity_ids" t-as="message">
-            <div>
-              <span t-field="message.summary" />
-            </div>
-            <!--
+          <t t-foreach="o.message_ids" t-as="message">
             <div>
               <span t-field="message.body"/>
               |
@@ -47,7 +43,6 @@
               <span t-field="message.subtype_id"/>
               |
             </div>
-            -->
           </t>
           <table style="width:100%; margin-bottom:50px !important;">
             <tr>
