@@ -126,10 +126,11 @@
               </td>
             </tr>
             <tr>
-              <td style="border-top:1px dashed; padding-right:10px;">
+              <td style="border-top:1px dashed;">
                 Visto Bueno Jefe de Área / Fecha
               </td>
-              <td style="border-top:1px dashed; padding-left:10px;">
+              <td style="width:20px !important;"> </td>
+              <td style="border-top:1px dashed;">
                 Visto Bueno Jefe de Operaciones / Fecha
               </td>
             </tr>
