@@ -19,7 +19,7 @@ class PurchaseOrder(models.Model):
     @api.model
     def get_po_approve_data(self):
 
-        message = self.message_ids.search([('subtype_id', '=', 'SdP aprobada')])
+        message = self.message_ids.filtered([('subtype_id', '=', 'SdP aprobada')])
         if message:
             return '{} {}'.format(message.author_id, message.date)
         return ''
