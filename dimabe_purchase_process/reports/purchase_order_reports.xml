@@ -125,11 +125,11 @@
                 <span t-esc="o.get_po_approve_data()" />
               </td>
             </tr>
-            <tr style="border-top:1px solid;text-align:center">
-              <td>
+            <tr>
+              <td style="border-top:1px dashed">
                 Visto Bueno Jefe de Área / Fecha
               </td>
-              <td>
+              <td style="border-top:1px dashed">
                 Visto Bueno Jefe de Operaciones / Fecha
               </td>
             </tr>
