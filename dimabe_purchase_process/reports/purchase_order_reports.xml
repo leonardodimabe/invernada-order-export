@@ -4,6 +4,21 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <div class="page">
+          <table>
+            <tr>
+              <td>
+                <img
+                  t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+                  style="width:100px !important;"
+
+                />
+              </td>
+              <td>
+                <h1>Registro Solicitud de Compra</h1>
+              </td>
+              <td> </td>
+            </tr>
+          </table>
           <table style="width:100%; margin-bottom:50px !important;">
             <tr>
               <th colspan="4" style="text-align:center !important;border-bottom:1px solid;">
@@ -63,7 +78,7 @@
 
 
   </template>
-   <report id="action_purchase_quotation_report"
+  <report id="action_purchase_quotation_report"
           string="Solicitud de Compra"
           model="purchase.order"
           report_type="qweb-pdf"
