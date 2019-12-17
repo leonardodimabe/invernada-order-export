@@ -4,13 +4,13 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <div class="header">
-          <div style="position:relative; width:100%; border: 1px solid;">
+          <div style="position:relative; width:100%; border: 1px solid;overflow:hidden">
             <img
               t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
               style="width:200px !important;"
 
             />
-            <span style="float:right">
+            <span style="float:right; border:1px solid;">
               <div>
                 N°:
                 <span t-field="o.name"/>
