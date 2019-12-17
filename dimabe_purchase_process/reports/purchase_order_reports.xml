@@ -4,7 +4,7 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <div class="header">
-          <div style="position:relative; width:100%;">
+          <div style="position:relative; width:100%; border: 1px solid;">
             <img
               t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
               style="width:200px !important;"
@@ -25,7 +25,7 @@
               </div>
             </span>
           </div>
-          <div style="text-align:center !important; position: relative; width: 100%;">
+          <div style="text-align:center !important; position: relative; width: 100%; border:1px solid;">
             <h2>Registro Solicitud de Compra</h2>
           </div>
         </div>
