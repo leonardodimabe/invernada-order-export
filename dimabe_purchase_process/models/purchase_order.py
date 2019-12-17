@@ -5,7 +5,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     boss_approval_id = fields.Many2one(
-        'res.user',
+        'res.users',
         'vb jefe de área',
         default=None,
         nullable=True
