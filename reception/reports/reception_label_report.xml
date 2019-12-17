@@ -253,7 +253,7 @@
                 </tr>
                 <tr>
                   <td colspan="2" style="border-top:1px solid;border-bottom:1px solid;">
-                    <p></p>
+                    <p> </p>
                   </td>
                 </tr>
                 <tr>
@@ -319,7 +319,7 @@
               <td style="border-top: 1px dashed;">
                 FIRMA TRANSPORTISTA
               </td>
-              <td style="width: 30px;"></td>
+              <td style="width: 30px;"> </td>
               <td style="border-top: 1px dashed;">
                 FIRMA ROMANERO
               </td>

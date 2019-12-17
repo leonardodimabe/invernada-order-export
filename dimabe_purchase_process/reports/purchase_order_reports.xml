@@ -123,7 +123,6 @@
               </td>
               <td>
                 <span t-esc="o.get_po_approve_data()" />
-
               </td>
             </tr>
             <tr>
