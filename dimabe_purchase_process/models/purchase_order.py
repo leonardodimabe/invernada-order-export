@@ -33,9 +33,10 @@ class PurchaseOrder(models.Model):
     def action_rfq_send(self):
         for item in self:
             if not item.boss_approval_id:
-                raise models.ValidationError(item.boss_approval_id)
-                item.boss_approval_id = self.env.user.id
-                item.boss_approval_date = fields.datetime.now()
+                item.update({
+                    'boss_approval_id':self.env.user.id,
+                    'boss_approval_date': fields.datetime.now()
+                })
         return super(PurchaseOrder, self).action_rfq_send()
 
     @api.model
