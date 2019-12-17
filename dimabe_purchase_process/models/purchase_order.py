@@ -4,6 +4,19 @@ from odoo import fields, models, api
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+    boss_approval_id = fields.Many2one(
+        'res.partner',
+        'vb jefe de área',
+        default=None,
+        nullable=True
+    )
+
+    boss_approval_date = fields.Datetime(
+        string='fecha de aprobación jefe',
+        default=None,
+        nullable=True
+    )
+
     @api.model
     def get_analytic_accounts(self):
         res = self.env['account.analytic.account'].search([])
@@ -16,6 +29,14 @@ class PurchaseOrder(models.Model):
                 tmp = []
         return account_list
 
+    @api.multi
+    def action_rfq_send(self):
+        for item in self:
+            if not item.boss_approval_id:
+                item.boss_approval_id = self.env.user
+                item.boss_approval_date = fields.datetime.now()
+        return super(PurchaseOrder, self).action_rfq_send()
+
     @api.model
     def get_po_approve_data(self):
 
@@ -27,5 +48,6 @@ class PurchaseOrder(models.Model):
 
     @api.model
     def get_mail_sender(self):
-
+        if self.boss_approval_id and self.boss_approval_date:
+            return '{} {}'.format(self.boss_approval_id.name, self.boss_approval_date)
         return ''
