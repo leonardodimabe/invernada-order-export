@@ -5,7 +5,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     boss_approval_id = fields.Many2one(
-        'res.partner',
+        'res.user',
         'vb jefe de área',
         default=None,
         nullable=True
@@ -32,11 +32,11 @@ class PurchaseOrder(models.Model):
     @api.multi
     def action_rfq_send(self):
         for item in self:
-            if not item.boss_approval_id:
-                item.update({
-                    'boss_approval_id':self.env.user.id,
-                    'boss_approval_date': fields.datetime.now()
-                })
+            # if not item.boss_approval_id:
+            item.update({
+                'boss_approval_id': self.env.user.id,
+                'boss_approval_date': fields.datetime.now()
+            })
         return super(PurchaseOrder, self).action_rfq_send()
 
     @api.model
