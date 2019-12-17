@@ -58,7 +58,7 @@
             </t>
           </table>
           <h3>Proveedor:</h3>
-          <table>
+          <table style="border-top: 1px solid;margin-bottom:20px;">
             <tr>
               <td>Nombre:</td>
               <td><span t-field="o.partner_id.name" /></td>
