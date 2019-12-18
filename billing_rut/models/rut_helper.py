@@ -43,8 +43,8 @@ def validate_rut(rut_str):
     elif res == 10:
         digit = "K"
     else:
-        digit = res
-    raise models.ValidationError('{} {}'.format(type(str(digit)), type(dv)))
+        digit = str(res)
+    raise models.ValidationError(digit == dv)
     return digit == dv
 
 
