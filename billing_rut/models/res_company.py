@@ -1,12 +1,5 @@
 from odoo import fields, models, api
-from .rut_helper import validate_rut, format_rut
-
-
-def prepare_rut(values):
-    if 'invoice_rut' in values and values['invoice_rut']:
-        if not validate_rut(values['invoice_rut']):
-            raise models.ValidationError('el rut no es válido')
-        values['invoice_rut'] = format_rut(values['invoice_rut'])
+from .rut_helper import prepare_rut
 
 
 class ResCompany(models.Model):

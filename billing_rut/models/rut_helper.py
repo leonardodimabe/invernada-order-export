@@ -1,3 +1,4 @@
+from odoo import models
 import re
 
 
@@ -43,3 +44,10 @@ def validate_rut(rut_str):
     else:
         digit = res
     return digit == dv
+
+
+def prepare_rut(values):
+    if 'invoice_rut' in values and values['invoice_rut']:
+        if not validate_rut(values['invoice_rut']):
+            raise models.ValidationError('el rut no es válido')
+        values['invoice_rut'] = format_rut(values['invoice_rut'])
