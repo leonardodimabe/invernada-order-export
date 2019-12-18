@@ -223,8 +223,8 @@
           </div>
           <p style="padding:15px;">Por lo siguiente:</p>
           <div style="width:100%;">
-            <table style="width:100%;border:1px solid;">
-              <tr style="border-bottom:1px solid;text-align:left;">
+            <table style="width:100%;">
+              <tr style="border-bottom:1px solid;text-align:left;border:1px solid;">
                 <th>Código</th>
                 <th>C.C</th>
                 <th  style="text-align:right !important;">Unidad</th>
@@ -234,7 +234,7 @@
                 <th style="text-align:right !important;">Total</th>
               </tr>
               <t t-foreach="o.order_line" t-as="line">
-                <tr>
+                <tr style="border:1px solid;">
                   <td style="text-align:left;"><span t-field="line.product_id.code"/></td>
                   <td style="text-align:left;"><span t-field="line.account_analytic_id.name"/></td>
                   <td style="text-align:right;"><span t-field="line.product_qty"/></td>
