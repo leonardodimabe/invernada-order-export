@@ -8,7 +8,7 @@ def format_rut(rut_str):
     rut_body = rut_str[:-1]
     counter = 0
     formatted_body = ''
-    for character in rut_body:
+    for character in rut_body[::-1]:
         formatted_body += character
         counter += 1
         if counter == 3 and len(formatted_body.replace('.', '')) < len(rut_body):
