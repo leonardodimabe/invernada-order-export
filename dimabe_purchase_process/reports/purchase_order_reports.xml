@@ -265,7 +265,14 @@
             <table style="width:100%;">
               <tr>
                 <th style="text-align:right;">Fecha de Entrega:</th>
-                <td></td>
+                <td>
+                  <t t-if="o.date_planned">
+                    <span t-field="o.date_planned"/>
+                  </t>
+                  <t t-if="not o.date_planned">
+                    a convenir
+                  </t>
+                </td>
               </tr>
               <tr>
                 <th style="text-align:right;">Lugar de Entrega:</th>
