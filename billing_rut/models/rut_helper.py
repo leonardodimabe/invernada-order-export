@@ -44,7 +44,7 @@ def validate_rut(rut_str):
         digit = "K"
     else:
         digit = res
-    raise models.ValidationError(digit == dv)
+    raise models.ValidationError('{} {}'.format(type(digit), type(dv)))
     return digit == dv
 
 
