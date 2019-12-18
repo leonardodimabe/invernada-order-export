@@ -14,7 +14,7 @@ def format_rut(rut_str):
         if counter == 3 and len(formatted_body.replace('.', '')) < len(rut_body):
             counter = 0
             formatted_body += '.'
-    raise models.ValidationError('{} {}'.format(formatted_body[::-1], dv))
+    return '{}-{}'.format(formatted_body[::-1], dv)
 
 
 def clean_rut(rut_str):
@@ -22,6 +22,28 @@ def clean_rut(rut_str):
     pattern = r'\D'
     res = re.sub(pattern, '', rut_str)
     return '{}{}'.format(res, dv)
+
+
+def validate_rut(rut_str):
+    rut_str = clean_rut(rut_str)
+    dv = rut_str[-1:]
+    rut_str = rut_str[:-1]
+    carry = 2
+    tmp_res = 0
+    for x in rut_str[::-1]:
+        tmp_res += int(x)*carry
+        if carry == 7:
+            carry = 1
+        carry += 1
+    mod = tmp_res % 11
+    res = 11 - mod
+    if res == 11:
+        digit = 0
+    elif res == 10:
+        digit = "K"
+    else:
+        digit = res
+    return digit == dv
 
 
 class ResCompany(models.Model):
@@ -33,7 +55,10 @@ class ResCompany(models.Model):
 
     @api.model
     def create(self, values_list):
+
         if 'invoice_rut' in values_list and values_list['invoice_rut']:
+            if not validate_rut(values_list['invoice_rut']):
+                raise models.ValidationError('el rut no es válido')
             values_list['invoice_rut'] = format_rut(values_list['invoice_rut'])
 
         return super(ResCompany, self).create(values_list)
@@ -41,6 +66,8 @@ class ResCompany(models.Model):
     @api.multi
     def write(self, values):
         if 'invoice_rut' in values and values['invoice_rut']:
+            if not validate_rut(values['invoice_rut']):
+                raise models.ValidationError('el rut no es válido')
             values['invoice_rut'] = format_rut(values['invoice_rut'])
             raise models.ValidationError(values['invoice_rut'])
         return super(ResCompany, self).write(values)
