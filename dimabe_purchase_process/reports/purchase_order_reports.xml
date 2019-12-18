@@ -328,7 +328,7 @@
               <tr>
                 <th style="text-align:right;">Condición de Venta:</th>
                 <td>
-                  <span t-field="o.payment_term_id.name"/>
+                  <span t-field="o.partner_id.property_supplier_payment_term_id.name"/>
                 </td>
               </tr>
               <tr>
