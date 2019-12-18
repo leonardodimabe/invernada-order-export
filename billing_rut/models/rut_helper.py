@@ -20,7 +20,6 @@ def format_rut(rut_str):
 def clean_rut(rut_str):
     dv = str.upper(rut_str[-1:])
     rut_str = rut_str[0:-1]
-    raise models.ValidationError(rut_str)
     pattern = r'\D'
     res = re.sub(pattern, '', rut_str)
     return '{}{}'.format(res, dv)
@@ -32,7 +31,6 @@ def validate_rut(rut_str):
     rut_str = rut_str[0:-1]
     carry = 2
     tmp_res = 0
-    raise models.ValidationError(rut_str[::-1])
     for x in rut_str[::-1]:
         tmp_res += int(x) * carry
         if carry == 7:
