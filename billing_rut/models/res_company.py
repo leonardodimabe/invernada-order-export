@@ -31,7 +31,7 @@ def validate_rut(rut_str):
     carry = 2
     tmp_res = 0
     for x in rut_str[::-1]:
-        tmp_res += int(x)*carry
+        tmp_res += int(x) * carry
         if carry == 7:
             carry = 1
         carry += 1
@@ -46,6 +46,13 @@ def validate_rut(rut_str):
     return digit == dv
 
 
+def prepare_rut(values):
+    if 'invoice_rut' in values and values['invoice_rut']:
+        if not validate_rut(values['invoice_rut']):
+            raise models.ValidationError('el rut no es válido')
+        values['invoice_rut'] = format_rut(values['invoice_rut'])
+
+
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
@@ -55,19 +62,10 @@ class ResCompany(models.Model):
 
     @api.model
     def create(self, values_list):
-
-        if 'invoice_rut' in values_list and values_list['invoice_rut']:
-            if not validate_rut(values_list['invoice_rut']):
-                raise models.ValidationError('el rut no es válido')
-            values_list['invoice_rut'] = format_rut(values_list['invoice_rut'])
-
+        prepare_rut(values_list)
         return super(ResCompany, self).create(values_list)
 
     @api.multi
     def write(self, values):
-        if 'invoice_rut' in values and values['invoice_rut']:
-            if not validate_rut(values['invoice_rut']):
-                raise models.ValidationError('el rut no es válido')
-            values['invoice_rut'] = format_rut(values['invoice_rut'])
-
+        prepare_rut(values)
         return super(ResCompany, self).write(values)
