@@ -31,7 +31,6 @@ def validate_rut(rut_str):
     rut_str = rut_str[0:-1]
     carry = 2
     tmp_res = 0
-    raise models.ValidationError(rut_str[::-1])
     for x in rut_str[::-1]:
         tmp_res += int(x) * carry
         if carry == 7:
@@ -45,6 +44,7 @@ def validate_rut(rut_str):
         digit = "K"
     else:
         digit = res
+    raise models.ValidationError('{} {}'.format(digit,dv))
     return digit == dv
 
 
