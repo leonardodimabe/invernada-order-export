@@ -188,6 +188,33 @@
               </t>
             </strong>
           </div>
+          <div style="width:100%;border:1px solid;">
+            <table>
+              <tr>
+                <th>Señores:</th>
+                <td><span t-field="o.partner_id.name" /></td>
+                <td>
+                  <strong>Cotización: <span t-field="o.id" /></strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Rut:</th>
+                <td colspan="2"></td>
+              </tr>
+              <tr>
+                <th>Dirección:</th>
+                <td colspan="2"></td>
+              </tr>
+              <tr>
+                <th>Fono-fax:</th>
+                <td colspan="2"></td>
+              </tr>
+              <tr>
+                <th>Atención:</th>
+                <td colspan="2"></td>
+              </tr>
+            </table>
+          </div>
         </div>
       </t>
     </t>
