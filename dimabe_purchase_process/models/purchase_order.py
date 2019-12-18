@@ -37,7 +37,9 @@ class PurchaseOrder(models.Model):
                     'boss_approval_id': self.env.user.id,
                     'boss_approval_date': fields.datetime.now()
                 })
-        return super(PurchaseOrder, self).action_rfq_send()
+        res = super(PurchaseOrder, self).action_rfq_send()
+        raise models.ValidationError(res)
+        return res
 
     @api.model
     def get_po_approve_data(self):
