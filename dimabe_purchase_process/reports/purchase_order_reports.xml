@@ -159,7 +159,7 @@
             <span style="float:right;border:1px solid;padding:5px;text-align:center;width:25%;">
               <div>
                 RUT:
-                <span t-field="res_company.partner_id"/>
+                <span t-field="res_company.invoice_rut"/>
               </div>
               <div>
                 ÓRDEN DE COMPRA
