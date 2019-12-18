@@ -156,6 +156,14 @@
               style="width:200px !important;"
 
             />
+            <span style="float:right;text-align:right;">
+              <div><span t-esc="res_company.street"/></div>
+              <div><span t-esc="res_company.city"/></div>
+              <div><span t-esc="res_company.state_id"/></div>
+              <div><span t-esc="res_company.zip"/></div>
+              <div><span t-esc="res_company.country_id"/></div>
+              <div><span t-esc="res_company.website"/></div>
+            </span>
             <span style="float:right;border:1px solid;padding:5px;text-align:center;">
               <div>
                 RUT:
