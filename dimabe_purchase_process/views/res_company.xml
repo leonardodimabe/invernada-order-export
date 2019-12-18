@@ -5,7 +5,7 @@
       <field name="model">res.company</field>
       <field name="inherit_id" ref="base.view_company_form" />
       <field name="arch" type="xml">
-        <field field="partner_id" position="after">
+        <field field="name" position="after">
           <field name="billing_mail" />
           <field name="billing_email" />
         </field>
