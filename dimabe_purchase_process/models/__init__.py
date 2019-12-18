@@ -2,4 +2,4 @@
 
 from . import purchase_requisition
 from . import purchase_order
-from . import PurchaseOrderLine
+from . import purchase_order_line

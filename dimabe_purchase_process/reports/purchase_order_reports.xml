@@ -156,7 +156,7 @@
               style="width:200px !important;"
 
             />
-            <span style="float:right;">
+            <span style="float:right;border:1px solid;">
               <div>
                 RUT:
                 <span t-field="o.name"/>
@@ -175,7 +175,7 @@
         <div class="page">
           <div style="position:relative; width:100%; overflow:hidden;">
             <strong style="float:right">
-              Santiago, <span t-usertime="%d de %B de %Y" />
+              Santiago, <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')" />
             </strong>
           </div>
         </div>
