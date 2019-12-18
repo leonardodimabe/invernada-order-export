@@ -189,7 +189,7 @@
         </div>
         <div class="page">
           <div style="position:relative; width:100%; overflow:hidden;">
-            <strong style="float:right;width:100%;">
+            <strong style="width:100%;text-align:right;">
               Santiago,
               <t t-if="o.boss_approval_date">
                 <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')"/>
