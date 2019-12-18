@@ -193,7 +193,7 @@
               <tr>
                 <th>Señores:</th>
                 <td><span t-field="o.partner_id.name" /></td>
-                <td style="text-align:right;">
+                <td style="text-align:right !important;">
                   <strong>Cotización: <span t-field="o.id" /></strong>
                 </td>
               </tr>
