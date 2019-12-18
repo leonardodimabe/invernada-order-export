@@ -175,7 +175,7 @@
         <div class="page">
           <div style="position:relative; width:100%; overflow:hidden;">
             <strong style="float:right">
-              Santiago, <span t-esc="context_timestamp(stock_picking.truck_in_date).strftime('%d de %M de %Y')" />
+              Santiago, <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d de %M de %Y')" />
             </strong>
           </div>
         </div>
