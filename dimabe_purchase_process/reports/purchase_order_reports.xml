@@ -246,17 +246,17 @@
               </t>
               <tr>
                 <td colspan="5"> </td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Neto Pesos</td>
+                <td style="text-align:right;border-left:1px solid;border-bottom:1px solid;border-right:1px solid;">Neto Pesos</td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_untaxed"/></td>
               </tr>
               <tr>
                 <td colspan="5"> </td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Iva</td>
+                <td style="text-align:right;border-left:1px solid;border-bottom:1px solid;border-right:1px solid;">Iva</td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_tax"/></td>
               </tr>
               <tr>
                 <td colspan="5"> </td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Total Pesos</td>
+                <td style="text-align:right;border-left:1px solid;border-bottom:1px solid;border-right:1px solid;">Total Pesos</td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_total"/></td>
               </tr>
             </table>
