@@ -38,7 +38,7 @@ class PurchaseOrder(models.Model):
                     'boss_approval_date': fields.datetime.now()
                 })
         res = super(PurchaseOrder, self).action_rfq_send()
-        raise models.ValidationError(res['default_res_id'])
+        raise models.ValidationError(res['context'])
         return res
 
     @api.model
