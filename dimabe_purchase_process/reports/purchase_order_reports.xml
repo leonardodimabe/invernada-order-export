@@ -233,6 +233,17 @@
                 <th>P.Unitario</th>
                 <th>Total</th>
               </tr>
+              <t t-foreach="o.order_line" t-as="line">
+                <tr>
+                  <td><span t-field="line.product_id.code"/></td>
+                  <td><span t-field="line.account_analytic_id.name"/></td>
+                  <td><span t-field="line.product_qty"/></td>
+                  <td><span t-field="line.product_id.name"/></td>
+                  <td><span t-field="o.currency_id.name"/></td>
+                  <td><span t-field="line.price_unit"/></td>
+                  <td><span t-field="line.price_subtotal"/></td>
+                </tr>
+              </t>
             </table>
           </div>
         </div>
