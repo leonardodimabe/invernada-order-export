@@ -213,7 +213,9 @@
               </tr>
               <tr>
                 <th style="text-align:right;">Rut:</th>
-                <td colspan="2"></td>
+                <td colspan="2">
+                  <span t-field="o.partner_id.invoice_rut" />
+                </td>
               </tr>
               <tr>
                 <th style="text-align:right;">Dirección:</th>
