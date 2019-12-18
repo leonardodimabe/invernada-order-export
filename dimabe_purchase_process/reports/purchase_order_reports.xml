@@ -169,7 +169,7 @@
                 <span t-field="o.name"/>
               </div>
             </span>
-            <span style="float:right;text-align:right;padding-right:10px;">
+            <span style="float:right;text-align:right;padding-right:10px;width:25%;">
               <div><span t-esc="res_company.street"/></div>
               <div><span t-esc="res_company.city"/></div>
               <t t-if="res_company.zip">
