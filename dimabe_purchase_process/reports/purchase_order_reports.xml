@@ -191,9 +191,9 @@
           <div style="width:100%;border:1px solid;">
             <table style="width:100%;">
               <tr>
-                <th style="text-align:right;width:30%;">Señores:</th>
-                <td style="width:50%;"><span t-field="o.partner_id.name" /></td>
-                <td style="border:1px solid;width:20%;">
+                <th style="text-align:right;width:20%;">Señores:</th>
+                <td style="width:60%;"><span t-field="o.partner_id.name" /></td>
+                <td style="solid;width:20%;">
                   <strong style="text-align:right !important;">Cotización: <span t-field="o.id" /></strong>
                 </td>
               </tr>
