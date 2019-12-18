@@ -69,5 +69,5 @@ class ResCompany(models.Model):
             if not validate_rut(values['invoice_rut']):
                 raise models.ValidationError('el rut no es válido')
             values['invoice_rut'] = format_rut(values['invoice_rut'])
-            raise models.ValidationError(values['invoice_rut'])
+
         return super(ResCompany, self).write(values)
