@@ -191,30 +191,30 @@
           <div style="width:100%;border:1px solid;">
             <table>
               <tr>
-                <th>Señores:</th>
-                <td><span t-field="o.partner_id.name" /></td>
-                <td style="border:1px solid;">
+                <th style="text-align:right;width:30%;">Señores:</th>
+                <td style="width:50%;"><span t-field="o.partner_id.name" /></td>
+                <td style="border:1px solid;width:20%;">
                   <strong style="text-align:right !important;">Cotización: <span t-field="o.id" /></strong>
                 </td>
               </tr>
               <tr>
-                <th>Rut:</th>
+                <th style="text-align:right;">Rut:</th>
                 <td colspan="2"></td>
               </tr>
               <tr>
-                <th>Dirección:</th>
+                <th style="text-align:right;">Dirección:</th>
                 <td colspan="2">
                   <span t-field="o.partner_id.street"/>, <span t-field="o.partner_id.city"/>
                 </td>
               </tr>
               <tr>
-                <th>Fono-fax:</th>
+                <th style="text-align:right;">Fono-fax:</th>
                 <td colspan="2">
                   <span t-field="o.partner_id.phone"/> <span t-field="o.partner_id.mobile"/>
                 </td>
               </tr>
               <tr>
-                <th>Atención:</th>
+                <th style="text-align:right;">Atención:</th>
                 <td colspan="2">
                   <span t-field="o.user_id.name"/>
                 </td>
