@@ -31,6 +31,7 @@ class ResCompany(models.Model):
 
     @api.multi
     def write(self, values):
+        raise models.ValidationError(values['invoice_rut'])
         if 'invoice_rut' in values and values['invoice_rut']:
             values['invoice_rut'] = clean_rut(values['invoice_rut'])
         return super(ResCompany, self).write(values)
