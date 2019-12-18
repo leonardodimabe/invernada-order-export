@@ -14,7 +14,7 @@ def format_rut(rut_str):
         if counter == 3 and len(formatted_body.replace('.', '')) < len(rut_body):
             counter = 0
             formatted_body += '.'
-    raise models.ValidationError('{} {}'.format(rut_body, dv))
+    raise models.ValidationError('{} {}'.format(formatted_body, dv))
 
 
 def clean_rut(rut_str):
