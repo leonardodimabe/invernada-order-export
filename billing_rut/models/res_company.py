@@ -33,4 +33,4 @@ class ResCompany(models.Model):
     def write(self, values):
         if 'invoice_rut' in values and values['invoice_rut']:
             values['invoice_rut'] = clean_rut(values['invoice_rut'])
-        return super(ResCompany, self).create(values)
+        return super(ResCompany, self).write(values)
