@@ -22,7 +22,8 @@
     'depends': [
         'base',
         'purchase_requisition',
-        'purchase'
+        'purchase',
+        'billing_rut'
     ],
 
     # always loaded
