@@ -189,12 +189,14 @@
         </div>
         <div class="page">
           <div style="position:relative; width:100%; overflow:hidden;">
-            <strong style="width:100%;text-align:right !important;border:1px solid;">
-              Santiago,
-              <t t-if="o.boss_approval_date">
-                <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')"/>
-              </t>
-            </strong>
+            <p style="width:100%;text-align:right !important;">
+              <strong>
+                Santiago,
+                <t t-if="o.boss_approval_date">
+                  <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')"/>
+                </t>
+              </strong>
+            </p>
           </div>
           <div style="width:100%;border:1px solid;">
             <table style="width:100%;">
@@ -334,9 +336,10 @@
               <tr>
                 <th style="text-align:right;">Despacho Factura:</th>
                 <td>
-                  <span t-field="res_company.billing_mail" />
+                  <span t-field="res_company.billing_mail"/>
                   <t t-if="res_company.billing_email">
-                     , o al <span t-field="res_company.billing_email" />
+                    , o al
+                    <span t-field="res_company.billing_email"/>
                   </t>
                 </td>
               </tr>
