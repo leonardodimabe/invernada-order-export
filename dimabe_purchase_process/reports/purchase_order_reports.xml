@@ -224,8 +224,8 @@
           <p style="padding:15px;">Por lo siguiente:</p>
           <div style="width:100%;">
             <table style="width:100%;">
-              <tr style="border-bottom:1px solid !important;text-align:left;">
-                <th>Código</th>
+              <tr style="text-align:left;">
+                <th style="border-bottom:1px solid;border-right:1px solid;">Código</th>
                 <th>C.C</th>
                 <th  style="text-align:right !important;">Unidad</th>
                 <th>Detalle</th>
