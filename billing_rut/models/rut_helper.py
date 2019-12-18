@@ -29,9 +29,9 @@ def validate_rut(rut_str):
     rut_str = clean_rut(rut_str)
     dv = rut_str[-1:]
     rut_str = rut_str[0:-1]
-    raise models.ValidationError('{} {}'.format(rut_str,dv))
     carry = 2
     tmp_res = 0
+    raise models.ValidationError(rut_str[::-1])
     for x in rut_str[::-1]:
         tmp_res += int(x) * carry
         if carry == 7:
