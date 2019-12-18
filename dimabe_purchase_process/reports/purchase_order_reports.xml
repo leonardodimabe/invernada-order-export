@@ -138,10 +138,55 @@
 
 
   </template>
+
   <report id="action_purchase_quotation_report"
           string="Solicitud de Compra"
           model="purchase.order"
           report_type="qweb-pdf"
           name="dimabe_purchase_process.report_purchase_quotation_document"
+  />
+
+  <template id="report_purchase_order_document">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <div class="header">
+          <div style="position:relative; width:100%; overflow:hidden">
+            <img
+              t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+              style="width:200px !important;"
+
+            />
+            <span style="float:right;">
+              <div>
+                RUT:
+                <span t-field="o.name"/>
+              </div>
+              <div>
+                ÓRDEN DE COMPRA:
+                <span t-field="o.requisition_id.ordering_date"/>
+              </div>
+              <div>
+                N°:
+                <span t-field="o.requisition_id.user_id"/>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="page">
+          <div style="position:relative; width:100%; overflow:hidden;">
+            <strong style="float:right">
+              Santiago, <span t-esc="context_timestamp(stock_picking.truck_in_date).strftime('%d de %M de %Y')" />
+            </strong>
+          </div>
+        </div>
+      </t>
+    </t>
+  </template>
+
+  <report id="action_purchase_order_report"
+          string="OC invernada"
+          model="purchase.order"
+          report_type="qweb-pdf"
+          name="dimabe_purchase_process.report_purchase_order_document"
   />
 </odoo>
