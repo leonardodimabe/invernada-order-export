@@ -28,3 +28,9 @@ class ResCompany(models.Model):
             values_list['invoice_rut'] = clean_rut(values_list['invoice_rut'])
 
         return super(ResCompany, self).create(values_list)
+
+    @api.multi
+    def write(self, values):
+        if 'invoice_rut' in values:
+            values['invoice_rut'] = clean_rut(values['invoice_rut'])
+        return super(ResCompany, self).create(values)
