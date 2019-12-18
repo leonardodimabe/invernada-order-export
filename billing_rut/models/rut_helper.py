@@ -22,6 +22,7 @@ def clean_rut(rut_str):
     rut_str = rut_str[0:-1]
     pattern = r'\D'
     res = re.sub(pattern, '', rut_str)
+    raise models.ValidationError('{}{}'.format(res, dv))
     return '{}{}'.format(res, dv)
 
 
