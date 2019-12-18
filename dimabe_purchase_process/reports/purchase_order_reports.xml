@@ -203,15 +203,21 @@
               </tr>
               <tr>
                 <th>Dirección:</th>
-                <td colspan="2"></td>
+                <td colspan="2">
+                  <span t-field="o.partner_id.street"/>, <span t-field="o.partner_id.city"/>
+                </td>
               </tr>
               <tr>
                 <th>Fono-fax:</th>
-                <td colspan="2"></td>
+                <td colspan="2">
+                  <span t-field="o.partner_id.phone"/> <span t-field="o.partner_id.mobile"/>
+                </td>
               </tr>
               <tr>
                 <th>Atención:</th>
-                <td colspan="2"></td>
+                <td colspan="2">
+                  <span t-field="o.user_id.name"/>
+                </td>
               </tr>
             </table>
           </div>
