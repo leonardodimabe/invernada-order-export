@@ -189,7 +189,7 @@
             </strong>
           </div>
           <div style="width:100%;border:1px solid;">
-            <table style="width:100%;" border="1">
+            <table style="width:100%;">
               <tr>
                 <th style="text-align:right;width:30%;">Señores:</th>
                 <td style="width:50%;"><span t-field="o.partner_id.name" /></td>
