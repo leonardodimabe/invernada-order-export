@@ -171,11 +171,10 @@
             </span>
             <span style="float:right;text-align:right;padding-right:10px;width:25%;">
               <div><span t-esc="res_company.street"/></div>
-              <div><span t-esc="res_company.city"/></div>
+              <div><span t-esc="res_company.city"/>,<span t-esc="res_company.country_id.name"/></div>
               <t t-if="res_company.zip">
                 <div><span t-esc="res_company.zip"/></div>
               </t>
-              <div><span t-esc="res_company.country_id.name"/></div>
               <div><span t-esc="res_company.website"/></div>
             </span>
           </div>
