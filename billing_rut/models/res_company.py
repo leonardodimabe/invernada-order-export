@@ -24,13 +24,13 @@ class ResCompany(models.Model):
 
     @api.model
     def create(self, values_list):
-        if 'invoice_rut' in values_list:
+        if 'invoice_rut' in values_list and values_list['invoice_rut']:
             values_list['invoice_rut'] = clean_rut(values_list['invoice_rut'])
 
         return super(ResCompany, self).create(values_list)
 
     @api.multi
     def write(self, values):
-        if 'invoice_rut' in values:
+        if 'invoice_rut' in values and values['invoice_rut']:
             values['invoice_rut'] = clean_rut(values['invoice_rut'])
         return super(ResCompany, self).create(values)
