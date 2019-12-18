@@ -222,6 +222,19 @@
             </table>
           </div>
           <p style="padding:15px;">Por lo siguiente:</p>
+          <div style="width:100%;">
+            <table style="width:100%;border:1px solid;">
+              <tr style="border-bottom:1px solid;">
+                <th>Código</th>
+                <th>C.C</th>
+                <th>Unidad</th>
+                <th>Detalle</th>
+                <th>Moneda</th>
+                <th>P.Unitario</th>
+                <th>Total</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </t>
     </t>
