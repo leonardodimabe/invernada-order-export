@@ -114,7 +114,7 @@
                   <span t-esc="o.get_mail_sender()"/>
                 </strong>
               </td>
-              <td style="width:20px !important;"> </td>
+              <td style="width:20px !important;"></td>
               <td>
                 <strong>
                   <span t-esc="o.get_po_approve_data()"/>
@@ -126,7 +126,7 @@
               <td style="border-top:1px dashed;">
                 Visto Bueno Jefe de Área / Fecha
               </td>
-              <td style="width:20px !important;"> </td>
+              <td style="width:20px !important;"></td>
               <td style="border-top:1px dashed;">
                 Visto Bueno Jefe de Operaciones / Fecha
               </td>
@@ -170,12 +170,20 @@
               </div>
             </span>
             <span style="float:right;text-align:right;padding-right:10px;width:25%;">
-              <div><span t-esc="res_company.street"/></div>
-              <div><span t-esc="res_company.city"/>,<span t-esc="res_company.country_id.name"/></div>
+              <div>
+                <span t-esc="res_company.street"/>
+              </div>
+              <div><span t-esc="res_company.city"/>,
+                <span t-esc="res_company.country_id.name"/>
+              </div>
               <t t-if="res_company.zip">
-                <div><span t-esc="res_company.zip"/></div>
+                <div>
+                  <span t-esc="res_company.zip"/>
+                </div>
               </t>
-              <div><span t-esc="res_company.website"/></div>
+              <div>
+                <span t-esc="res_company.website"/>
+              </div>
             </span>
           </div>
         </div>
@@ -184,7 +192,7 @@
             <strong style="float:right">
               Santiago,
               <t t-if="o.boss_approval_date">
-                <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')" />
+                <span t-esc="context_timestamp(o.boss_approval_date).strftime('%d de %B de %Y')"/>
               </t>
             </strong>
           </div>
@@ -192,9 +200,13 @@
             <table style="width:100%;">
               <tr>
                 <th style="text-align:right;width:15%;">Señores:</th>
-                <td style="width:65%;"><span t-field="o.partner_id.name" /></td>
+                <td style="width:65%;">
+                  <span t-field="o.partner_id.name"/>
+                </td>
                 <td style="solid;width:20%;">
-                  <strong style="text-align:right !important;">Cotización: <span t-field="o.id" /></strong>
+                  <strong style="text-align:right !important;">Cotización:
+                    <span t-field="o.id"/>
+                  </strong>
                 </td>
               </tr>
               <tr>
@@ -204,13 +216,15 @@
               <tr>
                 <th style="text-align:right;">Dirección:</th>
                 <td colspan="2">
-                  <span t-field="o.partner_id.street"/>, <span t-field="o.partner_id.city"/>
+                  <span t-field="o.partner_id.street"/>,
+                  <span t-field="o.partner_id.city"/>
                 </td>
               </tr>
               <tr>
                 <th style="text-align:right;">Fono-fax:</th>
                 <td colspan="2">
-                  <span t-field="o.partner_id.phone"/> <span t-field="o.partner_id.mobile"/>
+                  <span t-field="o.partner_id.phone"/>
+                  <span t-field="o.partner_id.mobile"/>
                 </td>
               </tr>
               <tr>
@@ -227,37 +241,66 @@
               <tr style="text-align:left;">
                 <th style="border:1px solid;">Código</th>
                 <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">C.C</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Unidad</th>
+                <th
+                  style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">
+                  Unidad
+                </th>
                 <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Detalle</th>
                 <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Moneda</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">P.Unitario</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Total</th>
+                <th
+                  style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">
+                  P.Unitario
+                </th>
+                <th
+                  style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">
+                  Total
+                </th>
               </tr>
               <t t-foreach="o.order_line" t-as="line">
                 <tr>
-                  <td style="text-align:left;border-left:1px solid;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.product_id.code"/></td>
-                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.account_analytic_id.name"/></td>
-                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.product_qty"/></td>
-                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.product_id.name"/></td>
-                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.currency_id.name"/></td>
-                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.price_unit"/></td>
-                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="line.price_subtotal"/></td>
+                  <td style="text-align:left;border-left:1px solid;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.product_id.code"/>
+                  </td>
+                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.account_analytic_id.name"/>
+                  </td>
+                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.product_qty"/>
+                  </td>
+                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.product_id.name"/>
+                  </td>
+                  <td style="text-align:left;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="o.currency_id.name"/>
+                  </td>
+                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.price_unit"/>
+                  </td>
+                  <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                    <span t-field="line.price_subtotal"/>
+                  </td>
                 </tr>
               </t>
               <tr>
-                <td colspan="5" style="border-right:1px solid;"> </td>
+                <td colspan="5" style="border-right:1px solid;"></td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Neto Pesos</td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_untaxed"/></td>
+                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                  <span t-field="o.amount_untaxed"/>
+                </td>
               </tr>
               <tr>
-                <td colspan="5" style="border-right:1px solid;"> </td>
+                <td colspan="5" style="border-right:1px solid;"></td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Iva</td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_tax"/></td>
+                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                  <span t-field="o.amount_tax"/>
+                </td>
               </tr>
               <tr>
-                <td colspan="5" style="border-right:1px solid;"> </td>
+                <td colspan="5" style="border-right:1px solid;"></td>
                 <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">Total Pesos</td>
-                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;"><span t-field="o.amount_total"/></td>
+                <td style="text-align:right;border-bottom:1px solid;border-right:1px solid;">
+                  <span t-field="o.amount_total"/>
+                </td>
               </tr>
             </table>
           </div>
@@ -276,11 +319,17 @@
               </tr>
               <tr>
                 <th style="text-align:right;">Lugar de Entrega:</th>
-                <td></td>
+                <td>
+                  <span t-field="res_company.street"/>
+                  <span t-esc="res_company.city"/>,
+                  <span t-esc="res_company.country_id.name"/>
+                </td>
               </tr>
               <tr>
                 <th style="text-align:right;">Condición de Venta:</th>
-                <td></td>
+                <td>
+                  <span t-field="o.payment_term_id.name"/>
+                </td>
               </tr>
               <tr>
                 <th style="text-align:right;">Despacho Factura:</th>
