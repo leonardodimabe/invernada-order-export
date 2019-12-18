@@ -227,11 +227,11 @@
               <tr style="border-bottom:1px solid;text-align:left;">
                 <th>Código</th>
                 <th>C.C</th>
-                <th>Unidad</th>
+                <th  style="text-align:right;">Unidad</th>
                 <th>Detalle</th>
                 <th>Moneda</th>
-                <th>P.Unitario</th>
-                <th>Total</th>
+                <th style="text-align:right;">P.Unitario</th>
+                <th style="text-align:right;">Total</th>
               </tr>
               <t t-foreach="o.order_line" t-as="line">
                 <tr>
