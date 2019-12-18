@@ -156,18 +156,17 @@
               style="width:200px !important;"
 
             />
-            <span style="float:right;border:1px solid;">
+            <span style="float:right;border:1px solid;padding:5px;text-align:center;">
               <div>
                 RUT:
-                <span t-field="o.name"/>
+                <span t-field="res_company.partner_id"/>
               </div>
               <div>
-                ÓRDEN DE COMPRA:
-                <span t-field="o.requisition_id.ordering_date"/>
+                ÓRDEN DE COMPRA
               </div>
               <div>
                 N°:
-                <span t-field="o.requisition_id.user_id"/>
+                <span t-field="o.name"/>
               </div>
             </span>
           </div>
