@@ -30,6 +30,7 @@ def validate_rut(rut_str):
     rut_str = rut_str[0:-2]
     carry = 2
     tmp_res = 0
+    raise models.ValidationError(rut_str[::-1])
     for x in rut_str[::-1]:
         tmp_res += int(x) * carry
         if carry == 7:
