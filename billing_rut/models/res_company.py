@@ -12,7 +12,7 @@ def format_rut(rut_str):
 
 def clean_rut(rut_str):
     pattern = r'[^0-9kK]/g'
-    res = re.match(pattern, rut_str)
+    res = re.sub(pattern, '', rut_str)
     raise models.ValidationError('res {}'.format(res))
     return res
 
