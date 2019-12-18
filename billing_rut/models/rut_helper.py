@@ -27,7 +27,7 @@ def clean_rut(rut_str):
 def validate_rut(rut_str):
     rut_str = clean_rut(rut_str)
     dv = rut_str[-1:]
-    a = rut_str[0:-1]
+    a = rut_str[0:-2]
     raise models.ValidationError('{}'.format(a))
     carry = 2
     tmp_res = 0
