@@ -226,12 +226,12 @@
             <table style="width:100%;">
               <tr style="text-align:left;">
                 <th style="border:1px solid;">Código</th>
-                <th style="border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">C.C</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">Unidad</th>
-                <th style="border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">Detalle</th>
-                <th style="border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">Moneda</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">P.Unitario</th>
-                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top;1px solid;">Total</th>
+                <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">C.C</th>
+                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Unidad</th>
+                <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Detalle</th>
+                <th style="border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Moneda</th>
+                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">P.Unitario</th>
+                <th style="text-align:right !important;border-bottom:1px solid;border-right:1px solid;border-top:1px solid;">Total</th>
               </tr>
               <t t-foreach="o.order_line" t-as="line">
                 <tr>
