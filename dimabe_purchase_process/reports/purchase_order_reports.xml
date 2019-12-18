@@ -333,7 +333,12 @@
               </tr>
               <tr>
                 <th style="text-align:right;">Despacho Factura:</th>
-                <td></td>
+                <td>
+                  <span t-field="res_company.billing_mail" />
+                  <t t-if="res_company.billing_email">
+                     , o al <span t-field="res_company.billing_email" />
+                  </t>
+                </td>
               </tr>
             </table>
           </div>
