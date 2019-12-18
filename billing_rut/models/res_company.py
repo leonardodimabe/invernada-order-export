@@ -11,9 +11,10 @@ def format_rut(rut_str):
 
 
 def clean_rut(rut_str):
+    dv = rut_str[-1:]
     pattern = r'\D'
     res = re.sub(pattern, '', rut_str)
-    raise models.ValidationError('res {}'.format(res))
+    raise models.ValidationError('{}-{}'.format(res, dv))
     return res
 
 
