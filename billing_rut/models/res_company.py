@@ -6,7 +6,15 @@ def format_rut(rut_str):
     rut_str = clean_rut(rut_str)
     dv = rut_str[-1:]
     rut_body = rut_str[:-1]
-    raise models.ValidationError('{} {}'.format(dv, rut_body))
+    counter = 0
+    formatted_body = ''
+    for character in rut_body:
+        formatted_body += character
+        counter += 1
+        if counter == 3 and len(formatted_body.replace('.', '')) < len(rut_body):
+            counter = 0
+            formatted_body += '.'
+    raise models.ValidationError('{} {}'.format(rut_body, dv))
 
 
 def clean_rut(rut_str):
