@@ -50,6 +50,14 @@ class PurchaseOrder(models.Model):
 
         return res
 
+    @api.multi
+    def button_confirm(self):
+        res = super(PurchaseOrder, self).button_confirm()
+        template_id = self.env.ref('dimabe_purchase_process.po_confirmed_mail_template')
+        for order in self:
+            order.message_post_with_template(template_id.id)
+        return res
+
     @api.model
     def get_po_approve_data(self):
 
