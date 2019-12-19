@@ -65,7 +65,7 @@ class PurchaseOrder(models.Model):
                 'type': 'binary',
                 'res_id': order.id,
                 'res_model': 'purchase.order',
-                'datas': base64.b64encode(pdf),
+               # 'datas': base64.b64encode(pdf),
                 'datas_fname': '{}.pdf'.format(order.name)
             })
             template_id.attachment_ids = [(6, 0, [attachment.id])]
