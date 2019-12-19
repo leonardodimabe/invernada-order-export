@@ -36,6 +36,7 @@
         'views/purchase_requisition.xml',
         'views/res_company.xml',
         'data/purchase_requisition_mail_template.xml',
+        'data/purchase_order_mail_template.xml',
         'reports/purchase_order_reports.xml',
     ],
     # only loaded in demonstration mode
