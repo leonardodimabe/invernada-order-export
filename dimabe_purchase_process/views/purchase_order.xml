@@ -38,6 +38,9 @@
         <button name="action_view_picking" position="attributes">
           <attribute name="groups">dimabe_purchase_process.group_purchase_budget_user</attribute>
         </button>
+        <button name="button_cancel" position="attributes">
+          <attribute name="string">Rechazar</attribute>
+        </button>
       </field>
     </record>
   </data>
