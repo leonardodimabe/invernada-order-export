@@ -55,7 +55,10 @@ class PurchaseOrder(models.Model):
         res = super(PurchaseOrder, self).button_confirm()
         template_id = self.env.ref('dimabe_purchase_process.po_confirmed_mail_template')
         for order in self:
-            pdf = self.env.ref('dimabe_purchase_process.report_purchase_order_document').sudo().with_context().render_qweb_pdf([order.id])[0]
+            report = self.env.ref('dimabe_purchase_process.report_purchase_order_document')
+            ctx = self.env.context.copy()
+            ctx['flag'] = True
+            pdf = report.with_context(ctx).render_qweb_pdf([order.id])
             raise models.ValidationError(pdf)
             attachment = self.env['ir.attachment'].create({
                 'name': 'purchase.order',
