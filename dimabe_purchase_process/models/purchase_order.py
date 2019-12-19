@@ -2,7 +2,7 @@ from odoo import fields, models, api
 
 
 class PurchaseOrder(models.Model):
-    _inherit = ['purchase.order', 'mail.compose.message']
+    _inherit = 'purchase.order'
 
     state = fields.Selection([
         ('draft', 'RFQ'),
