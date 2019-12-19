@@ -2,7 +2,7 @@ from odoo import fields, models, api
 
 
 class PurchaseOrder(models.Model):
-    _inherit = 'purchase.order'
+    _inherit = ['purchase.order', 'mail.compose.message']
 
     state = fields.Selection([
         ('draft', 'RFQ'),
@@ -55,6 +55,7 @@ class PurchaseOrder(models.Model):
         res = super(PurchaseOrder, self).button_confirm()
         template_id = self.env.ref('dimabe_purchase_process.po_confirmed_mail_template')
         for order in self:
+            raise models.ValidationError(template_id.attachment_ids)
             order.message_post_with_template(template_id.id)
         return res
 
