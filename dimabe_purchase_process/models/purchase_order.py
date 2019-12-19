@@ -55,7 +55,7 @@ class PurchaseOrder(models.Model):
         res = super(PurchaseOrder, self).button_confirm()
         template_id = self.env.ref('dimabe_purchase_process.po_confirmed_mail_template')
         for order in self:
-            pdf = self.env['purchase.order'].sudo().render_qweb_pdf([order.id])[0]
+            pdf = self.env.ref('dimabe_purchase_process.report_purchase_order_document').render_qweb_pdf([order.id])[0]
             attachment = self.env['ir.attachment'].create({
                 'name': 'purchase.order',
                 'type': 'binary',
