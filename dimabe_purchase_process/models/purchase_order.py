@@ -72,3 +72,11 @@ class PurchaseOrder(models.Model):
         if self.boss_approval_id and self.boss_approval_date:
             return '{} {}'.format(self.boss_approval_id.name, self.boss_approval_date)
         return ''
+
+    @api.model
+    def get_email_to(self, ref_id):
+        user_group = self.env.ref(ref_id)
+        email_list = [
+            usr.partner_id.email for usr in user_group.users if usr.partner_id.email
+        ]
+        return ','.join(email_list)
