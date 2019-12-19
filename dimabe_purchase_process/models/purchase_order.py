@@ -4,6 +4,15 @@ from odoo import fields, models, api
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+    state = fields.Selection([
+        ('draft', 'RFQ'),
+        ('sent', 'RFQ Sent'),
+        ('to approve', 'To Approve'),
+        ('purchase', 'Purchase Order'),
+        ('done', 'Locked'),
+        ('cancel', 'Rechazado')
+    ], string='Status', readonly=True, index=True, copy=False, default='draft', track_visibility='onchange')
+
     boss_approval_id = fields.Many2one(
         'res.users',
         'vb jefe de área',
