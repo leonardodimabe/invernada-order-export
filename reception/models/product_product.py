@@ -9,5 +9,5 @@ class ProductProduct(models.Model):
         variety = ''
         if self.is_product_variant:
             variety_variant = self.attribute_value_ids
-            raise models.ValidationError(variety_variant.display_name)
+            raise models.ValidationError(variety_variant.attribute_value_id.name)
         return variety
