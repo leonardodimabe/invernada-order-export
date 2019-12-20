@@ -8,5 +8,5 @@ from . import carrier
 from . import reception_alert_config
 from . import stock_warehouse
 from . import product_category
-from . import product_template
+from . import product_product
 from . import nut_variety
