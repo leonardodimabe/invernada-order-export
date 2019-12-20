@@ -8,6 +8,10 @@ class ProductProduct(models.Model):
     def get_variety(self):
         variety = ''
         if self.is_product_variant:
-            variety_variant = self.attribute_value_ids
-            raise models.ValidationError(variety_variant.attribute_id.name)
+            variety_variant = self.attribute_value_ids.filtered(
+                lambda x: x.attribute_id.name in ['Variedad', 'variedad', 'VARIEDAD']
+            )
+            if variety_variant:
+                variety = variety_variant[0].name
+
         return variety
