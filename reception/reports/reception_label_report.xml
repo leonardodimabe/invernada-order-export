@@ -50,7 +50,7 @@
               <tr>
                 <td style="text-align: right !important;">VARIEDAD:</td>
                 <td>
-                  <span t-field="move_line.product_id.get_variety()"/>
+                  <span t-esc="move_line.product_id.get_variety()"/>
                 </td>
               </tr>
               <tr>
