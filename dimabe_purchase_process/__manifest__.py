@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Proceso de Compras",
 
@@ -28,8 +27,8 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'security/groups.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/purchase_order.xml',
@@ -44,3 +43,4 @@
         'demo/demo.xml',
     ],
 }
+# -*- coding: utf-8 -*-
