@@ -42,8 +42,7 @@
         'data/alert_config_data.xml',
         'data/reception_notification_mail_template.xml',
         'views/stock_warehouse.xml',
-        'views/product_category.xml',
-        'views/product_template.xml'
+        'views/product_category.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
