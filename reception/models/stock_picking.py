@@ -164,26 +164,7 @@ class StockPicking(models.Model):
                 stock_picking.validate_mp_reception()
                 stock_picking.truck_in_date = fields.datetime.now()
             res = super(StockPicking, self).action_confirm()
-            if stock_picking.is_mp_reception:
-
-                mp = stock_picking.get_mp_move()
-                if len(mp) != 1:
-                    raise models.ValidationError('No se encontró materia prima en las operaciones')
-                canning = stock_picking.get_canning_move()
-                if len(canning) != 1:
-                    raise models.ValidationError('no se encontró registro de envases en las operaciones')
-
-                total_canning = canning.product_uom_qty
-                unit_weight = mp.product_uom_qty / total_canning
-
-                counter = 0
-                for move_line in mp.move_line_ids:
-                    move_line.product_uom_qty = unit_weight
-                    if counter >= total_canning:
-                        move_line.unlink()
-                    counter += 1
-
-            return res
+        return res
 
     @api.multi
     def button_validate(self):
