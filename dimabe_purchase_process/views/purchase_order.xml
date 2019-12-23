@@ -41,6 +41,9 @@
         <button name="button_cancel" position="attributes">
           <attribute name="string">Rechazar</attribute>
         </button>
+        <xpath expr="//field[@name='incoterm_id']" position="after">
+          <field name="provider_po_document" />
+        </xpath>
       </field>
     </record>
   </data>

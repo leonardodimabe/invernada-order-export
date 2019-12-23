@@ -26,6 +26,8 @@ class PurchaseOrder(models.Model):
         nullable=True
     )
 
+    provider_po_document = fields.Binary('Documento entregado por proveedor')
+
     @api.model
     def get_analytic_accounts(self):
         res = self.env['account.analytic.account'].search([])
