@@ -178,6 +178,7 @@
               </div>
               <t t-if="res_company.zip">
                 <div>
+                  Zip code
                   <span t-esc="res_company.zip"/>
                 </div>
               </t>
