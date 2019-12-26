@@ -56,12 +56,14 @@ class StockMove(models.Model):
 
                         for i in range(int(total_qty - 1)):
                             tmp = '00{}'.format(i + 1)
-                            raise models.ValidationError('{}{}'.format(stock_move_line.lot_name, tmp[-3:]))
+
                             serials.append({
                                 'calculated_weight': calculated_weight,
                                 'stock_move_line_id': stock_move_line.id,
                                 'serial_number': '{}{}'.format(stock_move_line.lot_name, tmp[-3:])
                             })
+
+                            raise models.ValidationError(serials)
 
                         self.env['stock.move.line.serial'].create(serials)
 
