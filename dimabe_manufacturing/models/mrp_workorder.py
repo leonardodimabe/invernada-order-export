@@ -12,7 +12,7 @@ class MrpWorkorder(models.Model):
         raise models.ValidationError(self.env['ir.sequence'].next_by_code('self.service'))
 
         final_lot = self.env['stock.production.lot'].create({
-            'name': self.env['ir.sequence'].next_by_code('stock.production.lot'),
+            'name': self.env['ir.sequence'].next_by_code('self.service'),
             'product_id': self.product_id
         })
 

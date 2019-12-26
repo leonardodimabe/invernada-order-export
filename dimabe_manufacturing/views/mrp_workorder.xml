@@ -1,8 +1,8 @@
 <odoo>
   <data>
     <record id="seq_stock_production_lot" model="ir.sequence">
-      <field name="name">Stock Production Lot</field>
-      <field name="code">stock.production.lot</field>
+      <field name="name">mrp workorder</field>
+      <field name="code">mrp.workorder</field>
       <field name="prefix">PRD</field>
       <field name="padding">5</field>
       <field name="company_id" eval="False" />

@@ -27,7 +27,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/stock_production_lot.xml'
+        'views/mrp_workorder.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
