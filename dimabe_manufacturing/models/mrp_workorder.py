@@ -9,10 +9,8 @@ class MrpWorkorder(models.Model):
 
         res = super(MrpWorkorder, self).create(values_list)
 
-        raise models.ValidationError(self.env['ir.sequence'].next_by_code('mrp.workorder'))
-
         final_lot = self.env['stock.production.lot'].create({
-            'name': self.env['ir.sequence'].next_by_code('self.service'),
+            'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
             'product_id': self.product_id
         })
 
