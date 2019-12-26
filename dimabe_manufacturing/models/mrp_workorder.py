@@ -4,6 +4,20 @@ from odoo import fields, models, api
 class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
+    @api.model
+    def create(self, values_list):
+
+        res = super(MrpWorkorder, self).create(values_list)
+
+        final_lot = self.env['stock.production.lot'].create({
+            'name': self.env['ir.sequence'].next_by_code('self.service'),
+            'product_id': self.product_id
+        })
+
+        res.final_lot_id = final_lot.id
+
+        return res
+
     def action_next(self):
 
         # raise models.ValidationError(self.move_raw_ids)
