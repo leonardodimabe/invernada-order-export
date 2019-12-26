@@ -7,7 +7,7 @@ class MrpWorkorder(models.Model):
     def action_next(self):
 
         # raise models.ValidationError(self.move_raw_ids)
-        raise models.ValidationError(self.check_ids)
+        raise models.ValidationError(self.check_ids.mapped(lambda x: x.name))
 
         res = super(MrpWorkorder, self).action_next()
 
