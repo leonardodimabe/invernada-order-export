@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 import logging
+
 _logger = logging.getLogger(__name__)
 
 
@@ -63,7 +64,11 @@ class StockMove(models.Model):
                                 'serial_number': '{}{}'.format(stock_move_line.lot_name, tmp[-3:])
                             })
 
-                            raise models.ValidationError(serials[0])
+                            raise models.ValidationError('{} {} {}'.format(
+                                serials[0]['calculated_weight'],
+                                serials[0]['stock_move_line_id'],
+                                serials[0]['serial_number']
+                            ))
 
                         self.env['stock.move.line.serial'].create(serials)
 
