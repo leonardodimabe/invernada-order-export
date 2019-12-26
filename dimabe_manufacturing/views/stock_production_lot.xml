@@ -1,6 +1,6 @@
 <odoo>
   <data>
-    <record id="seq_stock_production_lot">
+    <record id="seq_stock_production_lot" model="ir.sequence">
       <field name="name">Stock Production Lot</field>
       <field name="code">stock.production.lot</field>
       <field name="prefix">PRD</field>
