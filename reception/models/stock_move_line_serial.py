@@ -6,7 +6,11 @@ class StockMoveLineSerial(models.Model):
 
     calculated_weight = fields.Float('Peso Estimado')
 
-    real_weight = fields.Float('Peso Real')
+    real_weight = fields.Float(
+        'Peso Real',
+        nulable=True,
+        default=None
+    )
 
     stock_move_line_id = fields.Many2one(
         'stock.move.line',
