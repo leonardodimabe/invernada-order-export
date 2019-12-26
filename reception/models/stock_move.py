@@ -55,6 +55,7 @@ class StockMove(models.Model):
                         calculated_weight = stock_move_line.qty_done / total_qty
 
                         for i in range(int(total_qty)):
+                            raise models.ValidationError(i)
                             tmp = '00{}'.format(i)
                             serials.append({
                                 'calculated_weight': calculated_weight,
