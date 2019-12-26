@@ -19,11 +19,11 @@ class StockMoveLineSerial(models.Model):
 
     serial_number = fields.Char(
         'Serie',
-        compute='_compute_serial_number',
-        store=True
+        # compute='_compute_serial_number',
+        # store=True
     )
 
-    @api.model
-    @api.depends('stock_move_line_id')
-    def _compute_serial_number(self):
-        self.serial_number = '{}{}'.format(self.stock_move_line_id.lot_name, self.id)
+    # @api.model
+    # @api.depends('stock_move_line_id')
+    # def _compute_serial_number(self):
+    #    self.serial_number = '{}{}'.format(self.stock_move_line_id.lot_name, self.id)
