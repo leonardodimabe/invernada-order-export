@@ -64,12 +64,7 @@ class StockMove(models.Model):
                                 'serial_number': '{}{}'.format(stock_move_line.lot_name, tmp[-3:])
                             })
 
-                        raise models.ValidationError('{} {} {}'.format(
-                            serials[2]['calculated_weight'],
-                            serials[2]['stock_move_line_id'],
-                            serials[2]['serial_number']
-                        ))
-
+                        raise models.ValidationError(len(serials))
                         self.env['stock.move.line.serial'].create(serials)
 
                 stock_move.has_serial_generated = True
