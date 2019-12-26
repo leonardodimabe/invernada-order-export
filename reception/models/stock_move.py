@@ -51,19 +51,16 @@ class StockMove(models.Model):
                     stock_move_line.lot_name = '{}{}'.format(prefix, stock_move.picking_id.name)
                     stock_move_line.qty_done = stock_move_line.product_uom_qty
                     if stock_move.product_id.categ_id.is_mp:
-                        serials = []
                         total_qty = stock_move.picking_id.get_canning_move().product_uom_qty
                         calculated_weight = stock_move_line.qty_done / total_qty
 
                         for i in range(int(total_qty)):
                             tmp = '00{}'.format(i + 1)
 
-                            serials.append({
+                            self.env['stock.move.line.serial'].create({
                                 'calculated_weight': calculated_weight,
                                 'stock_move_line_id': stock_move_line.id,
                                 'serial_number': '{}{}'.format(stock_move_line.lot_name, tmp[-3:])
                             })
-
-                        self.env['stock.move.line.serial'].create(serials)
 
                 stock_move.has_serial_generated = True
