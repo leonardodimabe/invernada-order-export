@@ -9,12 +9,14 @@ class MrpWorkorder(models.Model):
 
         res = super(MrpWorkorder, self).create(values_list)
 
+        raise models.ValidationError(res.product_id.name)
+
         final_lot = self.env['stock.production.lot'].create({
             'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
             'product_id': res.product_id
         })
 
-        raise models.ValidationError(final_lot)
+
 
         res.final_lot_id = final_lot.id
 
