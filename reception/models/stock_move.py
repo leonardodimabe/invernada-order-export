@@ -58,4 +58,9 @@ class StockMove(models.Model):
                         prefix = 'ENV'
                     stock_move_line.lot_name = '{}{}'.format(prefix, stock_move.picking_id.name)
                     stock_move_line.qty_done = stock_move_line.product_uom_qty
+                    serials = []
+                    for i in stock_move_line.qty_done:
+                        serials.append({
+                            
+                        })
                 stock_move.has_serial_generated = True

@@ -252,8 +252,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="2" style="border-top:1px solid;border-bottom:1px solid;">
-                    <p> </p>
+                  <th style="border-right:1px solid;">KILOS MUESTRA:</th>
+                  <td style="text-align:right !important;">
+                    <span t-field="stock_picking.quality_weight"/>
                   </td>
                 </tr>
                 <tr>
@@ -279,7 +280,7 @@
           </div>
 
           <br/>
-          <h2>DETALLE DE TANSPORTISTA</h2>
+          <h2>DETALLE DE TRANSPORTISTA</h2>
           <br/>
           <table
             style="text-align:left; border-left:1px solid; border-right:1px solid; border-top:1px solid;width:50%;">
