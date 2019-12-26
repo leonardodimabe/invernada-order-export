@@ -11,7 +11,7 @@ class MrpWorkorder(models.Model):
 
         final_lot = self.env['stock.production.lot'].create({
             'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
-            'product_id': res.product_id
+            'product_id': res.product_id.id
         })
 
         res.final_lot_id = final_lot.id
