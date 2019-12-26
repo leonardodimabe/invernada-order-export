@@ -65,9 +65,9 @@ class StockMove(models.Model):
                             })
 
                             raise models.ValidationError('{} {} {}'.format(
-                                serials[0]['calculated_weight'],
-                                serials[0]['stock_move_line_id'],
-                                serials[0]['serial_number']
+                                serials[1]['calculated_weight'],
+                                serials[1]['stock_move_line_id'],
+                                serials[1]['serial_number']
                             ))
 
                         self.env['stock.move.line.serial'].create(serials)
