@@ -51,5 +51,13 @@ class MrpWorkorder(models.Model):
 
     def do_finish(self):
         super(MrpWorkorder, self).do_finish()
-        action = self.env.ref('mrp.mrp_production_workorder_form_view_inherit').read()[0]
-        return action
+        return {
+            'name': 'mrp_workorder',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': False,
+            'res_model': 'mrp.workorder',
+            'context': self.env.context,
+            'type': 'ir.actions.act_windows',
+            'target': 'current'
+        }
