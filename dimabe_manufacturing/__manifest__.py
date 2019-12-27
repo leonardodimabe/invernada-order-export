@@ -33,5 +33,7 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'views/mrp_workcenter.xml',
+        'views/mrp_workorder.xml'
     ],
 }
