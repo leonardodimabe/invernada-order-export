@@ -29,9 +29,9 @@ class MrpWorkorder(models.Model):
                     })
                     check.lot_id = lot_tmp.id
                 if check.quality_state == 'none':
-                    check.qty_done = 0
                     self.action_next()
             else:
+                check.qty_done = 0
                 self.action_skip()
         self.action_first_skipped_step()
 
