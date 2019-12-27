@@ -20,7 +20,7 @@ class MrpWorkorder(models.Model):
     def open_tablet_view(self):
         res = super(MrpWorkorder, self).open_tablet_view()
 
-        for check in self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct):
+        for check in self.finished_product_check_ids:
             if check.component_is_byproduct:
                 if not check.lot_id:
                     lot_tmp = self.env['stock.production.lot'].create({
