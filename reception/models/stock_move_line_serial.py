@@ -14,7 +14,7 @@ class StockMoveLineSerial(models.Model):
 
     display_weight = fields.Float(
         'Peso',
-        computed='_compute_display_weight'
+        compute='_compute_display_weight'
     )
 
     stock_move_line_id = fields.Many2one(
