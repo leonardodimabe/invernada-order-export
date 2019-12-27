@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="" model="ir.ui.view" >
+      <field name="name">kanban workcenter</field>
+      <field name="model">mrp.workcenter</field>
+      <field name="inherit_id" ref="mrp.mrp_workcenter_kanban" />
+      <field name="arch" type="xml">
+        <field name="name" position="after" >
+          lalalal
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>
