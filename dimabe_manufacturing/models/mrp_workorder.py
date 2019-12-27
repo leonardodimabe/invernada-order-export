@@ -47,4 +47,4 @@ class MrpWorkorder(models.Model):
 
         res = super(MrpWorkorder, self).on_barcode_scanned(barcode)
 
-        raise models.ValidationError(self.qty_done)
+        raise models.ValidationError('{} {}'.format(qty_done, self.qty_done))
