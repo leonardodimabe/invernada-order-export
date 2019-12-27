@@ -12,9 +12,9 @@
       <field name="model">mrp.workorder</field>
       <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet" />
       <field name="arch" type="xml">
-        <field name="qty_done" position="attributes">
-          <attribute name="value">0</attribute>
-        </field>
+        <button name="action_open_manufacturing_order" position="attributes">
+          <attribute name="visible">0</attribute>
+        </button>
       </field>
     </record>
   </data>
