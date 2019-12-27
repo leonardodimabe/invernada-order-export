@@ -48,5 +48,3 @@ class MrpWorkorder(models.Model):
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
 
         self.qty_done = qty_done + custom_serial.display_weight
-
-        raise models.ValidationError('{} | {} | {}'.format(qty_done, self.qty_done, custom_serial.display_weight))
