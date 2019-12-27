@@ -13,7 +13,7 @@
       <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet" />
       <field name="arch" type="xml">
         <button name="action_open_manufacturing_order" position="attributes">
-          <attribute name="visible">0</attribute>
+          <attribute name="visible">false</attribute>
         </button>
       </field>
     </record>
