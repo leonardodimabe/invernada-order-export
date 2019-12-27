@@ -16,8 +16,6 @@ class MrpWorkorder(models.Model):
 
         res.final_lot_id = final_lot.id
 
-        raise models.ValidationError(res.finished_product_check_ids)
-
         return res
 
     def action_next(self):
