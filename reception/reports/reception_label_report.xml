@@ -39,7 +39,7 @@
                 <tr>
                   <td style="text-align: right !important;">N° DE BULTOS:</td>
                   <td>
-                    <span t-field="o.get_mp_move().quantity_done"/>
+                    <span t-field="o.get_canning_move().quantity_done"/>
                   </td>
                 </tr>
                 <tr>
