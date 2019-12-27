@@ -45,6 +45,8 @@ class MrpWorkorder(models.Model):
         custom_serial = self.env['stock.move.line.serial'].search([('serial_number', '=', barcode)])
         barcode = custom_serial.stock_move_line_id.lot_id.name
 
-        res = super(MrpWorkorder, self).on_barcode_scanned(barcode)
+        super(MrpWorkorder, self).on_barcode_scanned(barcode)
+
+        self.qty_done = qty_done + custom_serial.display_weight
 
         raise models.ValidationError('{} {}'.format(qty_done, self.qty_done))

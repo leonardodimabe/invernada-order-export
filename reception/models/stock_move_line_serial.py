@@ -12,18 +12,20 @@ class StockMoveLineSerial(models.Model):
         default=None
     )
 
+    display_weight = fields.Float(
+        'Peso',
+        computed='_compute_display_weight'
+    )
+
     stock_move_line_id = fields.Many2one(
         'stock.move.line',
         'Movimiento'
     )
 
     serial_number = fields.Char(
-        'Serie',
-        # compute='_compute_serial_number',
-        # store=True
+        'Serie'
     )
 
-    # @api.model
-    # @api.depends('stock_move_line_id')
-    # def _compute_serial_number(self):
-    #    self.serial_number = '{}{}'.format(self.stock_move_line_id.lot_name, self.id)
+    @api.model
+    def _compute_display_weight(self):
+        self.display_weight = self.real_weight or self.calculated_weight
