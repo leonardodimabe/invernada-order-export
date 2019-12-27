@@ -42,9 +42,9 @@ class MrpWorkorder(models.Model):
 
         # raise models.ValidationError(barcode)
         qty_done = self.qty_done
-
-
         custom_serial = self.env['stock.move.line.serial'].search([('serial_number', '=', barcode)])
-        raise models.ValidationError(custom_serial.stock_move_line_id.lot_id.name)
+        barcode = custom_serial.stock_move_line_id.lot_id.name
 
-        return super(MrpWorkorder, self).on_barcode_scanned(barcode)
+        res = super(MrpWorkorder, self).on_barcode_scanned(barcode)
+
+        raise models.ValidationError(res.qty_done)
