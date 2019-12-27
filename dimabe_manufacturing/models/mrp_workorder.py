@@ -31,7 +31,8 @@ class MrpWorkorder(models.Model):
                 if check.quality_state == 'none':
                     self.action_next()
             else:
-                check.qty_done = 0
+                if not check.component_id.categ_id.is_canning:
+                    check.qty_done = 0
                 self.action_skip()
         self.action_first_skipped_step()
 
