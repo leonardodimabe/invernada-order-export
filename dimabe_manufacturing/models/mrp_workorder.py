@@ -48,3 +48,8 @@ class MrpWorkorder(models.Model):
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
 
         self.qty_done = qty_done + custom_serial.display_weight
+
+    def do_finish(self):
+        super(MrpWorkorder, self).do_finish()
+        action = self.env.ref('	mrp.mrp_production_form_view').read()[0]
+        return action
