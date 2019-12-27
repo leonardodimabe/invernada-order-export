@@ -28,4 +28,7 @@ class StockMoveLineSerial(models.Model):
 
     @api.model
     def _compute_display_weight(self):
-        self.display_weight = self.real_weight or self.calculated_weight
+        if self.real_weight:
+            self.display_weight = self.real_weight
+        else:
+            self.display_weight = self.calculated_weight
