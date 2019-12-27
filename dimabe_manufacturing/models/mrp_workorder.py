@@ -26,7 +26,7 @@ class MrpWorkorder(models.Model):
                 'product_id': check.component_id.id
             })
             check.lot_id = lot_tmp.id
-            # self._update_active_move_line()
+        self._update_active_move_line()
 
         return res
 
