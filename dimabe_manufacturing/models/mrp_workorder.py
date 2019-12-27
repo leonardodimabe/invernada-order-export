@@ -32,7 +32,7 @@ class MrpWorkorder(models.Model):
                     self.action_next()
             else:
                 self.action_skip()
-        self.acrion_first_skipped_step()
+        self.action_first_skipped_step()
 
         return res
 
