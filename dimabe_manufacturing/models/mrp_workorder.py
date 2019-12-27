@@ -39,6 +39,6 @@ class MrpWorkorder(models.Model):
 
     def on_barcode_scanned(self, barcode):
 
-        raise models.ValidationError(barcode)
+        # raise models.ValidationError(barcode)
 
         return super(MrpWorkorder, self).on_barcode_scanned(barcode)
