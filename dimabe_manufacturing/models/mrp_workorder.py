@@ -18,6 +18,14 @@ class MrpWorkorder(models.Model):
 
         return res
 
+    def open_tablet_view(self):
+
+        res = super(MrpWorkorder, self).open_tablet_view()
+
+        raise models.ValidationError(self.finished_product_check_ids)
+
+        return res
+
     def action_next(self):
 
         # raise models.ValidationError(self.move_raw_ids)
