@@ -22,7 +22,9 @@ class MrpWorkorder(models.Model):
 
         res = super(MrpWorkorder, self).open_tablet_view()
 
-        raise models.ValidationError(self.finished_product_check_ids)
+        for check in self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct):
+            check.lot_id = self.final_lot_id.id
+        raise models.ValidationError(self.finished_product_check_ids.mapped('qty_done'))
 
         return res
 
