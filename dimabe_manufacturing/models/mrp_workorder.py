@@ -6,7 +6,6 @@ class MrpWorkorder(models.Model):
 
     @api.model
     def create(self, values_list):
-
         res = super(MrpWorkorder, self).create(values_list)
 
         final_lot = self.env['stock.production.lot'].create({
@@ -19,12 +18,10 @@ class MrpWorkorder(models.Model):
         return res
 
     def open_tablet_view(self):
-
         res = super(MrpWorkorder, self).open_tablet_view()
 
         for check in self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct):
             check.lot_id = self.final_lot_id.id
-        raise models.ValidationError(self.finished_product_check_ids.mapped('qty_done'))
 
         return res
 
