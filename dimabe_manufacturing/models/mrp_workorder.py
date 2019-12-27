@@ -28,7 +28,7 @@ class MrpWorkorder(models.Model):
             raise models.ValidationError(
                 self.finished_product_check_ids.filtered(
                     lambda a: a.component_is_byproduct
-                ).mapped('product_id.display_name')
+                ).mapped('component_id.display_name')
             )
             check.lot_id = lot_tmp.id
             self._update_active_move_line()
