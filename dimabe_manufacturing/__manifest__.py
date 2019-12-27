@@ -21,7 +21,8 @@
     'depends': [
         'base',
         'reception',
-        'mrp'
+        'mrp',
+        'mrp_workorder'
     ],
 
     # always loaded
