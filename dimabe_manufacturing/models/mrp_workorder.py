@@ -51,5 +51,5 @@ class MrpWorkorder(models.Model):
 
     def do_finish(self):
         super(MrpWorkorder, self).do_finish()
-        action = self.env.ref('	mrp.mrp_production_form_view').read()[0]
+        action = self.env.ref('mrp.mrp_production_workorder_form_view_inherit').read()[0]
         return action
