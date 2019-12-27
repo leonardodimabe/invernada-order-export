@@ -25,7 +25,7 @@ class MrpWorkorder(models.Model):
                 'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
                 'product_id': check.product_id.id
             })
-            raise models.ValidationError(self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct).mapped('product_id'))
+            raise models.ValidationError(self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct).mapped('product_id.name'))
             check.lot_id = lot_tmp.id
             self._update_active_move_line()
 
