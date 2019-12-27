@@ -21,12 +21,14 @@ class MrpWorkorder(models.Model):
         res = super(MrpWorkorder, self).open_tablet_view()
 
         for check in self.finished_product_check_ids.filtered(lambda a: a.component_is_byproduct):
-            lot_tmp = self.env['stock.production.lot'].create({
-                'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
-                'product_id': check.component_id.id
-            })
-            check.lot_id = lot_tmp.id
-        self._update_active_move_line()
+            if not check.lot_id:
+                lot_tmp = self.env['stock.production.lot'].create({
+                    'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
+                    'product_id': check.component_id.id
+                })
+                check.lot_id = lot_tmp.id
+            if check.quality_state == 'none':
+                self.action_next()
 
         return res
 
