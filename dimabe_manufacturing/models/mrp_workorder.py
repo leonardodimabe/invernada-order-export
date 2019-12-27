@@ -22,7 +22,7 @@ class MrpWorkorder(models.Model):
 
         res = super(MrpWorkorder, self).open_tablet_view()
 
-        raise models.ValidationError(res.finished_product_check_ids)
+        raise models.ValidationError(self.finished_product_check_ids)
 
         return res
 
