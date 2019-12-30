@@ -1,6 +1,6 @@
 <odoo>
   <data>
-    <record id="action_example" model="ir.actions.act_view">
+    <record id="action_example" model="ir.actions.act_window">
       <field name="name">actividad</field>
       <field name="res_model">stock.production.lot</field>
       <field name="view_mode">tree,form</field>
