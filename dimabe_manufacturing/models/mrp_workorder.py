@@ -52,7 +52,7 @@ class MrpWorkorder(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'stock.production.lot',
             'res_id': self.final_lot_id.id,
-            'view_id': self.env.ref('dimabe_manufacturing.action_example').id,
+            'view_id': self.env.ref('dimabe_manufacturing.stock_production_lot_serial_weight_view').id,
             'view_mode': 'form',
             'target': 'fullscreen'
         }
