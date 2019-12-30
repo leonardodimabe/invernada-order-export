@@ -3,7 +3,7 @@
     <record id="action_example" model="ir.actions.act_window">
       <field name="name">actividad</field>
       <field name="res_model">stock.production.lot</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">form</field>
     </record>
 
     <record id="stock_production_lot_serial_weight_view" model="ir.ui.view" >
