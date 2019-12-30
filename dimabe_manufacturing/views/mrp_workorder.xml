@@ -1,24 +1,18 @@
 <odoo>
   <data>
-
-    <record id="seq_stock_production_lot" model="ir.sequence">
-      <field name="name">mrp workorder</field>
-      <field name="code">mrp.workorder</field>
-      <field name="prefix">PRD</field>
-      <field name="padding">5</field>
-      <field name="company_id" eval="False" />
+    <record id="dimabe_manufacturing.work_order_lot_acton_view"
+            model="ir.actions.act_window"
+    >
+      <field name="name">Lotes Abiertos</field>
+      <field name="res_model">mrp.workorder</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="mrp_workorder_view_form_tablet_inherit" model="ir.ui.view">
-      <field name="name">formulario de fabricación</field>
-      <field name="model">mrp.workorder</field>
-      <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet" />
-      <field name="arch" type="xml">
-        <button name="action_open_manufacturing_order" position="attributes">
-          <attribute name="invisible">1</attribute>
-        </button>
-      </field>
-    </record>
-
+    <menuitem
+      id="out_weight_menu_item"
+      name="Pesaje de Salidas"
+      parent="mrp.menu_mrp_manufacturing"
+      action="dimabe_manufacturing.work_order_lot_acton_view"
+    />
   </data>
 </odoo>

@@ -35,6 +35,6 @@
         'demo/demo.xml',
         'views/mrp_workcenter.xml',
         'views/mrp_workorder.xml',
-        'views/stock_production_lot.xml'
+        'views/mrp_workorder.xml'
     ],
 }
