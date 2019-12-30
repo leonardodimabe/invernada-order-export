@@ -8,12 +8,11 @@
         <form>
           <group>
             <group>
-              <field name="get_outing_lot_ids" />
               <field name="check_ids">
                 <tree>
                   <field name="lot_id"/>
                   <field name="component_id" />
-                  <field name="component_is_byproduct" />
+                  <field name="stock_production_lot_serial_ids" />
                 </tree>
               </field>
             </group>
