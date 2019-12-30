@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <group name="main_group" position="inside">
           <field name="stock_production_lot_serial_ids">
-            <tree>
+            <tree editable="bottom">
               <field name="real_weight"/>
               <field name="serial_number" readonly="1"/>
             </tree>
