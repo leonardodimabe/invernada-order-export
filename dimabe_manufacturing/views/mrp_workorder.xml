@@ -1,14 +1,20 @@
 <odoo>
   <data>
 
-<!--    <record id="dimabe_manufacturing.work_order_lot_action_view"-->
-<!--            model="ir.actions.act_window"-->
-<!--    >-->
-<!--      <field name="name">Lotes Abiertos</field>-->
-<!--      <field name="res_model">mrp.workorder</field>-->
-<!--      <field name="view_mode">tree,form</field>-->
-<!--      <field name="domain">[('state', '=', 'progress')]</field>-->
-<!--    </record>-->
+    <record id="work_order_lot_serial_weight" model="ir.ui.view">
+      <field name="name">Series Salientes</field>
+      <field name="res_model">mrp.workorder</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group>
+              <field name="check_ids" />
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
 
     <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
       <field name="name">OT</field>
