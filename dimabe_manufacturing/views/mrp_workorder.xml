@@ -8,10 +8,7 @@
         <form>
           <group>
             <group>
-              <field name="product_id"/>
-              <field name="final_lot_id" />
-            </group>
-            <group>
+              <field name="get_outing_lot_ids" />
               <field name="check_ids">
                 <tree>
                   <field name="lot_id"/>
