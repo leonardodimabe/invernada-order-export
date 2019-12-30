@@ -11,6 +11,17 @@
       <field name="domain">[('state', '=', 'progress')]</field>
     </record>
 
+    <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
+      <field name="name">OT</field>
+      <field name="model">mrp.workorder</field>
+      <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit" />
+      <field name="arch" type="xml">
+        <button name="button_finish" position="after">
+          <button string="Agregar Pesaje de Salidas" name="button_add_weight" type="object" />
+        </button>
+      </field>
+    </record>
+
     <menuitem
       id="out_weight_menu_item"
       name="Pesaje de Salidas"
