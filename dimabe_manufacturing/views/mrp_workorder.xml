@@ -3,7 +3,6 @@
 
     <record id="dimabe_manufacturing.work_order_lot_acton_view"
             model="ir.actions.act_window"
-
     >
       <field name="name">Lotes Abiertos</field>
       <field name="res_model">mrp.workorder</field>
