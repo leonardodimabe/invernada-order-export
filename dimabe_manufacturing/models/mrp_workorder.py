@@ -53,6 +53,6 @@ class MrpWorkorder(models.Model):
             'res_model': 'stock.production.lot.serial',
             'view_id': self.env.ref('dimabe_manufacturing.stock_production_lot_serial_form_view').id,
             'view_mode': 'form',
-            'target': 'new'
+            'target': 'fullscreen'
         }
 
