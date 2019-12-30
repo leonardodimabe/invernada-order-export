@@ -32,3 +32,10 @@ class StockProductionLotSerial(models.Model):
             self.display_weight = self.real_weight
         else:
             self.display_weight = self.calculated_weight
+
+    @api.model
+    def create(self, values_list):
+
+        res = super(StockProductionLotSerial, self).create(values_list)
+        raise models.ValidationError(res.stock_production_lot_id.lot_name)
+        return res
