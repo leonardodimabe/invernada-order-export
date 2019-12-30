@@ -8,7 +8,7 @@
       <field name="name">Lotes Abiertos</field>
       <field name="res_model">mrp.workorder</field>
       <field name="view_mode">tree,form</field>
-
+      <field name="domain">[('state', '=', 'progress')]</field>
     </record>
 
     <menuitem
