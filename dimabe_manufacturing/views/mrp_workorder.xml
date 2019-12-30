@@ -8,9 +8,6 @@
         <form>
           <group>
             <group>
-              <field name="final_lot_id"/>
-            </group>
-            <group>
               <field name="check_ids">
                 <tree>
                   <field name="lot_id"/>
