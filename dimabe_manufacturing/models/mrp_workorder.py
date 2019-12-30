@@ -40,13 +40,10 @@ class MrpWorkorder(models.Model):
 
     def on_barcode_scanned(self, barcode):
 
-        # raise models.ValidationError(barcode)
         qty_done = self.qty_done
         custom_serial = self.env['stock.move.line.serial'].search([('serial_number', '=', barcode)])
         barcode = custom_serial.stock_move_line_id.lot_id.name
-
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
-
         self.qty_done = qty_done + custom_serial.display_weight
 
     def button_add_weight(self):
@@ -55,7 +52,7 @@ class MrpWorkorder(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'stock.production.lot',
             'res_id': self.final_lot_id.id,
-            'view_id': self.env.ref('stock.view_production_lot_form_simple').id,
+            'view_id': self.env.ref('dimabe_manufacturing.weight_serial_view').id,
             'view_mode': 'form'
         }
 
