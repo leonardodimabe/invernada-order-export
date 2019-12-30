@@ -50,9 +50,9 @@ class MrpWorkorder(models.Model):
 
         return {
             'type': 'ir.actions.act_window',
-            'res_model': 'stock.production.lot',
-            'res_id': self.final_lot_id.id,
-            'view_id': self.env.ref('dimabe_manufacturing.view_production_lot_form_simple_inherit').id,
-            'view_mode': 'form'
+            'res_model': 'stock.production.lot.serial',
+            'view_id': self.env.ref('dimabe_manufacturing.stock_production_lot_serial_form_view').id,
+            'view_mode': 'form',
+            'target': 'new'
         }
 
