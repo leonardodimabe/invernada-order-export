@@ -37,5 +37,5 @@ class StockProductionLotSerial(models.Model):
     def create(self, values_list):
 
         res = super(StockProductionLotSerial, self).create(values_list)
-        raise models.ValidationError(res.stock_production_lot_id.lot_name)
+        raise models.ValidationError(res.stock_production_lot_id.name)
         return res
