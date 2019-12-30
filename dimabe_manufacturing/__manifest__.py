@@ -29,7 +29,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/mrp_workorder.xml',
-        'views/stock_production_lot_serial.xml'
+        'views/stock_production_lot_serial.xml',
+        'views/stock_production_lot.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
