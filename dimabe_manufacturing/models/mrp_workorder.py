@@ -13,6 +13,8 @@ class MrpWorkorder(models.Model):
             'product_id': res.product_id.id
         })
 
+        raise models.ValidationError(final_lot)
+
         res.final_lot_id = final_lot.id
 
         return res
