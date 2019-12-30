@@ -16,7 +16,7 @@
       <field name="model">mrp.workorder</field>
       <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit" />
       <field name="arch" type="xml">
-        <xpath expr="//button[@name='button_finish']" position="after">
+        <xpath expr="//header" position="inside">
           <button string="Agregar Pesaje de Salidas" name="button_add_weight" type="object" />
         </xpath>
       </field>
