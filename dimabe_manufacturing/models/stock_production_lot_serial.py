@@ -37,5 +37,9 @@ class StockProductionLotSerial(models.Model):
     def create(self, values_list):
 
         res = super(StockProductionLotSerial, self).create(values_list)
-        raise models.ValidationError(res.stock_production_lot_id.name)
+        counter = 1
+        for serial in res.stock_production_lot_serial_ids:
+            counter += counter
+            tmp = '00{}'.format(counter)
+            serial.serial_number = res.stock_production_lot_id.name + tmp[-3:]
         return res
