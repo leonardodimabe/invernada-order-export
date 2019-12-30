@@ -4,11 +4,6 @@ from odoo import fields, models, api
 class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
-    byproduct_lot_ids = fields.Many2one(
-        'stock.production.lot',
-        related=lambda a: a.check_ids.mapped('lot_id'),
-    )
-
     @api.model
     def create(self, values_list):
         res = super(MrpWorkorder, self).create(values_list)
