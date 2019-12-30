@@ -1,20 +1,13 @@
 <odoo>
   <data>
-    <record id="stock_production_lot_serial_weight_view" model="ir.ui.view">
+    <record id="view_production_lot_form_simple_inherit" model="ir.ui.view">
       <field name="name">Pesajes de Lote</field>
       <field name="model">stock.production.lot</field>
+      <field name="inherit_id" ref="stock.view_production_lot_form_simple" />
       <field name="arch" type="xml">
         <form>
-          <group>
-            <group>
-              <h2>
-                <field name="name" readonly="1"/>
-              </h2>
-              <field name="stock_production_lot_serial_ids" />
-            </group>
-            <group>
-
-            </group>
+          <group name="main_group" position="inside">
+            <field name="name" />
           </group>
         </form>
       </field>
