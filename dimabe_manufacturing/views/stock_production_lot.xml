@@ -1,27 +1,17 @@
 <odoo>
   <data>
-    <record id="dimabe_manufacturing.stock_production_lot_action_view"
-            model="ir.actions.act_window"
-    >
-      <field name="name">Lotes</field>
-      <field name="res_model">stock.production.lot</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    
     <record id="weight_serial_view" model="ir.ui.view">
       <field name="name">Pesaje</field>
       <field name="model">stock.production.lot</field>
+      <field name="inherit_id" ref="stock.view_production_lot_form_simple"/>
       <field name="arch" type="xml">
-        <form>
-          <group>
-            <group>
-              <field name="display_name"/>
-            </group>
-            <group>
 
-            </group>
+        <group name="main_group" position="after">
+          <group>
+            <field name="display_name"/>
           </group>
-        </form>
+        </group>
+
       </field>
     </record>
   </data>
