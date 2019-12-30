@@ -10,7 +10,7 @@
               <h2>
                 <field name="name" readonly="1"/>
               </h2>
-
+              <field name="stock_production_lot_serial_ids" />
             </group>
             <group>
               <field name="use_next_on_work_order_id" />
