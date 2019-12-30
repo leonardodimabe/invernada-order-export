@@ -3,7 +3,6 @@
 
     <record id="work_order_lot_serial_weight" model="ir.ui.view">
       <field name="name">Series Salientes</field>
-      <field name="sequence">17</field>
       <field name="model">mrp.workorder</field>
       <field name="arch" type="xml">
         <form>
@@ -11,9 +10,8 @@
             <group>
               <field name="check_ids">
                 <tree>
-                  <field name="id"/>
-                  <field name="name"/>
                   <field name="lot_id"/>
+                  <field name="lot_id.product_id.display_name" />
                 </tree>
               </field>
             </group>
