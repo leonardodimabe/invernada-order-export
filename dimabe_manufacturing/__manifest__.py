@@ -27,14 +27,13 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/mrp_workorder.xml'
+        'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
         'views/mrp_workorder.xml',
-        'views/mrp_workorder.xml',
-        'views/stock_production_lot.xml'
+        'views/stock_production_lot.xml',
+        'views/stock_production_lot_serial.xml'
     ],
 }
