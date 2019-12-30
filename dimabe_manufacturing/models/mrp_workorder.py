@@ -48,3 +48,13 @@ class MrpWorkorder(models.Model):
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
 
         self.qty_done = qty_done + custom_serial.display_weight
+
+    def button_add_weight(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'stock.production.lot',
+            'res_id': self.final_lot_id.id,
+            'view_id': ''
+
+        }
+
