@@ -4,14 +4,16 @@
       <field name="name">Pesaje</field>
       <field name="model">stock.production.lot</field>
       <field name="arch" type="xml">
-        <group>
+        <form>
           <group>
-            <field name="display_name" />
-          </group>
-          <group>
+            <group>
+              <field name="display_name"/>
+            </group>
+            <group>
 
+            </group>
           </group>
-        </group>
+        </form>
       </field>
     </record>
   </data>
