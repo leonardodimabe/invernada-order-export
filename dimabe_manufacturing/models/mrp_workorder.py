@@ -4,13 +4,10 @@ from odoo import fields, models, api
 class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
-    @api.model
-    def get_outing_lot_ids(self):
-        lot_list = self.check_ids.mapped('lot_id')
-        lot_list.append(self.final_lot_id)
-        return lot_list
-
-
+    byproduct_lot_ids = fields.Many2one(
+        'stock.production.lot',
+        related=lambda a: a.check_ids.mapped('lot_id'),
+    )
 
     @api.model
     def create(self, values_list):
