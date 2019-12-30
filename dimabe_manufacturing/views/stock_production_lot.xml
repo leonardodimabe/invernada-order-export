@@ -1,6 +1,6 @@
 <odoo>
   <data>
-    <record id="dimabe_manufacturing.weight_serial_view" model="ir.ui.view">
+    <record id="weight_serial_view" model="ir.ui.view">
       <field name="name">Pesaje</field>
       <field name="model">stock.production.lot</field>
       <field name="arch" type="xml">
