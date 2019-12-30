@@ -49,7 +49,7 @@ class MrpWorkorder(models.Model):
     def button_add_weight(self):
 
         return {
-            'type': 'ir.actions.act_window',
+            'type': 'ir.ui.view',
             'res_model': 'stock.production.lot.serial',
             'res_id': self.final_lot_id.id,
             'view_id': self.env.ref('dimabe_manufacturing.stock_production_lot_serial_weight_view').id,
