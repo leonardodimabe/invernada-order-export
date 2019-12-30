@@ -5,7 +5,7 @@
       <field name="model">stock.production.lot</field>
       <field name="arch" type="xml">
         <form>
-          <field name="id"/>
+          <field name="name"/>
         </form>
       </field>
     </record>
