@@ -3,7 +3,7 @@
 
     <record id="work_order_lot_serial_weight" model="ir.ui.view">
       <field name="name">Series Salientes</field>
-      <field name="sequence">0</field>
+      <field name="sequence">17</field>
       <field name="model">mrp.workorder</field>
       <field name="arch" type="xml">
         <form>
