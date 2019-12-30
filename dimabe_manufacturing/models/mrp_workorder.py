@@ -54,7 +54,7 @@ class MrpWorkorder(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'stock.production.lot',
             'res_id': self.final_lot_id.id,
-            'view_id': 'dimabe_manufacturing.weight_serial_view'
-
+            'view_id': 'dimabe_manufacturing.weight_serial_view',
+            'view_mode': 'form'
         }
 
