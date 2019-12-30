@@ -51,7 +51,7 @@ class MrpWorkorder(models.Model):
 
     def button_add_weight(self):
 
-        raise models.ValidationError(self.env.ref('dimabe_manufacturing.stock_production_lot_action_view'))
+        raise models.ValidationError(self.env.ref('stock.view_production_lot_form_simple'))
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'stock.production.lot',
