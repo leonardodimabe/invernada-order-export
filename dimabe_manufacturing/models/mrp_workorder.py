@@ -50,11 +50,13 @@ class MrpWorkorder(models.Model):
         self.qty_done = qty_done + custom_serial.display_weight
 
     def button_add_weight(self):
+
+        raise models.ValidationError(self.env.ref('dimabe_manufacturing.weight_serial_view'))
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'stock.production.lot',
             'res_id': self.final_lot_id.id,
-            'view_id': 'dimabe_manufacturing.weight_serial_view',
+            'view_id': self.env.ref('dimabe_manufacturing.weight_serial_view'),
             'view_mode': 'form'
         }
 
