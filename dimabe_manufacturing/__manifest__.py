@@ -28,11 +28,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/mrp_workorder.xml',
+        'views/stock_production_lot_serial.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-        'views/mrp_workorder.xml',
-        'views/stock_production_lot_serial.xml'
     ],
 }
