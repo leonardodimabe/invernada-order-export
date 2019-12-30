@@ -1,25 +1,25 @@
 <odoo>
   <data>
 
-    <record id="work_order_lot_serial_weight" model="ir.ui.view">
-      <field name="name">Series Salientes</field>
-      <field name="model">mrp.workorder</field>
-      <field name="arch" type="xml">
-        <form>
-          <group>
-            <group>
-              <field name="check_ids">
-                <tree>
-                  <field name="id"/>
-                  <field name="name"/>
-                  <field name="lot_id"/>
-                </tree>
-              </field>
-            </group>
-          </group>
-        </form>
-      </field>
-    </record>
+<!--    <record id="work_order_lot_serial_weight" model="ir.ui.view">-->
+<!--      <field name="name">Series Salientes</field>-->
+<!--      <field name="model">mrp.workorder</field>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <form>-->
+<!--          <group>-->
+<!--            <group>-->
+<!--              <field name="check_ids">-->
+<!--                <tree>-->
+<!--                  <field name="id"/>-->
+<!--                  <field name="name"/>-->
+<!--                  <field name="lot_id"/>-->
+<!--                </tree>-->
+<!--              </field>-->
+<!--            </group>-->
+<!--          </group>-->
+<!--        </form>-->
+<!--      </field>-->
+<!--    </record>-->
 
 
     <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
