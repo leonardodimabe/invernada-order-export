@@ -59,3 +59,4 @@ class StockMove(models.Model):
                                 })
 
                             stock_move.has_serial_generated = True
+        return super(StockMove, self).write(values)
