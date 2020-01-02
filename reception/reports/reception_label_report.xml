@@ -6,7 +6,7 @@
 
       <t t-foreach="docs" t-as="o">
         <t t-foreach="o.get_mp_move().move_line_ids" t-as="move_line">
-          <t t-foreach="move_line.stock_production_lot_serial_ids" t-as="serial">
+          <t t-foreach="move_line.lot_id.stock_production_lot_serial_ids" t-as="serial">
             <div class="page">
               <table>
                 <tr>
