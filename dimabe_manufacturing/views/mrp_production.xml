@@ -9,7 +9,7 @@
           <button name="calculate_done"
                   type="object"
                   string="Calcular Realizado"
-                  attrs="{'invisible':[('state', '=', 'progress')]}"
+                  attrs="{'invisible':[('state', '!=', 'progress')]}"
           />
         </xpath>
       </field>
