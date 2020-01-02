@@ -14,7 +14,8 @@ class StockProductionLotSerial(models.Model):
 
     display_weight = fields.Float(
         'Peso',
-        compute='_compute_display_weight'
+        compute='_compute_display_weight',
+        inverse='_inverse_real_weight'
     )
 
     stock_production_lot_id = fields.Many2one(
@@ -33,3 +34,8 @@ class StockProductionLotSerial(models.Model):
                 item.display_weight = item.real_weight
             else:
                 item.display_weight = item.calculated_weight
+
+    @api.multi
+    def _inverse_real_weight(self):
+        for item in self:
+            item.real_weight = item.display_weight
