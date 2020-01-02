@@ -17,4 +17,4 @@ class StockProductionLot(models.Model):
             for serial in item.stock_production_lot_serial_ids:
                 counter += counter
                 tmp = '00{}'.format(counter)
-                serial.serial_number = item.stock_production_lot_id.name + tmp[-3:]
+                serial.serial_number = item.name + tmp[-3:]
