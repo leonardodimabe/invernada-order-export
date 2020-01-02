@@ -7,7 +7,7 @@ class StockProductionLot(models.Model):
     stock_production_lot_serial_ids = fields.One2many(
         'stock.production.lot.serial',
         'stock_production_lot_id',
-        string="Series"
+        string="Detalle"
     )
 
     @api.multi
