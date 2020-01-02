@@ -43,6 +43,7 @@ class StockMove(models.Model):
     def write(self, values):
 
         for stock_move in self:
+            raise models.ValidationError(len(self))
             if stock_move.product_id.tracking == 'lot' and not stock_move.has_serial_generated:
                 for stock_move_line in stock_move.move_line_ids:
                     if stock_move.product_id.categ_id.is_mp:
