@@ -13,9 +13,10 @@ class StockProductionLot(models.Model):
     @api.multi
     def write(self, values):
         for item in self:
+            res = super(StockProductionLot, self).write(values)
             counter = 1
             for serial in item.stock_production_lot_serial_ids:
                 counter += counter
                 tmp = '00{}'.format(counter)
                 serial.serial_number = item.name + tmp[-3:]
-        return super(StockProductionLot, self).write(values)
+            return res
