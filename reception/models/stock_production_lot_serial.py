@@ -26,9 +26,10 @@ class StockProductionLotSerial(models.Model):
         'Serie'
     )
 
-    @api.model
+    @api.multi
     def _compute_display_weight(self):
-        if self.real_weight:
-            self.display_weight = self.real_weight
-        else:
-            self.display_weight = self.calculated_weight
+        for item in self:
+            if item.real_weight:
+                item.display_weight = item.real_weight
+            else:
+                item.display_weight = item.calculated_weight
