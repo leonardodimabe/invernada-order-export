@@ -10,3 +10,8 @@ class MrpProduction(models.Model):
             for line_id in item.finished_move_line_ids:
                 line_id.qty_done = line_id.lot_id.total_serial
 
+    @api.multi
+    def button_mark_done(self):
+        self.calculate_done()
+        return super(MrpProduction, self).button_mark_done()
+
