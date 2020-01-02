@@ -41,15 +41,15 @@ class StockMove(models.Model):
 
     @api.multi
     def write(self, values):
-
-        for stock_move in self:
+        res = super(StockMove, self).write(values)
+        for stock_move in res:
             if stock_move.product_id.tracking == 'lot' and not stock_move.has_serial_generated:
                 for stock_move_line in stock_move.move_line_ids:
                     if stock_move.product_id.categ_id.is_mp:
                         total_qty = stock_move.picking_id.get_canning_move().product_uom_qty
                         calculated_weight = stock_move_line.qty_done / total_qty
                         if stock_move_line.lot_id:
-                            raise models.ValidationError(stock_move_line.lot_id.name)
+
                             for i in range(int(total_qty)):
                                 tmp = '00{}'.format(i + 1)
 
@@ -60,4 +60,4 @@ class StockMove(models.Model):
                                 })
 
                             stock_move.has_serial_generated = True
-        return super(StockMove, self).write(values)
+        return res
