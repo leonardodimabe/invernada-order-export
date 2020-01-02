@@ -10,6 +10,15 @@ class StockProductionLot(models.Model):
         string="Detalle"
     )
 
+    total_serial = fields.Float(
+        'Total',
+        compute='_compute_total_serial'
+    )
+
+    @api.model
+    def _compute_total_serial(self):
+        self.total_serial = sum(self.stock_production_lot_serial_ids.mapped('display_weight'))
+
     @api.multi
     def write(self, values):
         for item in self:
