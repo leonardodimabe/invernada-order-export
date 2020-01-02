@@ -40,16 +40,11 @@ class StockMove(models.Model):
         return domain
 
     @api.multi
-    def generate_serial(self):
+    def write(self, values):
 
         for stock_move in self:
-            if stock_move.product_id.tracking == 'lot':
+            if stock_move.product_id.tracking == 'lot' and stock_move.lot_id and not stock_move.has_serial_generated:
                 for stock_move_line in stock_move.move_line_ids:
-                    prefix = ''
-                    if stock_move.product_id.categ_id.is_canning:
-                        prefix = 'ENV'
-                    stock_move_line.lot_name = '{}{}'.format(prefix, stock_move.picking_id.name)
-                    stock_move_line.qty_done = stock_move_line.product_uom_qty
                     if stock_move.product_id.categ_id.is_mp:
                         total_qty = stock_move.picking_id.get_canning_move().product_uom_qty
                         calculated_weight = stock_move_line.qty_done / total_qty
@@ -57,7 +52,7 @@ class StockMove(models.Model):
                         for i in range(int(total_qty)):
                             tmp = '00{}'.format(i + 1)
 
-                            self.env['stock.move.line.serial'].create({
+                            self.env['stock.production.lot.serial'].create({
                                 'calculated_weight': calculated_weight,
                                 'stock_move_line_id': stock_move_line.id,
                                 'serial_number': '{}{}'.format(stock_move_line.lot_name, tmp[-3:])
