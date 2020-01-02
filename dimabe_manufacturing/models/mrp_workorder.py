@@ -38,6 +38,10 @@ class MrpWorkorder(models.Model):
 
         return res
 
+    def action_next(self):
+        res = super(MrpWorkorder, self).action_next()
+        self.qty_done = 0
+
     def on_barcode_scanned(self, barcode):
 
         qty_done = self.qty_done
