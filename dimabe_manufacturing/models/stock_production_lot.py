@@ -18,3 +18,4 @@ class StockProductionLot(models.Model):
                 counter += counter
                 tmp = '00{}'.format(counter)
                 serial.serial_number = item.name + tmp[-3:]
+        return super(StockProductionLot, self).write(values)
