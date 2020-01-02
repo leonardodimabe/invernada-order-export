@@ -8,42 +8,13 @@
       <field name="company_id" eval="False"/>
     </record>
 
-    <!--    <record id="work_order_lot_serial_weight" model="ir.ui.view">-->
-    <!--      <field name="name">Series Salientes</field>-->
-    <!--      <field name="model">mrp.workorder</field>-->
-    <!--      <field name="arch" type="xml">-->
-    <!--        <form>-->
-    <!--          <group>-->
-    <!--            <group>-->
-    <!--              <field name="check_ids">-->
-    <!--                <tree>-->
-    <!--                  <field name="lot_id"/>-->
-    <!--                  <field name="component_id" />-->
-    <!--                </tree>-->
-    <!--              </field>-->
-    <!--            </group>-->
-    <!--          </group>-->
-    <!--        </form>-->
-    <!--      </field>-->
-    <!--    </record>-->
-
-
     <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
       <field name="name">OT</field>
       <field name="model">mrp.workorder</field>
       <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
       <field name="arch" type="xml">
-        <xpath expr="//header" position="inside">
-          <button string="Agregar Pesaje de Salidas" name="button_add_weight" type="object"/>
-        </xpath>
+
       </field>
     </record>
-
-    <!--    <menuitem-->
-    <!--      id="out_weight_menu_item"-->
-    <!--      name="Pesaje de Salidas"-->
-    <!--      parent="mrp.menu_mrp_manufacturing"-->
-    <!--      action="dimabe_manufacturing.work_order_lot_action_view"-->
-    <!--    />-->
   </data>
 </odoo>
