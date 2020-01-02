@@ -9,3 +9,12 @@ class StockProductionLot(models.Model):
         'stock_production_lot_id',
         string="Series"
     )
+
+    @api.multi
+    def write(self, values):
+        for item in self:
+            counter = 1
+            for serial in item.stock_production_lot_serial_ids:
+                counter += counter
+                tmp = '00{}'.format(counter)
+                serial.serial_number = item.stock_production_lot_id.name + tmp[-3:]
