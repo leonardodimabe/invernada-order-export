@@ -18,7 +18,7 @@
             <field name="lot_id"
                    domain="[('product_id', '=', product_id)]"
                    context="{'default_product_id': product_id}"
-                   widget="link"
+                   widget="many2one"
             />
           </field>
         </xpath>
