@@ -47,9 +47,9 @@ class StockMove(models.Model):
                 for stock_move_line in stock_move.move_line_ids:
                     if stock_move.product_id.categ_id.is_mp:
                         total_qty = stock_move.picking_id.get_canning_move().product_uom_qty
-                        raise models.ValidationError(total_qty)
                         calculated_weight = stock_move_line.qty_done / total_qty
                         if stock_move_line.lot_id:
+                            raise models.ValidationError(stock_move_line.lot_id.name)
                             for i in range(int(total_qty)):
                                 tmp = '00{}'.format(i + 1)
 
