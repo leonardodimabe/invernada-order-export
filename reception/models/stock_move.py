@@ -43,7 +43,7 @@ class StockMove(models.Model):
     def write(self, values):
         res = super(StockMove, self).write(values)
         for stock_move in self:
-            raise models.ValidationError(stock_move.picking_code)
+            raise models.ValidationError(stock_move.picking_id)
             if stock_move.picking_id and stock_move.picking_type_code == 'incoming':
                 if stock_move.product_id.tracking == 'lot' and not stock_move.has_serial_generated:
                     for stock_move_line in stock_move.move_line_ids:
