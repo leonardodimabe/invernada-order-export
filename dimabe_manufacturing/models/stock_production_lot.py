@@ -19,7 +19,6 @@ class StockProductionLot(models.Model):
     def _compute_total_serial(self):
         for item in self:
             item.total_serial = sum(item.stock_production_lot_serial_ids.mapped('display_weight'))
-            raise models.ValidationError(item.total_serial)
 
     @api.multi
     def write(self, values):
