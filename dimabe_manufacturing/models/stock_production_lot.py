@@ -14,7 +14,7 @@ class StockProductionLot(models.Model):
     def write(self, values):
         for item in self:
             res = super(StockProductionLot, self).write(values)
-            counter = 1
+            counter = 0
             for serial in item.stock_production_lot_serial_ids:
                 counter += 1
                 tmp = '00{}'.format(counter)
