@@ -7,22 +7,5 @@
       <field name="padding">5</field>
       <field name="company_id" eval="False"/>
     </record>
-
-    <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
-      <field name="name">OT</field>
-      <field name="model">mrp.workorder</field>
-      <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
-      <field name="arch" type="xml">
-        <xpath expr="//page[@text='Produción actual']" position="inside">
-          <field name="lot_id" position="replace">
-            <field name="lot_id"
-                   domain="[('product_id', '=', product_id)]"
-                   context="{'default_product_id': product_id}"
-                   widget="many2one"
-            />
-          </field>
-        </xpath>
-      </field>
-    </record>
   </data>
 </odoo>
