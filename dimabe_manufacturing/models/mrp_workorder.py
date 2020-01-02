@@ -45,15 +45,3 @@ class MrpWorkorder(models.Model):
         barcode = custom_serial.stock_production_lot_id.name
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
         self.qty_done = qty_done + custom_serial.display_weight
-
-    def button_add_weight(self):
-
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'mrp.workorder',
-            'res_id': self.id,
-            'view_id': self.env.ref('dimabe_manufacturing.work_order_lot_serial_weight').id,
-            'view_mode': 'form',
-            'target': 'fullscreen'
-        }
-

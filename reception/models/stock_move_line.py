@@ -4,11 +4,6 @@ from odoo import fields, models, api
 class StockMoveLine(models.Model):
     _inherit = 'stock.move.line'
 
-    stock_move_line_serial_ids = fields.One2many(
-        'stock.move.line.serial',
-        'stock_move_line_id'
-    )
-
     @api.model
     def create(self, values_list):
         res = super(StockMoveLine, self).create(values_list)
