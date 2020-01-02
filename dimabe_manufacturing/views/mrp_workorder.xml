@@ -13,7 +13,8 @@
       <field name="model">mrp.workorder</field>
       <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet" />
       <field name="arch" type="xml">
-        <button name="action_open_manufacturing_order" position="replace"></button>
+        <button name="action_open_manufacturing_order" position="replace">
+        </button>
       </field>
     </record>
   </data>
