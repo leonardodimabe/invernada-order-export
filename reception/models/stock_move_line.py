@@ -9,9 +9,9 @@ class StockMoveLine(models.Model):
         res = super(StockMoveLine, self).create(values_list)
 
         prefix = ''
-        if res.stock_move_id.product_id.categ_id.is_canning:
+        if res.move_id.product_id.categ_id.is_canning:
             prefix = 'ENV'
-        res.lot_name = '{}{}'.format(prefix, res.stock_move_id.picking_id.name)
+        res.lot_name = '{}{}'.format(prefix, res.move_id.picking_id.name)
         res.qty_done = res.product_uom_qty
 
         return res
