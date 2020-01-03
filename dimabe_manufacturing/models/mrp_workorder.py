@@ -31,8 +31,8 @@ class MrpWorkorder(models.Model):
                 if check.quality_state == 'none':
                     if self.component_tracking != 'none' and not self.lot_id:
                         raise models.ValidationError('{} {}'.format(
-                            check,
-                            self.current_quality_check_id,
+                            check.qty_done,
+                            self.current_quality_check_id.qty_done,
 
                         ))
                     self.action_next()
