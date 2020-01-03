@@ -41,13 +41,7 @@
               <field name="state" readonly="1" />
               <field name="product_id" readonly="1" />
               <field name="final_lot_id" widget="form" readonly="1" />
-              <field name="final_lot_id_serial_ids">
-                <tree editable="bottom">
-                  <field name="stock_production_lot_id" readonly="1" />
-                  <field name="display_weight" />
-                  <field name="serial_number" readonly="1" />
-                </tree>
-              </field>
+              <field name="final_lot_id_serial_ids" widget="new" />
             </group>
             <group>
 
