@@ -38,6 +38,7 @@
         <form>
           <group>
             <group>
+              <field name="product_id" />
               <field name="final_lot_id" />
             </group>
             <group>
