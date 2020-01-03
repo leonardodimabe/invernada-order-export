@@ -28,6 +28,7 @@
           <button name="open_tablet_view" position="attributes">
             <attribute name="string">Procesar Entrada</attribute>
           </button>
+          <button name="open_tablet_view" type="object" string="Procesar Salida" />
         </xpath>
       </field>
     </record>
