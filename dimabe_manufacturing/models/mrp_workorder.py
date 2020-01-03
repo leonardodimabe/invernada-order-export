@@ -5,7 +5,8 @@ class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
     final_lot_id_serial_ids = fields.One2many(
-        related='final_lot_id.stock_production_lot_serial_ids'
+        related='final_lot_id.stock_production_lot_serial_ids',
+        editable=True
     )
 
     @api.model
