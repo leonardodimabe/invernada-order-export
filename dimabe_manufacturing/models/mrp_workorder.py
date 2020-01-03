@@ -36,6 +36,8 @@ class MrpWorkorder(models.Model):
                     check.qty_done = 0
                 self.action_skip()
 
+            self.action_first_skipped_step()
+
         return super(MrpWorkorder, self).open_tablet_view()
 
     def action_next(self):
