@@ -40,7 +40,7 @@
       </field>
     </record>
 
-    <record id="mrp_workorder_out_form_action" model="ir.actions.act_window">
+    <record id="mrp_workorder_out_form_action" model="ir.actions.act_window.view">
       <field name="name">action out process</field>
       <field name="res_model">mrp.workorder</field>
       <field name="view_mode">form</field>
