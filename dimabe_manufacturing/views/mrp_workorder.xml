@@ -26,7 +26,7 @@
       <field name="arch" type="xml">
         <xpath expr="//header" position="inside">
           <button name="open_tablet_view" position="attributes">
-            <attribute name="text">Procesar Entrada</attribute>
+            <attribute name="string">Procesar Entrada</attribute>
           </button>
         </xpath>
       </field>
