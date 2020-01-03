@@ -28,19 +28,19 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                # if check.quality_state == 'none':
-                #     self.action_next()
+                if check.quality_state == 'none':
+                    self.action_next()
 
             else:
                 if not check.component_id.categ_id.is_canning:
                     check.qty_done = 0
-                # self.action_skip()
+                self.action_skip()
 
         return super(MrpWorkorder, self).open_tablet_view()
 
     def action_next(self):
         res = super(MrpWorkorder, self).action_next()
-        self.qty_done = 0
+        # self.qty_done = 0
 
     def on_barcode_scanned(self, barcode):
 
