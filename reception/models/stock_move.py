@@ -42,7 +42,7 @@ class StockMove(models.Model):
     @api.multi
     def write(self, values):
         res = super(StockMove, self).write(values)
-        raise models.ValidationError(self)
+
         for stock_move in self:
 
             if stock_move.picking_id and stock_move.picking_id.picking_type_code == 'incoming':
