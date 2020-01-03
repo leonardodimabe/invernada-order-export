@@ -44,7 +44,8 @@
       <field name="name">action out process</field>
       <field name="res_model">mrp.workorder</field>
       <field name="view_mode">form</field>
-      <field name="view_id" ref="dimabe_manufacturing.mrp_workorder_out_form_view" />
+<!--      <field name="view_id" ref="dimabe_manufacturing.mrp_workorder_out_form_view" />-->
     </record>
+
   </data>
 </odoo>
