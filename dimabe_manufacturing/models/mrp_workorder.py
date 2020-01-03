@@ -27,7 +27,9 @@ class MrpWorkorder(models.Model):
                         'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
                         'product_id': check.component_id.id
                     })
-                    check.lot_id = lot_tmp.id
+                    check.write({
+                        'lot_id': lot_tmp.id
+                    })
                 if check.quality_state == 'none':
                     self.action_next()
 
