@@ -33,7 +33,7 @@
     <record id="mrp_workorder_out_form_view" model="ir.ui.view">
       <field name="name">Procesar Salidas</field>
       <field name="model">mrp.workorder</field>
-      <field name="sequence">20</field>
+      <field name="sequence">10</field>
       <field name="arch" type="xml">
         <form>
           lala
