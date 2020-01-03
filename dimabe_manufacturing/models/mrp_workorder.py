@@ -50,3 +50,17 @@ class MrpWorkorder(models.Model):
             barcode = custom_serial.stock_production_lot_id.name
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
         self.qty_done = qty_done + custom_serial.display_weight
+
+    def open_out_form_view(self):
+
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mrp.workorder',
+            'views': [[self.env.ref('dimabe_manufacturing.mrp_workorder_out_form_action').id, 'form']],
+            'res_id': self.id,
+            'target': 'fullscreen',
+            'flags': {
+                'form_view_initial_mode': 'edit'
+            }
+        }
+

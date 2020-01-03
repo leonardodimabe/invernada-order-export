@@ -25,21 +25,25 @@
       <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit" />
       <field name="arch" type="xml">
         <xpath expr="//header" position="inside">
-          <xpath expr="//button[@name='button_start'][1]"  position="attributes">
-            <attribute name="string">Procesar Entrada</attribute>
-          </xpath>
-          <xpath expr="//button[@name='button_start'][2]"  position="attributes">
-            <attribute name="string">Procesar Entrada</attribute>
-          </xpath>
-          <xpath expr="//button[@name='button_start'][3]"  position="attributes">
-            <attribute name="string">Procesar Entrada</attribute>
-          </xpath>
-          <xpath expr="//button[@name='button_start'][4]"  position="attributes">
-            <attribute name="string">Procesar Entrada</attribute>
-          </xpath>
           <button name="open_tablet_view" type="object" string="Procesar Salida" />
         </xpath>
       </field>
+    </record>
+
+    <record id="mrp_workorder_out_form_view" model="ir.ui.view">
+      <field name="name">Procesar Salidas</field>
+      <field name="model">mrp.workorder</field>
+      <field name="arch" type="xml">
+        <form>
+          lala
+        </form>
+      </field>
+    </record>
+
+    <record id="mrp_workorder_out_form_action" model="ir.actions.act_window">
+      <field name="res_model">mrp.workorder</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="dimabe_manufacturing.mrp_workorder_out_form_view" />
     </record>
   </data>
 </odoo>
