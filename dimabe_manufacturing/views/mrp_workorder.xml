@@ -28,6 +28,15 @@
           <xpath expr="//button[@name='button_start'][1]"  position="attributes">
             <attribute name="string">Procesar Entrada</attribute>
           </xpath>
+          <xpath expr="//button[@name='button_start'][2]"  position="attributes">
+            <attribute name="string">Procesar Entrada</attribute>
+          </xpath>
+          <xpath expr="//button[@name='button_start'][3]"  position="attributes">
+            <attribute name="string">Procesar Entrada</attribute>
+          </xpath>
+          <xpath expr="//button[@name='button_start'][4]"  position="attributes">
+            <attribute name="string">Procesar Entrada</attribute>
+          </xpath>
           <button name="open_tablet_view" type="object" string="Procesar Salida" />
         </xpath>
       </field>
