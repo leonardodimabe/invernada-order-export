@@ -32,7 +32,7 @@ class MrpWorkorder(models.Model):
 
                 if check.quality_state == 'none':
                     self.action_next()
-                if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids - 1)].id:
+                if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids)-1].id:
                     raise models.ValidationError('{} {}'.format(
                         self.finished_product_check_ids.mapped('quality_state'),
                         self.finished_product_check_ids.mapped('lot_id')
