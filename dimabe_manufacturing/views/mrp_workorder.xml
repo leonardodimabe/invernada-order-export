@@ -49,7 +49,7 @@
             <group>
               <h2>Otras Salidas</h2>
               <field name="active_move_line_ids" readonly="1" >
-                <tree readonly="1">
+                <tree readonly="1" srting="Click en lote para agregar salidas">
                   <field name="product_id"/>
                   <field name="lot_id" />
                 </tree>
