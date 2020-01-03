@@ -37,7 +37,7 @@ class MrpWorkorder(models.Model):
                 #self.action_skip()
 
         #self.action_first_skipped_step()
-        self.action_next()
+        #self.action_next()
 
         return super(MrpWorkorder, self).open_tablet_view()
 
