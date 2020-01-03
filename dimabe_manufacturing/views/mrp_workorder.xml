@@ -40,8 +40,8 @@
             <group>
               <field name="state" readonly="1" />
               <field name="product_id" readonly="1" />
-              <field name="final_lot_id" />
-              <field name="final_lot_id_serial_ids" />
+              <field name="final_lot_id" readonly="1" />
+              <field name="final_lot_id_serial_ids" edit="1"/>
             </group>
             <group>
 
