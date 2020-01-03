@@ -56,7 +56,7 @@ class MrpWorkorder(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'mrp.workorder',
-            'views': [[self.env.ref('dimabe_manufacturing.mrp_workorder_out_form_action').id, 'form']],
+            'views': [[self.env.ref('dimabe_manufacturing.mrp_workorder_out_form_view').id, 'form']],
             'res_id': self.id,
             'target': 'fullscreen',
             'flags': {
