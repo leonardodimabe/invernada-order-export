@@ -29,11 +29,11 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids) - 3].id:
-                    raise models.ValidationError('{} {}'.format(
-                        self.finished_product_check_ids.mapped('component_id'),
-                        self.finished_product_check_ids.mapped('lot_id').mapped('product_id')
-                    ))
+                # if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids) - 3].id:
+                #     raise models.ValidationError('{} {}'.format(
+                #         self.finished_product_check_ids.mapped('component_id'),
+                #         self.finished_product_check_ids.mapped('lot_id').mapped('product_id')
+                #     ))
                 if check.quality_state == 'none':
                     self.action_next()
 
