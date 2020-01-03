@@ -18,5 +18,18 @@
         </button>
       </field>
     </record>
+
+    <record id="mrp_production_workorder_form_view_inherit" model="ir.ui.view">
+      <field name="name">formulario order de trabajo</field>
+      <field name="model">mrp.workorder</field>
+      <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit" />
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <button name="open_tablet_view" position="attributes">
+            <attribute name="text">Procesar Entrada</attribute>
+          </button>
+        </xpath>
+      </field>
+    </record>
   </data>
 </odoo>
