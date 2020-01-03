@@ -29,9 +29,10 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                    raise models.ValidationError(check.lot_id)
+
                 if check.quality_state == 'none':
                     self.action_next()
+                raise models.ValidationError('{} {}'.format(check.lot_id, check.quality_state))
             else:
                 if not check.component_id.categ_id.is_canning:
                     check.qty_done = 0
