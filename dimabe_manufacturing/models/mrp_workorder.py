@@ -20,21 +20,21 @@ class MrpWorkorder(models.Model):
     def open_tablet_view(self):
 
         counter = 0
-        while self.curren_quality_check_id:
+        while self.current_quality_check_id:
             counter += 1
 
-            if self.curren_quality_check_id.component_is_byproduct:
-                if not self.curren_quality_check_id.lot_id:
+            if self.current_quality_check_id.component_is_byproduct:
+                if not self.current_quality_check_id.lot_id:
                     lot_tmp = self.env['stock.production.lot'].create({
                         'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
-                        'product_id': self.curren_quality_check_id.component_id.id
+                        'product_id': self.current_quality_check_id.component_id.id
                     })
-                    self.curren_quality_check_id.lot_id = lot_tmp.id
-                    if self.curren_quality_check_id.quality_state == 'none':
+                    self.current_quality_check_id.lot_id = lot_tmp.id
+                    if self.current_quality_check_id.quality_state == 'none':
                         self.action_next()
             else:
-                if not self.curren_quality_check_id.component_id.categ_id.is_canning:
-                    self.curren_quality_check_id.qty_done = 0
+                if not self.current_quality_check_id.component_id.categ_id.is_canning:
+                    self.current_quality_check_id.qty_done = 0
                 self.action_skip()
 
             if counter > 20:
