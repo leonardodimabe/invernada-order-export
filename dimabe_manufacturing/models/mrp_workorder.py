@@ -46,7 +46,7 @@ class MrpWorkorder(models.Model):
         custom_serial = self.env['stock.production.lot.serial'].search([('serial_number', '=', barcode)])
         if custom_serial:
             barcode = custom_serial.stock_production_lot_id.name
-        if self.lot_id.name != barcode:
+        if self.lot_id.name != barcode and self.lot_id:
             self.action_next()
             qty_done = 0
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
