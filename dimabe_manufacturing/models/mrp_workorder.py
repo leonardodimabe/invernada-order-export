@@ -21,7 +21,7 @@ class MrpWorkorder(models.Model):
         res = super(MrpWorkorder, self).open_tablet_view()
 
         for check in self.finished_product_check_ids:
-            raise models.ValidationError(self.finished_product_check_ids.mapped('component_id'))
+
             if check.component_is_byproduct:
                 if not check.lot_id:
                     lot_tmp = self.env['stock.production.lot'].create({
@@ -29,6 +29,7 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
+                    raise models.ValidationError(check.lot_id)
                 if check.quality_state == 'none':
                     self.action_next()
             else:
