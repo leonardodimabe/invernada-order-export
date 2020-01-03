@@ -7,8 +7,8 @@ class StockMoveLine(models.Model):
     @api.model
     def create(self, values_list):
         res = super(StockMoveLine, self).create(values_list)
-        raise models.ValidationError(res.move_id)
-        if self.move_id.picking_id and self.move_id.picking_type_code == 'incoming':
+
+        if res.move_id.picking_id and res.move_id.picking_type_code == 'incoming':
             prefix = ''
             if res.move_id.product_id.categ_id.is_canning:
                 prefix = 'ENV'
