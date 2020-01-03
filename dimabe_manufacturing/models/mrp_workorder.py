@@ -28,7 +28,6 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                    self.current_quality_check_id = check
                 if check.quality_state == 'none':
                     self.action_next()
 
