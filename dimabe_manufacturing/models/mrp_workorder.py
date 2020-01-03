@@ -28,8 +28,7 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                if check.quality_state == 'none':
-                    print('')
+                #if check.quality_state == 'none':
                     #self.action_next()
 
             else:
@@ -38,6 +37,7 @@ class MrpWorkorder(models.Model):
                 #self.action_skip()
 
         #self.action_first_skipped_step()
+        self.action_next()
 
         return super(MrpWorkorder, self).open_tablet_view()
 
