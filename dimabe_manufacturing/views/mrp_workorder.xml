@@ -36,7 +36,14 @@
       <field name="priority">20</field>
       <field name="arch" type="xml">
         <form>
-          lala
+          <group>
+            <group>
+              <field name="final_lot_id" />
+            </group>
+            <group>
+
+            </group>
+          </group>
         </form>
       </field>
     </record>
