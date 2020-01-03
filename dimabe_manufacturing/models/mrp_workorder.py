@@ -40,16 +40,13 @@ class MrpWorkorder(models.Model):
 
         return super(MrpWorkorder, self).open_tablet_view()
 
-    def action_next(self):
-        res = super(MrpWorkorder, self).action_next()
-        # self.qty_done = 0
-
     def on_barcode_scanned(self, barcode):
 
         qty_done = self.qty_done
         custom_serial = self.env['stock.production.lot.serial'].search([('serial_number', '=', barcode)])
         if custom_serial:
             barcode = custom_serial.stock_production_lot_id.name
+            raise models.ValidationError('{} {}'.format(self.lot_id.name, barcode))
         super(MrpWorkorder, self).on_barcode_scanned(barcode)
         self.qty_done = qty_done + custom_serial.display_weight
 
