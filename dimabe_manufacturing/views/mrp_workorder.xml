@@ -25,7 +25,7 @@
       <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit" />
       <field name="arch" type="xml">
         <xpath expr="//header" position="inside">
-          <button name="open_tablet_view" type="object" string="Procesar Salida" />
+          <button name="open_out_form_view" type="object" string="Procesar Salida" />
         </xpath>
       </field>
     </record>
