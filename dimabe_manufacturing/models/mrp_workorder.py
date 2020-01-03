@@ -19,28 +19,49 @@ class MrpWorkorder(models.Model):
 
     def open_tablet_view(self):
 
-        for check in self.finished_product_check_ids:
+        counter = 0
+        while self.curren_quality_check_id:
+            counter += 1
 
-            if check.component_is_byproduct:
-                if not check.lot_id:
+            if self.curren_quality_check_id.component_is_byproduct:
+                if not self.curren_quality_check_id.lot_id:
                     lot_tmp = self.env['stock.production.lot'].create({
                         'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
-                        'product_id': check.component_id.id
+                        'product_id': self.curren_quality_check_id.component_id.id
                     })
-                    check.lot_id = lot_tmp.id
-                if check.quality_state == 'none':
-                    if self.component_tracking != 'none' and not self.lot_id:
-                        raise models.ValidationError('{} {}'.format(
-                            check.qty_done,
-                            self.current_quality_check_id.qty_done,
-
-                        ))
-                    self.action_next()
-
+                    self.curren_quality_check_id.lot_id = lot_tmp.id
+                    if self.curren_quality_check_id.quality_state == 'none':
+                        self.action_next()
             else:
-                if not check.component_id.categ_id.is_canning:
-                    check.qty_done = 0
+                if not self.curren_quality_check_id.component_id.categ_id.is_canning:
+                    self.curren_quality_check_id.qty_done = 0
                 self.action_skip()
+
+            if counter > 20:
+                raise models.ValidationError('20')
+
+        # for check in self.finished_product_check_ids:
+        #
+        #     if check.component_is_byproduct:
+        #         if not check.lot_id:
+        #             lot_tmp = self.env['stock.production.lot'].create({
+        #                 'name': self.env['ir.sequence'].next_by_code('mrp.workorder'),
+        #                 'product_id': check.component_id.id
+        #             })
+        #             check.lot_id = lot_tmp.id
+        #         if check.quality_state == 'none':
+        #             if self.component_tracking != 'none' and not self.lot_id:
+        #                 raise models.ValidationError('{} {}'.format(
+        #                     check.qty_done,
+        #                     self.current_quality_check_id.qty_done,
+        #
+        #                 ))
+        #             self.action_next()
+        #
+        #     else:
+        #         if not check.component_id.categ_id.is_canning:
+        #             check.qty_done = 0
+        #         self.action_skip()
 
         self.action_first_skipped_step()
 
