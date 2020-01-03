@@ -32,12 +32,16 @@ class MrpWorkorder(models.Model):
 
                 if check.quality_state == 'none':
                     self.action_next()
-
+                if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids - 1)].id:
+                    raise models.ValidationError('{} {}'.format(
+                        self.finished_product_check_ids.mapped('quality_state'),
+                        self.finished_product_check_ids.mapped('lot_id')
+                    ))
             else:
                 if not check.component_id.categ_id.is_canning:
                     check.qty_done = 0
                 self.action_skip()
-        raise models.ValidationError('{} {}')
+
         self.action_first_skipped_step()
 
         return res
