@@ -19,8 +19,6 @@ class MrpWorkorder(models.Model):
 
     def open_tablet_view(self):
 
-        actions = []
-
         for check in self.finished_product_check_ids:
 
             if check.component_is_byproduct:
@@ -30,25 +28,15 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                if check.quality_state == 'none':
-                    actions.append('next')
+                # if check.quality_state == 'none':
+                #     self.action_next()
 
             else:
                 if not check.component_id.categ_id.is_canning:
                     check.qty_done = 0
-                actions.append('skip') # self.action_skip()
+                # self.action_skip()
 
-        res = super(MrpWorkorder, self).open_tablet_view()
-
-        for action in actions:
-            if action == 'next':
-                self.action_next()
-            else:
-                self.action_skip()
-
-        self.action_first_skipped_step()
-
-        return res
+        return super(MrpWorkorder, self).open_tablet_view()
 
     def action_next(self):
         res = super(MrpWorkorder, self).action_next()
