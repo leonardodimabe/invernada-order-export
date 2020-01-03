@@ -37,7 +37,7 @@ class MrpWorkorder(models.Model):
                 self.action_skip()
 
         self.action_first_skipped_step()
-        raise models.ValidationError(self.finished_product_check_ids.mapped('quality_state'))
+        raise models.ValidationError(self.finished_product_check_ids.mapped('lot_id'))
         return res
 
     def action_next(self):
