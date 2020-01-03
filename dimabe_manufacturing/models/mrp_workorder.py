@@ -18,7 +18,6 @@ class MrpWorkorder(models.Model):
         return res
 
     def open_tablet_view(self):
-        res = super(MrpWorkorder, self).open_tablet_view()
 
         for check in self.finished_product_check_ids:
 
@@ -29,12 +28,6 @@ class MrpWorkorder(models.Model):
                         'product_id': check.component_id.id
                     })
                     check.lot_id = lot_tmp.id
-                if check.id == self.finished_product_check_ids[len(self.finished_product_check_ids) - 2].id:
-                    raise models.ValidationError('{} {} {}'.format(
-                        self.component_tracking != 'none' and not self.lot_id,
-                        self.lot_id,
-                        self.component_tracking
-                    ))
                 if check.quality_state == 'none':
                     self.action_next()
 
@@ -45,7 +38,7 @@ class MrpWorkorder(models.Model):
 
         self.action_first_skipped_step()
 
-        return res
+        return super(MrpWorkorder, self).open_tablet_view()
 
     def action_next(self):
         res = super(MrpWorkorder, self).action_next()
