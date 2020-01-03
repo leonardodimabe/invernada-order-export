@@ -19,7 +19,7 @@ class MrpWorkorder(models.Model):
 
     def open_tablet_view(self):
 
-        for check in self.check_ids:
+        for check in self.finished_product_check_ids:
 
             if check.component_is_byproduct:
                 if not check.lot_id:
@@ -33,6 +33,7 @@ class MrpWorkorder(models.Model):
                         raise models.ValidationError('{} {}'.format(
                             check,
                             self.current_quality_check_id,
+
                         ))
                     self.action_next()
 
