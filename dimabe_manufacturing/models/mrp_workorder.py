@@ -19,7 +19,7 @@ class MrpWorkorder(models.Model):
 
     def open_tablet_view(self):
 
-        for check in self.finished_product_check_ids:
+        for check in self.check_ids:
 
             if check.component_is_byproduct:
                 if not check.lot_id:
