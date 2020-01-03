@@ -29,6 +29,7 @@ class MrpWorkorder(models.Model):
                     })
                     check.lot_id = lot_tmp.id
                 if check.quality_state == 'none':
+                    print('')
                     #self.action_next()
 
             else:
