@@ -58,9 +58,6 @@ class MrpWorkorder(models.Model):
             'res_model': 'mrp.workorder',
             'views': [[self.env.ref('dimabe_manufacturing.mrp_workorder_out_form_view').id, 'form']],
             'res_id': self.id,
-            'target': 'fullscreen',
-            'flags': {
-                'form_view_initial_mode': 'edit'
-            }
+            'target': 'fullscreen'
         }
 
