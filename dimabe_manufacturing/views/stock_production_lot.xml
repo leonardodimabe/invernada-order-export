@@ -10,8 +10,11 @@
             <tree editable="bottom">
               <field name="stock_production_lot_id" readonly="1"/>
               <field name="display_weight"/>
-<!--              <field name="serial_number" readonly="1"/>-->
-              <button name="print_serial_label" type="object" string="Imprimir" />
+              <field name="serial_number" readonly="1"/>
+              <button name="print_serial_label"
+                      type="object" string="Imprimir"
+                      attrs="{'invisible':[('serial_number', '=', false)]}"
+              />
             </tree>
           </field>
         </group>
