@@ -5,6 +5,7 @@ class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
     production_finished_move_line_ids = fields.One2many(
+        string='Productos Finalizados',
         related='production_id.finished_move_line_ids'
     )
 
