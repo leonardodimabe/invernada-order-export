@@ -32,6 +32,7 @@
         'views/stock_production_lot_serial.xml',
         'views/stock_production_lot.xml',
         'views/mrp_production.xml'
+        'reports/lot_serial_label_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
