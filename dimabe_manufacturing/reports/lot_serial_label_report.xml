@@ -25,7 +25,7 @@
                 <span t-field="o.stock_production_lot_id.product_id.name"/>
               </td>
             </tr>
-            <t t-foreach="o.stock_production_lot_id.product_id.valid_product_attribute_value_ids" t-as="att">
+            <t t-foreach="o.stock_production_lot_id.product_id.attribute_value_ids" t-as="att">
               <span t-field="att.name" />
             </t>
             <tr>
