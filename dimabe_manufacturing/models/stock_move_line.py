@@ -13,4 +13,4 @@ class StockMoveLine(models.Model):
     def _compute_count_stock_production_lot_serial(self):
         for item in self:
             if item.lot_id:
-                item.count_stock_production_lot_serial = sum(item.lot_id.stock_production_lot_serial_ids)
+                item.count_stock_production_lot_serial = len(item.lot_id.stock_production_lot_serial_ids)
