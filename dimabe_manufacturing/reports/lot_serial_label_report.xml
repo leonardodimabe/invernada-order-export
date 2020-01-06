@@ -36,12 +36,6 @@
               </tr>
             </t>
             <tr>
-              <td style="text-align: right !important;">VARIEDAD:</td>
-              <td>
-                <span t-esc="o.stock_production_lot_id.product_id.get_variety()"/>
-              </td>
-            </tr>
-            <tr>
               <td>
                 Fecha:
                 <span t-field="o.create_date"/>
