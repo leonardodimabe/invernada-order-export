@@ -44,11 +44,17 @@
               <h2>Salida Principal</h2>
               <field name="state" readonly="1" />
               <field name="product_id" readonly="1" />
-              <field name="final_lot_id" readonly="1" />
+              <field name="final_lot_id"
+                     readonly="1"
+                     attrs="{'invisible':[('state', '=', 'done')]}"
+              />
             </group>
             <group>
               <h2>Otras Salidas</h2>
-              <field name="active_move_line_ids" readonly="1" >
+              <field name="active_move_line_ids"
+                     readonly="1"
+                     attrs="{'invisible':[('state', '=', 'done')]}"
+              >
                 <tree readonly="1">
                   <field name="product_id"/>
                   <field name="lot_id" widget="many2onebutton" />
