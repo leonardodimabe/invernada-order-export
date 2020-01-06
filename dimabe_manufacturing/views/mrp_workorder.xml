@@ -28,7 +28,11 @@
           <attribute name="string">Procesar Entrada</attribute>
         </button>
         <xpath expr="//header" position="inside">
-          <button name="open_out_form_view" type="object" string="Procesar Salida" />
+          <button name="open_out_form_view"
+                  type="object"
+                  string="Procesar Salida"
+                  attrs="{'invisible': [('production_state', '=', 'done')]}"
+          />
         </xpath>
       </field>
     </record>
