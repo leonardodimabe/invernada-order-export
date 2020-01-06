@@ -41,7 +41,7 @@
             <tr>
               <td>
               </td>
-              <td>
+              <td style="text-align:right;">
                 <span t-field="o.display_weight" />
               </td>
             </tr>
