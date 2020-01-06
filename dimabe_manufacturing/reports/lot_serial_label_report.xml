@@ -39,8 +39,13 @@
               </td>
             </tr>
             <tr>
-              <td colspan="2" style="text-align:right;">
-                <span t-field="o.display_weight" /> kg
+              <td>
+                Fecha: <span t-field="create_date"/>
+              </td>
+              <td style="text-align:right;">
+                <stong>
+                  <span t-field="o.display_weight" /> kg
+                </stong>
               </td>
             </tr>
             <tr>
