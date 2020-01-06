@@ -4,6 +4,10 @@ from odoo import fields, models, api
 class MrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
+    production_finished_move_line_ids = fields.One2many(
+        related='production_id.finished_move_line_ids'
+    )
+
     @api.model
     def create(self, values_list):
         res = super(MrpWorkorder, self).create(values_list)
