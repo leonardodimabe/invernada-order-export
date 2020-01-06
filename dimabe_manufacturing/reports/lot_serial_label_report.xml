@@ -40,7 +40,7 @@
             </tr>
             <tr>
               <td>
-                Fecha: <span t-field="create_date"/>
+                Fecha: <span t-field="o.create_date"/>
               </td>
               <td style="text-align:right;">
                 <stong>
