@@ -34,9 +34,13 @@
             <tr>
               <td colspan="2">
                 <h2 style="text-align: center !important;">
-                  LOTE N°:
                   <span t-field="o.serial_number"/>
                 </h2>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span t-field="o.stock_production_lot_id.use_next_on_work_order_id.name" />
               </td>
             </tr>
             <tr>
