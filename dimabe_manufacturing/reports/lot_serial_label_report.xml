@@ -39,10 +39,8 @@
               </td>
             </tr>
             <tr>
-              <td>
-              </td>
-              <td style="text-align:right;">
-                <span t-field="o.display_weight" />
+              <td colspan="2" style="text-align:right;">
+                <span t-field="o.display_weight" /> kg
               </td>
             </tr>
             <tr>
