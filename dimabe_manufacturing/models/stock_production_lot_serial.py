@@ -6,5 +6,5 @@ class StockProductionLotSerial(models.Model):
 
     @api.multi
     def print_serial_label(self):
-        for item in self:
-            print(item)
+        return self.env.ref('dimabe_manufacturing.action_stock_production_lot_serial_label_report')\
+            .report_action(self)
