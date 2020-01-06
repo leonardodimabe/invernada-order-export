@@ -12,8 +12,8 @@
                   attrs="{'invisible':[('state', '!=', 'progress')]}"
           />
         </xpath>
-        <xpath expr="//field[@name='finished_move_line_ids']/tree/field[@name='qty_done']"
-               postition="after">
+        <xpath expr="//field[@name='finished_move_line_ids']/tree"
+               postition="inside">
           <field name="count_stock_production_lot_serial" />
         </xpath>
       </field>
