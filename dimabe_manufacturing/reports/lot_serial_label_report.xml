@@ -25,17 +25,13 @@
                 <span t-field="o.stock_production_lot_id.product_id.name"/>
               </td>
             </tr>
+            <t t-foreach="o.stock_production_lot_id.product_id.valid_product_attribute_value_ids" t-as="att">
+              <span t-field="att.name" />
+            </t>
             <tr>
               <td style="text-align: right !important;">VARIEDAD:</td>
               <td>
                 <span t-esc="o.stock_production_lot_id.product_id.get_variety()"/>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <h2 style="text-align: center !important;">
-                  <span t-field="o.serial_number"/>
-                </h2>
               </td>
             </tr>
             <tr>
@@ -44,8 +40,15 @@
               </td>
               <td style="text-align:right;">
                 <stong>
-                  <span t-field="o.display_weight" /> kg
+                  <span t-field="o.display_weight" /> kg.
                 </stong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h2 style="text-align: center !important;">
+                  <span t-field="o.serial_number"/>
+                </h2>
               </td>
             </tr>
             <tr>
