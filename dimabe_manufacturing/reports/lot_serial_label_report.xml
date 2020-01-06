@@ -40,7 +40,9 @@
             </tr>
             <tr>
               <td>
-                <span t-field="o.stock_production_lot_id.use_next_on_work_order_id.name" />
+              </td>
+              <td>
+                <span t-field="o.display_weight" />
               </td>
             </tr>
             <tr>
