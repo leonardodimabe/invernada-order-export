@@ -24,7 +24,9 @@
             </tr>
             <tr>
               <td colspan="4">
-                <span t-field="o.stock_production_lot_id.product_id.display_name" />
+                <h1>
+                  <span t-field="o.stock_production_lot_id.product_id.display_name" />
+                </h1>
               </td>
             </tr>
             <tr>
