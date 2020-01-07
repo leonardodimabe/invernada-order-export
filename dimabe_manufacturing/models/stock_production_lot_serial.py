@@ -16,7 +16,13 @@ class StockProductionLotSerial(models.Model):
             ('lot_id', '=', res.stock_production_lot_id.id)
         ])
         if stock_move_line:
-            res.production_id = stock_move_line.move_id.production_id.id
+            res.production_id = stock_move_line.move_id.production_id[0].id
+        else:
+            work_order = self.env['mrp.workorder'].search([
+                ('final_lot_id', '=', res.stock_production_lot_id.id)
+            ])
+            if work_order:
+                res.production_id = work_order.production_id[0].id
         return res
 
     @api.multi
