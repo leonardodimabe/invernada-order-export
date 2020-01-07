@@ -4,6 +4,21 @@ from odoo import fields, models, api
 class StockProductionLotSerial(models.Model):
     _inherit = 'stock.production.lot.serial'
 
+    production_id = fields.Many2one(
+        'mrp.production',
+        'Productión'
+    )
+
+    @api.model
+    def create(self, values_list):
+        res = super(StockProductionLotSerial, self).create(values_list)
+        production_id = self.env['stock.move.line'].search([
+            ('lot_id', '=', res.stock_production_lot_id.id)
+        ])
+        if production_id:
+            res.production_id = production_id.id
+        return res
+
     @api.multi
     def print_serial_label(self):
         return self.env.ref('dimabe_manufacturing.action_stock_production_lot_serial_label_report')\

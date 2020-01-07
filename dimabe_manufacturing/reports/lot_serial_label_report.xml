@@ -24,9 +24,9 @@
             </tr>
             <tr>
               <td colspan="4">
-                <h2>
+                <h3>
                   <span t-field="o.stock_production_lot_id.product_id.display_name" />
-                </h2>
+                </h3>
               </td>
             </tr>
             <tr>
@@ -37,7 +37,9 @@
             </tr>
             <tr>
               <td>Nro. Trazabilidad</td>
-              <td colspan="3">AGREGAR TRAZABILIDAD</td>
+              <td colspan="3">
+                <span t-field="o.production_id.name" />
+              </td>
             </tr>
             <tr>
               <td colspan="2">
