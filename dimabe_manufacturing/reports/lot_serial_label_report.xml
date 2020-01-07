@@ -14,7 +14,9 @@
             </tr>
             <tr>
               <td>Especie:</td>
-              <td></td>
+              <td>
+                <span t-esc="o.stock_production_lot_id.product_id.get_species()" />
+              </td>
               <td>Variedad:</td>
               <td>
                 <span t-esc="o.stock_production_lot_id.product_id.get_variety()" />

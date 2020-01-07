@@ -6,12 +6,22 @@ class ProductProduct(models.Model):
 
     @api.model
     def get_variety(self):
-        variety = ''
-        if self.is_product_variant:
-            variety_variant = self.attribute_value_ids.filtered(
-                lambda x: x.attribute_id.name in ['Variedad', 'variedad', 'VARIEDAD']
-            )
-            if variety_variant:
-                variety = variety_variant[0].name
+        return self.get_variant('variedad')
 
-        return variety
+    @api.model
+    def get_species(self):
+        return self.get_variant('especie')
+
+    def get_variant(self, variant):
+        variant = ''
+        if self.is_product_variant:
+            variant_res = self.attribute_value_ids.filtered(
+                lambda a: a.attribute_id.name in [
+                    str.upper(variant),
+                    str.lower(variant),
+                    variant.capitalize()
+                ]
+            )
+            if variant_res:
+                variant = variant_res[0].name
+        return variant
