@@ -21,10 +21,12 @@
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td>
+                <span t-field="o.stock_production_lot_id.product_id.display_name" />
+              </td>
             </tr>
             <tr>
-              <td style="text-align: right !important;">Productor:</td>
+              <td>Productor:</td>
               <td>
                 AGREGAR PRODUCTOR
               </td>
