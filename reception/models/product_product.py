@@ -12,14 +12,14 @@ class ProductProduct(models.Model):
     def get_species(self):
         return self.get_variant('especie')
 
-    def get_variant(self, variant):
+    def get_variant(self, variant_search):
         variant = ''
         if self.is_product_variant:
             variant_res = self.attribute_value_ids.filtered(
                 lambda a: a.attribute_id.name in [
-                    str.upper(variant),
-                    str.lower(variant),
-                    variant.capitalize()
+                    str.upper(variant_search),
+                    str.lower(variant_search),
+                    variant_search.capitalize()
                 ]
             )
             if variant_res:
