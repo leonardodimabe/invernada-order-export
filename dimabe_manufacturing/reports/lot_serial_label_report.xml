@@ -21,13 +21,13 @@
               </td>
             </tr>
             <tr>
-              <td>
+              <td colspan="4">
                 <span t-field="o.stock_production_lot_id.product_id.display_name" />
               </td>
             </tr>
             <tr>
               <td>Productor:</td>
-              <td>
+              <td colspan="3">
                 AGREGAR PRODUCTOR
               </td>
             </tr>
@@ -36,11 +36,13 @@
               <td colspan="3">AGREGAR TRAZABILIDAD</td>
             </tr>
             <tr>
-              <td>
+              <td colspan="2">
                 Fecha:
                 <span t-field="o.create_date"/>
               </td>
-              <td style="text-align:right;">
+              <td style="text-align:right;"
+                  colspan="2"
+              >
                 <stong>
                   <span t-field="o.display_weight"/>
                   kg.
@@ -48,14 +50,14 @@
               </td>
             </tr>
             <tr>
-              <td colspan="2">
+              <td colspan="4">
                 <h2 style="text-align: center !important;">
                   <span t-field="o.serial_number"/>
                 </h2>
               </td>
             </tr>
             <tr>
-              <td colspan="2">
+              <td colspan="4">
                 <img
                   t-att-src="'%s/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % (o.get_full_url(), 'Code128',o.serial_number,450, 40)"
                 />
