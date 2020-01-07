@@ -14,7 +14,7 @@ class StockProductionLotSerial(models.Model):
         res = super(StockProductionLotSerial, self).create(values_list)
         production_id = self.env['stock.move.line'].search([
             ('lot_id', '=', res.stock_production_lot_id.id)
-        ])
+        ]).mapped('production_id')
         raise models.ValidationError(production_id.name)
         if production_id:
             res.production_id = production_id.id
