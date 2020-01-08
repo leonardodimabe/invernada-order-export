@@ -9,7 +9,7 @@
           <page string="Calidad" name="page_quality">
             <group>
               <group>
-                <field name="quality_analysis_id" />
+                <field name="stock_move_line_lot_ids" />
               </group>
             </group>
           </page>

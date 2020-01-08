@@ -10,3 +10,4 @@ from . import performance_analysis
 from . import color_analysis
 from . import form_analysis
 from . import impurity_analysis
+from . import stock_picking
