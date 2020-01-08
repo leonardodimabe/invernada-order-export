@@ -8,11 +8,7 @@ class QualityAnalysis(http.Controller):
     def quality_analysis_list(self):
         res = request.env['quality.analysis'].sudo().search([])
 
-        return [
-            {
-                'lala': 'lala'
-            },
-            {
-                'lele': 'lele'
-            }
-        ]
+        return res.read([
+            'pre_caliber',
+            'caliber_ids'
+        ])
