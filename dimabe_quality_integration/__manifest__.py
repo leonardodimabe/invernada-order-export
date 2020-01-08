@@ -23,7 +23,9 @@
         'base',
         'stock',
     ],
-
+    'external_dependencies': {
+        'python': ['jwt']
+    },
     # always loaded
     'data': [
         'security/ir.model.access.csv',
