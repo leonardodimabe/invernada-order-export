@@ -10,6 +10,9 @@ class QualityAnalysis(http.Controller):
 
         return [
             {
-                'lala':'lala'
+                'lala': 'lala'
+            },
+            {
+                'lele': 'lele'
             }
         ]
