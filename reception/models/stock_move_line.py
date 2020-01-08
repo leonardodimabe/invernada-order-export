@@ -8,7 +8,7 @@ class StockMoveLine(models.Model):
     def create(self, values_list):
         res = super(StockMoveLine, self).create(values_list)
 
-        if res.move_id.picking_id and res.move_id.pickking_id.picking_type_code == 'incoming':
+        if res.move_id.picking_id and res.move_id.picking_id.picking_type_code == 'incoming':
             prefix = ''
             if res.move_id.product_id.categ_id.is_canning:
                 prefix = 'ENV'
