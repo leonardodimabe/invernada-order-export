@@ -4,7 +4,7 @@ from odoo.http import request
 
 class QualityAnalysis(http.Controller):
 
-    @http.route('/quality_analysis', type='http', auth='user', cors='*')
+    @http.route('/quality_analysis', type='http', auth='none', cors='*')
     def quality_analysis_list(self):
         res = request.env['quality.analysis'].sudo().search([])
         return {
