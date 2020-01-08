@@ -2,7 +2,7 @@ from odoo import http
 import datetime
 from odoo.http import request
 from xmlrpc import client
-# import jwt
+import jwt
 
 
 class QualityAnalysis(http.Controller):
