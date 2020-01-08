@@ -7,4 +7,5 @@ class ItHttp(models.Model):
 
     def _auth_method_token(self):
         # raise exceptions.AccessDenied()
+        raise exceptions.AccessError()
         print('')
