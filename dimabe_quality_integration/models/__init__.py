@@ -13,4 +13,4 @@ from . import impurity_analysis
 from . import stock_move_line
 
 from . import stock_picking
-#from . import ir_http
+from . import ir_http
