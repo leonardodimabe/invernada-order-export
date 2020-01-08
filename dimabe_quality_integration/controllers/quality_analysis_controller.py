@@ -17,7 +17,7 @@ class QualityAnalysis(http.Controller):
     @http.route('/api/login', type='json', auth='none', cors='*')
     def login(self):
         server_url = 'https://felipecarocadimabe-testerp-dev-792847.dev.odoo.com'
-        db_name = 'dev'
+        db_name = 'felipecarocadimabe-testerp-dev-792847'
         username = 'admin'
         password = 'felipe'
         common = client.ServerProxy('%s/xmlrpc/2/common' % server_url)
