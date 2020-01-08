@@ -33,7 +33,7 @@ class QualityAnalysis(http.Controller):
             token = jwt.encode(
                 payload,
                 'skjdfe48ueq893rihesdio*($U*WIO$u8',
-                algoritm='HS256'
+                algorithm='HS256'
             )
             res = {
                 'user_id': user_id,
