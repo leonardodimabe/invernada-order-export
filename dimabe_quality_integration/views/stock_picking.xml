@@ -9,7 +9,12 @@
           <page string="Calidad" name="page_quality">
             <group>
               <group>
-                <field name="stock_move_line_lot_ids" />
+                <field name="stock_move_line_lot_ids">
+                  <tree>
+                    <field name="reference" />
+                    <field name="product_id" />
+                  </tree>
+                </field>
               </group>
             </group>
           </page>
