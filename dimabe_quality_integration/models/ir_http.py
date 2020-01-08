@@ -1,8 +1,5 @@
 from odoo import exceptions, http, models
 from odoo.http import request
-import json
-from jwt import api_jws
-
 
 
 class ItHttp(models.AbstractModel):
