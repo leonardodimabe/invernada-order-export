@@ -13,6 +13,11 @@
                   <tree>
                     <field name="reference" />
                     <field name="product_id" />
+                    <button name="show_quality_analysis"
+                            type="object"
+                            string="Ver Informe"
+                            attrs="{'invisible':[('lot_quality_analysis_id', '=', False)]}"
+                    />
                   </tree>
                 </field>
               </group>
