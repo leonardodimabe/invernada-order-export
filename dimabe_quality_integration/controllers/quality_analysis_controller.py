@@ -24,20 +24,20 @@ class QualityAnalysis(http.Controller):
         user_id = common.authenticate(db_name, str(user), str(password), {})
         res = {}
         if user_id:
-            # exp = datetime.datetime.utcnow() + datetime.timedelta(days=1)
-            # payload = {
-            #     'exp': exp,
-            #     'iat': datetime.datetime.utcnow(),
-            #     'sub': user_id,
-            # }
-            # token = jwt.encode(
-            #     payload,
-            #     'skjdfe48ueq893rihesdio*($U*WIO$u8',
-            #     algoritm='HS256'
-            # )
+            exp = datetime.datetime.utcnow() + datetime.timedelta(days=1)
+            payload = {
+                'exp': exp,
+                'iat': datetime.datetime.utcnow(),
+                'sub': user_id,
+            }
+            token = jwt.encode(
+                payload,
+                'skjdfe48ueq893rihesdio*($U*WIO$u8',
+                algoritm='HS256'
+            )
             res = {
                 'user_id': user_id,
-                #'access_token': token
+                'access_token': token
             }
         else:
             res = {
