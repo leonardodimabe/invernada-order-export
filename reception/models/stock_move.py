@@ -55,7 +55,6 @@ class StockMove(models.Model):
 
                                 for i in range(int(total_qty)):
                                     tmp = '00{}'.format(i + 1)
-                                    raise models.ValidationError(stock_move_line.lot_id)
                                     self.env['stock.production.lot.serial'].create({
                                         'calculated_weight': calculated_weight,
                                         'stock_production_lot_id': stock_move_line.lot_id.id,
