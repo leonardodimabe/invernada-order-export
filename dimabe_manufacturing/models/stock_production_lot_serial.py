@@ -15,14 +15,13 @@ class StockProductionLotSerial(models.Model):
         stock_move_line = self.env['stock.move.line'].search([
             ('lot_id', '=', res.stock_production_lot_id.id)
         ])
-        if stock_move_line:
-            raise models.ValidationError(stock_move_line.move_id.production_id)
+        if stock_move_line.move_id.production_id:
             res.production_id = stock_move_line.move_id.production_id[0].id
         else:
             work_order = self.env['mrp.workorder'].search([
                 ('final_lot_id', '=', res.stock_production_lot_id.id)
             ])
-            if work_order:
+            if work_order.production_id:
                 res.production_id = work_order.production_id[0].id
         return res
 
