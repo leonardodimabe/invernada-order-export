@@ -9,7 +9,7 @@
           <page string="Calidad" name="page_quality">
             <group>
               <group>
-                <field name="quality_analysis_is" />
+                <field name="quality_analysis_id" />
               </group>
             </group>
           </page>
