@@ -8,4 +8,3 @@ class StockPicking(models.Model):
         related='move_ids_without_package.move_line_ids',
         string='Detalle'
     )
-    aaa = fields.Char('aaa')
