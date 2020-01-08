@@ -10,6 +10,6 @@ from . import performance_analysis
 from . import color_analysis
 from . import form_analysis
 from . import impurity_analysis
-from . import stock_picking
 from . import stock_move_line
+from . import stock_picking
 #from . import ir_http
