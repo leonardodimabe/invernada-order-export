@@ -7,8 +7,9 @@ class QualityAnalysis(http.Controller):
     @http.route('/quality_analysis', type='json', auth='none', cors='*')
     def quality_analysis_list(self):
         res = request.env['quality.analysis'].sudo().search([])
-        return '<p>lala</p>'
-        return res.read([
-            'pre_caliber',
-            'caliber_ids'
-        ])
+
+        return [
+            {
+                'lala':'lala'
+            }
+        ]
