@@ -32,5 +32,4 @@ def login(self, user, password):
         res = {
             'error': 'nop'
         }
-        print('')
     return res
