@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Integración Calidad Dimabe",
+    'name': "JWT Dimabe",
 
     'summary': """
-        Establece comunicación entre sistema de calidad DIMABE y ODOO""",
+        genera access token y restricción para controladores
+        """,
 
     'description': """
         Long description of module's purpose
@@ -19,15 +20,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': [
-        'base',
-        'stock',
-        'dimabe_jwt',
-    ],
+    'depends': ['base'],
+
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/stock_picking.xml',
+        # 'security/ir.model.access.csv',
+        'views/views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
