@@ -1,5 +1,6 @@
 from odoo import exceptions, http, models
 from odoo.http import request
+import jwt
 
 
 class ItHttp(models.AbstractModel):
@@ -10,5 +11,6 @@ class ItHttp(models.AbstractModel):
         token = request.httprequest.headers.get('authorization', '', type=str)
         if token:
             token = token.split(' ')[1]
-        exceptions._logger.error(token)
+            a = jwt.decode(token, 'skjdfe48ueq893rihesdio*($U*WIO$u8',algorithms=['HS256'])
+            exceptions._logger.error('AAAAA {}'.format(a))
         print('')
