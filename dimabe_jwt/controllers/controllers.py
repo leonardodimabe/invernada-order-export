@@ -5,7 +5,7 @@ import datetime
 from xmlrpc import client
 
 
-@http.route('/api/login', type='json', auth='none', cors='*')
+@http.route('/api/get_token', type='json', auth='none', cors='*')
 def login(self, user, password):
     server_url = 'https://felipecarocadimabe-testerp-dev-792847.dev.odoo.com'
     db_name = 'felipecarocadimabe-testerp-dev-792847'
