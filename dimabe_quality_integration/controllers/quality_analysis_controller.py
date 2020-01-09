@@ -24,7 +24,7 @@ class QualityAnalysis(http.Controller):
         user_id = common.authenticate(db_name, str(user), str(password), {})
         res = {}
         if user_id:
-            exp = datetime.datetime.utcnow() + datetime.timedelta(days=1)
+            exp = datetime.datetime.utcnow() + datetime.timedelta(seconds=30)
             payload = {
                 'exp': exp,
                 'iat': datetime.datetime.utcnow(),
